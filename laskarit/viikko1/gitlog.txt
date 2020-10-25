@@ -1,0 +1,103 @@
+commit 368efabd3291caa9808b7c562382bf43835cbaea
+Author: Petri Tuomola <petri@tuomola.org>
+Date:   Sun Oct 25 14:00:27 2020 +0200
+
+    poistetaan file1 ja nimetään file2
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit b390f96af68885625b44784e48923f5751c4b93a
+Author: Petri Tuomola <petri@tuomola.org>
+Date:   Sun Oct 25 13:59:02 2020 +0200
+
+    lisätään tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 85fa6ae29922c02067c85d17808bfa5660c6ed21
+Author: Petri Tuomola <petri@tuomola.org>
+Date:   Sun Oct 25 13:57:03 2020 +0200
+
+    muutoksia ekaan ja kolmanteen
+
+ eka.txt    | 3 +--
+ kolmas.txt | 1 +
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 602b49d6325ae16bb7bc523a7f08b1b431854fd5
+Author: Petri Tuomola <petri@tuomola.org>
+Date:   Sun Oct 25 13:55:10 2020 +0200
+
+    uudelleennimetään
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 1fe114670d73d41294c5a7ff2c3d187fc7cbbfbf
+Author: Petri Tuomola <petri@tuomola.org>
+Date:   Sun Oct 25 13:54:22 2020 +0200
+
+    poistetaan toinen
+
+ toinen.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 1aefc249e15eaf73f4afeea8da98d7a1c9ea37c8
+Author: Petri Tuomola <petri@tuomola.org>
+Date:   Sun Oct 25 13:53:47 2020 +0200
+
+    poistetaan tekstiä
+
+ tiedosto.txt | 3 ---
+ 1 file changed, 3 deletions(-)
+
+commit 56792f45e7a6f5fd0c5b9eccc9c96bb9a3b62e15
+Author: Petri Tuomola <petri@tuomola.org>
+Date:   Sun Oct 25 13:53:14 2020 +0200
+
+    paljon tekstiä
+
+ tiedosto.txt | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+commit 12b81271ed4cae125c61227fa8f3b48cd1385e30
+Author: Petri Tuomola <petri@tuomola.org>
+Date:   Sun Oct 25 13:50:18 2020 +0200
+
+    lisätään stuff
+
+ stuff/somestuff.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 028c25de12cd507cd4dd108734db3db8abe4c3f2
+Author: Petri Tuomola <petri@tuomola.org>
+Date:   Sun Oct 25 13:49:44 2020 +0200
+
+    lisätään kolmas
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 9d1ecf37072805cf78be7571d5e66e0010b66de9
+Author: Petri Tuomola <petri@tuomola.org>
+Date:   Sun Oct 25 13:48:20 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 5f004561bdb988011aeefe22d709f9b1e296b417
+Author: Petri Tuomola <petri@tuomola.org>
+Date:   Sun Oct 25 13:47:27 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
