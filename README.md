@@ -11,3 +11,5 @@
 ### Muuta tietoa
 Laskarit-hakemiston alle laitetaan **kaikki** vastaukset *eri* tehtäviin
 
+Tämä muutos on tehty paikallisesti
+
