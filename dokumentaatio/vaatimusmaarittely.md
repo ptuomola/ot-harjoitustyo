@@ -16,6 +16,8 @@ Sovelluksella on vain yksi käyttäjärooli, eli _normaali käyttäjä_. Jokaist
 
 kuva
 
+## Perusversion tarjoama toiminnallisuus
+
 ### Ennen kirjautumista
 
 - Käyttäjä voi luoda järjestelmään käyttäjätunnuksen

@@ -1,6 +1,6 @@
-# työaikakirjanpito
+# Työaikakirjanpito
 
 | päivä | aika | mitä tein  |
 | :----:|:-----| :-----|
-| 7.11. | 0.5  | projektin rakennne ja määrittelydokumentti |
+| 7.11. | 1.0  | projektin rakenne ja määrittelydokumentti |
 
