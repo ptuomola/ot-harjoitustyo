@@ -25,6 +25,7 @@ public class TextUI {
         this.commands.put("2", "Print log");
         this.commands.put("3", "Print total times");
         this.commands.put("9", "Exit programme");
+        this.commands.put("?", "Print help");
     }
     
     public void execute(LogBookService lbs)
