@@ -6,6 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+import org.tuomola.flightlogbook.domain.Aircraft;
 import org.tuomola.flightlogbook.service.LogBookService;
 import org.tuomola.flightlogbook.ui.TextUI;
 
@@ -33,7 +36,17 @@ public class Main {
     public static void main(String[] args) {
         // TODO: Graphic UI disabled for now - implementing business logic with text UI
         // launch(args);
-
+        
+        // TODO: Remove below code testing creation of database tables
+        EntityManager em = Persistence.createEntityManagerFactory("FlightLogBook").createEntityManager();
+        em.getTransaction().begin();
+        Aircraft ac = new Aircraft();
+        ac.setIdentifier("OH-KAT");
+        ac.setType("DA20-C1");
+        em.persist(ac);
+        em.getTransaction().commit();
+        
+        // Start off UI
         TextUI ui = new TextUI(new Scanner(System.in));
         ui.execute(new LogBookService());
     }
