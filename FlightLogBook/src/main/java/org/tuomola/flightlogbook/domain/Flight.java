@@ -70,15 +70,25 @@ public class Flight {
         flightState = FlightState.ENDED;
         arrivalTime = new Date();
     }
+
+    public FlightState getFlightState() {
+        return flightState;
+    }
     
     public Duration getDuration()
     {
+        if(departureTime == null || arrivalTime == null) 
+            return null;
+        
         return Duration.between(departureTime.toInstant(), arrivalTime.toInstant());
     }
     
     public Duration getFlightDuration()
     {
-        return Duration.between(takeOffTime.toInstant(), arrivalTime.toInstant());
+        if(takeOffTime == null || landingTime == null)
+            return null;
+        
+        return Duration.between(takeOffTime.toInstant(), landingTime.toInstant());
     }
     
     public Pilot getPic() {
@@ -161,11 +171,11 @@ public class Flight {
         this.numLandings = numLandings;
     }
 
-    public int getNumTakeoffs() {
+    public int getNumTakeOffs() {
         return numTakeOffs;
     }
 
-    public void setNumTakeoffs(int numTakeoffs) {
+    public void setNumTakeOffs(int numTakeoffs) {
         this.numTakeOffs = numTakeoffs;
     }
 

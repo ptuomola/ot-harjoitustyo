@@ -66,7 +66,7 @@ public class FlightLog {
         int totalTakeOffs = 0;
         
         for(Flight flight : flights) {
-            totalTakeOffs += flight.getNumTakeoffs();
+            totalTakeOffs += flight.getNumTakeOffs();
         }
         
         return totalTakeOffs;
