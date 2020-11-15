@@ -8,6 +8,8 @@
 
 ## Komentorivitoiminnot
 
+Maven projekti on hakemistossa "FlightLogBook". Allaolevat käskyt pitää suorittaa ko. hakemistossa. 
+
 ### Ohjelman käynnistys
 
 Ohjelman voi käynnistää komennolla:
