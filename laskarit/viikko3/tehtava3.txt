@@ -1,0 +1,13 @@
+title Tehtava 3
+
+main->machine: new Machine()
+machine->tank: new FuelTank()
+machine->tank: fill(40)
+machine->engine: new Engine(tank)
+
+main->machine: drive()
+machine->engine: start()
+machine->engine: isRunning()
+engine-->machine: true
+machine->engine: useEnergy()
+

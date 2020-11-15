@@ -1,0 +1,34 @@
+// Cool Class Diagram
+// ------------------
+
+[Monopoli]-1[Pelilauta]1-40[Ruutu]
+
+[Monopoli]-2..8[Pelaaja]1-1[Pelinappula]*-1[Ruutu]
+
+[Monopoli]-2[Noppa]
+
+[Ruutu]1-seuraava>1[Ruutu]
+
+[Pelaaja]1-*[Raha]
+
+[Ruutu]^[Aloitusruutu]
+[Ruutu]^[Vankila]
+[Ruutu]^[Sattuma tai yhteismaa]
+[Ruutu]^[Asema tai laitos]
+[Ruutu]^[Normaali]
+
+[Normaali]1-1[Nimi]
+[Ruutu]*-1[Toiminto]
+[Normaali]-0..4[Talo]
+[Normaali]-0..1[Hotelli]
+
+[Pelaaja]1-omistaa*[Normaali]
+
+[Monopoli]-1[Aloitusruutu]
+[Monopoli]-1[Vankila]
+
+[Sattuma tai yhteismaa]-*[Kortti]
+
+[Kortti]1-1[Toiminto]
+[Toiminto]^[Toimintotyyppi]
+
