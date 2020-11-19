@@ -3,15 +3,35 @@ package org.tuomola.flightlogbook.domain;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author ptuomola
  */
-public class FlightLog {
-    private Pilot logOwner;
-    List<Flight> flights;
 
+@Entity
+public class FlightLog {
+    
+    @Id @GeneratedValue
+    private int id;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "owner_id", referencedColumnName = "id")
+    private Pilot logOwner;
+    
+    @OneToMany
+    private List<Flight> flights;
+
+    public FlightLog() {
+    }
+    
     public FlightLog(Pilot logOwner) {
         this.flights = new ArrayList<>();
         this.logOwner = logOwner;

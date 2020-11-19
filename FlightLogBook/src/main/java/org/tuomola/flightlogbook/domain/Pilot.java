@@ -2,18 +2,33 @@ package org.tuomola.flightlogbook.domain;
 
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author ptuomola
  */
+
+@Entity
 public class Pilot {
+    
+    @Id @GeneratedValue
+    private int id;
+
     private String userName;
     private String email;
     private String fullName;
     private Date dateOfBirth;
+    
+    @OneToMany
     private List<License> qualifications; 
 
+    public Pilot() {
+    }
+    
     public Pilot(String userName) {
         this.userName = userName;
     }

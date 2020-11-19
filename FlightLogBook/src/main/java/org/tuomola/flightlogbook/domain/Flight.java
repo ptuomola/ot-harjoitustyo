@@ -2,18 +2,41 @@ package org.tuomola.flightlogbook.domain;
 
 import java.time.Duration;
 import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author ptuomola
  */
+
+@Entity
 public class Flight {
+    @Id @GeneratedValue
+    private int id;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "aircraft_id", referencedColumnName = "id")
     private Aircraft aircraft;
 
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "pic_id", referencedColumnName = "id")
     private Pilot pic;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "copilot_id", referencedColumnName = "id")
     private Pilot copilot;
-    
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "origin_id", referencedColumnName = "id")
     private Airport origin;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "destination_id", referencedColumnName = "id")
     private Airport destination;
     
     private Date departureTime;

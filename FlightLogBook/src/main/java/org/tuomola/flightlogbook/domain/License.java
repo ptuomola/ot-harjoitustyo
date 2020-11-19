@@ -1,12 +1,21 @@
 package org.tuomola.flightlogbook.domain;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  *
  * @author ptuomola
  */
+
+@Entity
 public class License {
+
+    @Id @GeneratedValue
+    private int id;
+
     private String rating;
     private Date issueDate;
     private Date expiryDate;
