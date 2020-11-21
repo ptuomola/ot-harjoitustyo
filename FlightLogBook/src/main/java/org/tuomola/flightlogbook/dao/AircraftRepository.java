@@ -8,4 +8,5 @@ import org.tuomola.flightlogbook.domain.Aircraft;
  * @author ptuomola
  */
 public interface AircraftRepository extends JpaRepository<Aircraft, Long> {
+    Aircraft findOneByIdentifier(String identifier);
 }

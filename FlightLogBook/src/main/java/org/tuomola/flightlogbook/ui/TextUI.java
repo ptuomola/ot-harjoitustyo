@@ -3,35 +3,60 @@ package org.tuomola.flightlogbook.ui;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Scanner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.tuomola.flightlogbook.domain.Aircraft;
+import org.tuomola.flightlogbook.domain.Airport;
 import org.tuomola.flightlogbook.domain.Flight;
 import org.tuomola.flightlogbook.domain.FlightLog;
-import org.tuomola.flightlogbook.service.LogBookService;
+import org.tuomola.flightlogbook.service.AircraftService;
+import org.tuomola.flightlogbook.service.AirportService;
+import org.tuomola.flightlogbook.service.FlightLogService;
+import org.tuomola.flightlogbook.service.FlightService;
 
 /**
  *
  * @author ptuomola
  */
+
+@Service
 public class TextUI {
+
+    @Autowired 
+    private final FlightLogService fls;
     
-    private Scanner reader;
-    private HashMap<String, String> commands;
+    @Autowired
+    private final FlightService fs;
     
-    public TextUI(Scanner reader)
+    @Autowired
+    private final AirportService aps;
+    
+    @Autowired
+    private final AircraftService acs;
+    
+    private final HashMap<String, String> commands;
+    
+    public TextUI(FlightLogService fls, FlightService fs, AirportService aps, AircraftService acs)
     {
-        this.reader = reader;
+        this.fls = fls;
+        this.fs = fs;
+        this.aps = aps;
+        this.acs = acs;
         
         this.commands = new HashMap<>();
         this.commands.put("1", "Start new flight");
         this.commands.put("2", "Print log");
         this.commands.put("3", "Print total times");
+        this.commands.put("4", "List all airports");
+        this.commands.put("5", "List all aircraft");
         this.commands.put("9", "Exit programme");
         this.commands.put("?", "Print help");
     }
     
-    public void execute(LogBookService lbs)
+    public void execute(Scanner reader)
     {
         System.out.println("Enter pilot name: ");
-        FlightLog fl = lbs.createLog(reader.nextLine());
+        FlightLog fl = fls.findOrCreateLog(reader.nextLine());
         
         printInstructions();
         
@@ -51,11 +76,15 @@ public class TextUI {
             } else if(input.equals("?")) {
                 printInstructions();
             } else if(input.equals("1")) {
-                startNewFlight(fl);
+                startNewFlight(reader, fl);
             } else if(input.equals("2")) {
                 printLog(fl);
             } else if(input.equals("3")) {
                 printTotals(fl);
+            } else if(input.equals("4")) {
+                printAirports();
+            } else if(input.equals("5")) {
+                printAircraft();
             }
         }
     }
@@ -66,24 +95,46 @@ public class TextUI {
         }
     }
 
-    private void startNewFlight(FlightLog fl) {
-        Flight flight = fl.startFlight();
+    private void startNewFlight(Scanner reader, FlightLog fl) {
+        Flight flight = fls.addNewFlight(fl);
+        
+        System.out.println("Enter aircraft ID (or press ENTER to leave empty):");
+        String aircraftId = reader.nextLine();
+        if(aircraftId != null)
+        {
+            fs.setAircraft(flight, aircraftId);
+        }
 
+        System.out.println("Enter origin airport code (or press ENTER to leave empty):");
+        String originCode = reader.nextLine();
+        if(originCode != null)
+        {
+            fs.setOrigin(flight, originCode);
+        }
+
+        System.out.println("Enter destination airport code (or press ENTER to leave empty):");
+        String destionationCode = reader.nextLine();
+        if(destionationCode != null)
+        {
+            fs.setDestination(flight, destionationCode);
+        }
+
+        
         System.out.println("Press ENTER to start taxiing...");
         reader.nextLine();
-        flight.startTaxi();
+        fs.startTaxi(flight);
 
         System.out.println("Press ENTER to take off...");
         reader.nextLine();
-        flight.takeOff();
+        fs.takeOff(flight);
 
         System.out.println("Press ENTER to land...");
         reader.nextLine();
-        flight.land();
+        fs.land(flight);
 
         System.out.println("Press ENTER to complete taxiing...");
         reader.nextLine();
-        flight.stopFlight();
+        fs.stopFlight(flight);
     }
 
     private void printTotals(FlightLog fl) {
@@ -95,6 +146,16 @@ public class TextUI {
 
     private void printLog(FlightLog fl) {
         System.out.println(fl);
+    }
+
+    private void printAirports() {
+        for(Airport airport : aps.getAllAirports())
+            System.out.println(airport);
+    }
+    
+    private void printAircraft() {
+        for(Aircraft aircraft : acs.getAllAircraft())
+            System.out.println(aircraft);
     }
     
 }

@@ -4,7 +4,9 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -22,11 +24,11 @@ public class FlightLog {
     @Id @GeneratedValue
     private int id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(optional=false)
     @JoinColumn(name = "owner_id", referencedColumnName = "id")
     private Pilot logOwner;
     
-    @OneToMany
+    @OneToMany(fetch=FetchType.EAGER)
     private List<Flight> flights;
 
     public FlightLog() {
@@ -34,6 +36,10 @@ public class FlightLog {
     
     public FlightLog(Pilot logOwner) {
         this.flights = new ArrayList<>();
+        this.logOwner = logOwner;
+    }
+
+    public void setLogOwner(Pilot logOwner) {
         this.logOwner = logOwner;
     }
 
@@ -45,17 +51,15 @@ public class FlightLog {
         return flights;
     }
     
-    public Flight startFlight() {
-        Flight flight = new Flight();
-        flight.setPic(this.logOwner);
+    public void addFlight(Flight flight) {
         flights.add(flight);
-        return flight;
     }
-
+    
     public Duration getTotalTime() {
         Duration totalDuration = Duration.ZERO;
         
         for(Flight flight : flights) {
+            if(flight.getDuration() == null) continue;
             totalDuration = totalDuration.plus(flight.getDuration());
         }
 
@@ -66,6 +70,7 @@ public class FlightLog {
         Duration totalDuration = Duration.ZERO;
         
         for(Flight flight : flights) {
+            if(flight.getFlightDuration() == null) continue;
             totalDuration = totalDuration.plus(flight.getFlightDuration());
         }
 

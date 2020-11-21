@@ -19,23 +19,23 @@ public class Flight {
     @Id @GeneratedValue
     private int id;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne
     @JoinColumn(name = "aircraft_id", referencedColumnName = "id")
     private Aircraft aircraft;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne
     @JoinColumn(name = "pic_id", referencedColumnName = "id")
     private Pilot pic;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne
     @JoinColumn(name = "copilot_id", referencedColumnName = "id")
     private Pilot copilot;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne
     @JoinColumn(name = "origin_id", referencedColumnName = "id")
     private Airport origin;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne
     @JoinColumn(name = "destination_id", referencedColumnName = "id")
     private Airport destination;
     
@@ -50,49 +50,6 @@ public class Flight {
 
     private FlightState flightState = FlightState.INITIAL;
     
-    public void startTaxi()
-    {
-        if(flightState != FlightState.INITIAL)
-            return;
-        
-        flightState = FlightState.PRE_TAXI;
-        departureTime = new Date();
-    }
-    
-    public void takeOff()
-    {
-        if(flightState != FlightState.PRE_TAXI)
-            return;
-        
-        flightState = FlightState.FLIGHT;
-        takeOffTime = new Date();
-        numTakeOffs++;
-    }
-    
-    public void land()
-    {
-        if(flightState != FlightState.FLIGHT)
-            return;
-        
-        flightState = FlightState.POST_TAXI;
-        numLandings++;
-        landingTime = new Date();
-    }
-    
-    public void touchAndGo()
-    {
-        if(flightState != FlightState.FLIGHT)
-            return;
-        
-        numLandings++;
-        numTakeOffs++;
-    }
-    
-    public void stopFlight()
-    {
-        flightState = FlightState.ENDED;
-        arrivalTime = new Date();
-    }
 
     public FlightState getFlightState() {
         return flightState;
@@ -201,9 +158,15 @@ public class Flight {
     public void setNumTakeOffs(int numTakeoffs) {
         this.numTakeOffs = numTakeoffs;
     }
+    
+    public void setFlightState(FlightState flightState) {
+        this.flightState = flightState;        
+    }
+
 
     @Override
     public String toString() {
         return "Flight: Aircraft=" + aircraft + ", pic=" + pic + ", copilot=" + copilot + ", origin=" + origin + ", destination=" + destination + ", departureTime=" + departureTime + ", arrivalTime=" + arrivalTime + ", takeOffTime=" + takeOffTime + ", landingTime=" + landingTime + ", numLandings=" + numLandings + ", numTakeOffs=" + numTakeOffs + ", flightState=" + flightState + "\nDuration: " + getDuration() + " Flight time: " + getFlightDuration();
     }
+
 }
