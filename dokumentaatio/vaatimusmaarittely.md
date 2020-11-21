@@ -12,10 +12,6 @@ Sovellus laskee myös talletettujen lokikirjan tietojen perusteella yksinkertais
 
 Sovelluksella on vain yksi käyttäjärooli, eli _normaali käyttäjä_. Jokaista käyttäjää varten luodaan oma lokikirja, johon talletetaan tämän käyttäjän lentotiedot. Tiedot lentokoneista ja kentistä ovat jaettuja käyttäjien välillä - toisin sanoen yhden käyttäjän lisäämät koneet/kentät näkyvät kaikille käyttäjille.
 
-## Käyttöliittymäluonnos
-
-kuva
-
 ## Perusversion tarjoama toiminnallisuus
 
 ### Ennen kirjautumista
