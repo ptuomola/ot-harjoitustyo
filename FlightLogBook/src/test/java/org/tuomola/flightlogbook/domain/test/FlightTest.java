@@ -138,5 +138,33 @@ public class FlightTest {
         flight.setLandingTime(Date.from(LocalDateTime.of(2020, Month.NOVEMBER, 1, 13, 0, 0).atZone(ZoneId.systemDefault()).toInstant()));
         assertThat(flight.getFlightDuration(), equalTo(Duration.of(1, ChronoUnit.HOURS)));
     }
+    
+    @Test
+    public void testSetOrigin() {
+        String originCode = RandomStringUtils.randomAlphanumeric(4).toUpperCase();
+        FlightLog fl = fls.findOrCreateLog(RandomStringUtils.randomAlphanumeric(10));
+        Flight flight = fls.addNewFlight(fl);
+        fs.setOrigin(flight, originCode);
+        assertThat(flight.getOrigin().getCode(), equalTo(originCode));
+    }
+    
+    @Test
+    public void testSetDestination() {
+        String destinationCode = RandomStringUtils.randomAlphanumeric(4).toUpperCase();
+        FlightLog fl = fls.findOrCreateLog(RandomStringUtils.randomAlphanumeric(10));
+        Flight flight = fls.addNewFlight(fl);
+        fs.setDestination(flight, destinationCode);
+        assertThat(flight.getDestination().getCode(), equalTo(destinationCode));
+    }
+    
+    @Test
+    public void testSetAircraft() {
+        String aircraftId = "OH-" + RandomStringUtils.randomAlphanumeric(3).toUpperCase();
+        FlightLog fl = fls.findOrCreateLog(RandomStringUtils.randomAlphanumeric(10));
+        Flight flight = fls.addNewFlight(fl);
+        fs.setAircraft(flight, aircraftId);
+        assertThat(flight.getAircraft().getIdentifier(), equalTo(aircraftId));
+        
+    }
 
 }
