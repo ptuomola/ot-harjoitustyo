@@ -1,12 +1,10 @@
 package org.tuomola.flightlogbook;
 
 import java.util.Scanner;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.tuomola.flightlogbook.domain.Aircraft;
-import org.tuomola.flightlogbook.service.AircraftService;
 import org.tuomola.flightlogbook.ui.TextUI;
 
 /**
@@ -16,8 +14,8 @@ import org.tuomola.flightlogbook.ui.TextUI;
 
 //public class Main extends Application {
 
-@ComponentScan
 @EnableJpaRepositories
+@SpringBootApplication
 public class Main {
       
 /*

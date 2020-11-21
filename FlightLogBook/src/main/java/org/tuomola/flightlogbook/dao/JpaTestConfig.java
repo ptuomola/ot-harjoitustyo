@@ -16,40 +16,18 @@ import org.springframework.transaction.PlatformTransactionManager;
  */
 
 @Configuration
-public class JpaConfig {
+public class JpaTestConfig {
 
 
     @Bean
-    @Profile("!test")
+    @Profile("test")
     public DriverManagerDataSource dataSource() {
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName("org.h2.Driver");
-        ds.setUrl("jdbc:h2:file:./flightlogbook");
+        ds.setUrl("jdbc:h2:mem:db;DB_CLOSE_DELAY=-1");
         ds.setUsername("sa");
         ds.setPassword("");
         
         return ds;
-    }
-    
-    @Bean
-    public EntityManagerFactory entityManagerFactory() {
-        HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-        adapter.setGenerateDdl(true);
-        adapter.setShowSql(true);
-
-        LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
-        factory.setJpaVendorAdapter(adapter);
-        factory.setPackagesToScan("org.tuomola.flightlogbook");
-        factory.setDataSource(dataSource());
-        factory.afterPropertiesSet();
-
-        return factory.getObject();
-    }
-
-    @Bean
-    public PlatformTransactionManager transactionManager() {
-        JpaTransactionManager txManager = new JpaTransactionManager();
-        txManager.setEntityManagerFactory(entityManagerFactory());
-        return txManager;
     }
 }

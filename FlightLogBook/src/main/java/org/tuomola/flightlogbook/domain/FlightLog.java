@@ -50,6 +50,10 @@ public class FlightLog {
     }
     
     public void addFlight(Flight flight) {
+        if (flights == null) {
+            flights = new ArrayList<>();
+        }
+
         flights.add(flight);
     }
     
