@@ -32,7 +32,7 @@ kuva
 
 - Käyttäjä näkee yhteenvedon tähänastisista lennoistaan, mukaanlukien:
     - Lentojen kokonaismäärä
-    - Lentojen kokonaisaika
+    - *TEHTY* Lentojen kokonaisaika
     - Nousujen / laskeutumisien määrä viime 90 päivän aikana, ja varoitus mikäli vähemmän kuin kuin 3 kpl (matkustajia saa kuljettaa vain mikäli vähintään 3)
     - Lentotuntien määrä viime 12 kk aikana - ja varoitus mikäli vähemmän kun 12 tuntia (luokkakelpoisuuden uusimiseen tarvitaan vähintään 12 tuntia viimeisen 12 kk aikana)
 
@@ -40,23 +40,23 @@ kuva
     - Lentokentistä, joissa hän on käynyt, viimeinen käyntipäivä ja nousujen/laskeutumisien määrä per kenttä
     - Lentokoneista, joilla hän on lentänyt: viimeinen lentopäivä ja lentotuntien määrä per kone
 
-- Käyttäjä voi siirtyä uuden lennon tallennustilaan
+- *TEHTY* Käyttäjä voi siirtyä uuden lennon tallennustilaan
 
 ### Uuden lennon tallennustilassa
 
-- Käyttäjä voi syöttää tiedot lentokoneesta, lähtökentästä, saapumiskentästä ja lennon tyypistä. Mikäli lentokonetta tai kenttiä ei ole sovelluksen tietokannassa, ne luodaan
+- *TEHTY* Käyttäjä voi syöttää tiedot lentokoneesta, lähtökentästä, saapumiskentästä ja lennon tyypistä. Mikäli lentokonetta tai kenttiä ei ole sovelluksen tietokannassa, ne luodaan
 
 - Tietoja lentokoneesta, lähtökentästä, saapumiskentästä ja lennon tyypistä voidaan korjata lennon aikana kirjoittamalla uuden kentän tiedot
 
-- Käyttäjä voi yhtä nappia painamalla aloittaa lennon, jolloin lähtöaika talletetaan muistiin ja matkustusajan lasku alkaa
+- *TEHTY* Käyttäjä voi yhtä nappia painamalla aloittaa lennon, jolloin lähtöaika talletetaan muistiin ja matkustusajan lasku alkaa
 
-- Tämän jälkeen käyttäjä voi yhtä nappia painamalla merkitä lentoonlähdön, jolloin lentoonlähtöaika talletetaan muistiin ja lentoajan lasku alkaa
+- *TEHTY* Tämän jälkeen käyttäjä voi yhtä nappia painamalla merkitä lentoonlähdön, jolloin lentoonlähtöaika talletetaan muistiin ja lentoajan lasku alkaa
 
-- Tämän jälkeen käyttäjä voi merkitä yhtä nappia painamalla läpilaskun, jolloin lentoonlähtöjen ja nousujen määrää kasvatetaan yhdellä
+- *TEHTY* Tämän jälkeen käyttäjä voi merkitä yhtä nappia painamalla läpilaskun, jolloin lentoonlähtöjen ja nousujen määrää kasvatetaan yhdellä
 
-- Tämän jälkeen käyttäjä voi merkitä yhtä nappia painamalla laskeutumisen, jolloin lentoajan laskeminen päätetään ja laskeutumisaika talletetaan muistiin
+- *TEHTY* Tämän jälkeen käyttäjä voi merkitä yhtä nappia painamalla laskeutumisen, jolloin lentoajan laskeminen päätetään ja laskeutumisaika talletetaan muistiin
 
-- Tämän jälkeen käyttäjä voi merkitä yhtä nappia painamalla saapumisajan, jolloin matkustusajan laskeminen päätetään ja saapumisaika talletetaan muistiin. Tämän jälkeen sovellus palaa alkunäkymään (sama kuin kirjautumisen jälkeen).
+- *TEHTY* Tämän jälkeen käyttäjä voi merkitä yhtä nappia painamalla saapumisajan, jolloin matkustusajan laskeminen päätetään ja saapumisaika talletetaan muistiin. Tämän jälkeen sovellus palaa alkunäkymään (sama kuin kirjautumisen jälkeen).
 
 ## Jatkokehitysideoita
 
