@@ -7,4 +7,4 @@
 | 14.11 | 1.0  | DAO/ORM: Hibernate ja H2 asennettu |
 | 15.11 | 1.0  | JUnit ja Hamcrest asennettu, ensimmäiset testit |
 | 19.11 | 1.0  | Spring Data ja Hibernate toimii |
-
+| 21.11 | 2.0  | Toteutettu tiedon tallennuslogiikka ja checkstyle |
