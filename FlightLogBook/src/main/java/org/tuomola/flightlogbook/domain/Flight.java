@@ -55,18 +55,18 @@ public class Flight {
         return flightState;
     }
     
-    public Duration getDuration()
-    {
-        if(departureTime == null || arrivalTime == null) 
+    public Duration getDuration() {
+        if (departureTime == null || arrivalTime == null) {
             return null;
+        }
         
         return Duration.between(departureTime.toInstant(), arrivalTime.toInstant());
     }
     
-    public Duration getFlightDuration()
-    {
-        if(takeOffTime == null || landingTime == null)
+    public Duration getFlightDuration() {
+        if (takeOffTime == null || landingTime == null) {
             return null;
+        }
         
         return Duration.between(takeOffTime.toInstant(), landingTime.toInstant());
     }

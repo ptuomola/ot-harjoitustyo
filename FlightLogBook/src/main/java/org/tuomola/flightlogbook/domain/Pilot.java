@@ -24,7 +24,7 @@ public class Pilot {
     private String fullName;
     private Date dateOfBirth;
     
-    @OneToMany(fetch=FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)
     private List<License> qualifications; 
 
     public Pilot() {

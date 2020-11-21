@@ -17,7 +17,7 @@ public class License {
     @Id @GeneratedValue
     private int id;
 
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String rating;
     
     private Date issueDate;

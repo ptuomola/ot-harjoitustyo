@@ -36,8 +36,7 @@ public class TextUI {
     
     private final HashMap<String, String> commands;
     
-    public TextUI(FlightLogService fls, FlightService fs, AirportService aps, AircraftService acs)
-    {
+    public TextUI(FlightLogService fls, FlightService fs, AirportService aps, AircraftService acs) {
         this.fls = fls;
         this.fs = fs;
         this.aps = aps;
@@ -53,44 +52,42 @@ public class TextUI {
         this.commands.put("?", "Print help");
     }
     
-    public void execute(Scanner reader)
-    {
+    public void execute(Scanner reader) {
         System.out.println("Enter pilot name: ");
         FlightLog fl = fls.findOrCreateLog(reader.nextLine());
         
         printInstructions();
         
-        while(true)
-        {
+        while (true) {
             System.out.println("Enter command: ");
             String input = reader.nextLine();
             
-            if(!this.commands.containsKey(input)) {
+            if (!this.commands.containsKey(input)) {
                 System.out.println("Invalid command - enter ? for help");
                 continue;
             }
             
-            if(input.equals("9")) {
+            if (input.equals("9")) {
                 System.out.println("Exiting...");
                 break;
-            } else if(input.equals("?")) {
+            } else if (input.equals("?")) {
                 printInstructions();
-            } else if(input.equals("1")) {
+            } else if (input.equals("1")) {
                 startNewFlight(reader, fl);
-            } else if(input.equals("2")) {
+            } else if (input.equals("2")) {
                 printLog(fl);
-            } else if(input.equals("3")) {
+            } else if (input.equals("3")) {
                 printTotals(fl);
-            } else if(input.equals("4")) {
+            } else if (input.equals("4")) {
                 printAirports();
-            } else if(input.equals("5")) {
+            } else if (input.equals("5")) {
                 printAircraft();
             }
         }
     }
 
     private void printInstructions() {
-        for(Entry entry : this.commands.entrySet()) {
+        for (Entry entry : this.commands.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
     }
@@ -100,22 +97,19 @@ public class TextUI {
         
         System.out.println("Enter aircraft ID (or press ENTER to leave empty):");
         String aircraftId = reader.nextLine();
-        if(aircraftId != null)
-        {
+        if (aircraftId != null) {
             fs.setAircraft(flight, aircraftId);
         }
 
         System.out.println("Enter origin airport code (or press ENTER to leave empty):");
         String originCode = reader.nextLine();
-        if(originCode != null)
-        {
+        if (originCode != null) {
             fs.setOrigin(flight, originCode);
         }
 
         System.out.println("Enter destination airport code (or press ENTER to leave empty):");
         String destionationCode = reader.nextLine();
-        if(destionationCode != null)
-        {
+        if (destionationCode != null) {
             fs.setDestination(flight, destionationCode);
         }
 
@@ -149,13 +143,15 @@ public class TextUI {
     }
 
     private void printAirports() {
-        for(Airport airport : aps.getAllAirports())
+        for (Airport airport : aps.getAllAirports()) {
             System.out.println(airport);
+        }
     }
     
     private void printAircraft() {
-        for(Aircraft aircraft : acs.getAllAircraft())
+        for (Aircraft aircraft : acs.getAllAircraft()) {
             System.out.println(aircraft);
+        }
     }
     
 }

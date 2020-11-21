@@ -3,8 +3,6 @@ package org.tuomola.flightlogbook.domain;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -24,11 +22,11 @@ public class FlightLog {
     @Id @GeneratedValue
     private int id;
 
-    @OneToOne(optional=false)
+    @OneToOne(optional = false)
     @JoinColumn(name = "owner_id", referencedColumnName = "id")
     private Pilot logOwner;
     
-    @OneToMany(fetch=FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Flight> flights;
 
     public FlightLog() {
@@ -58,8 +56,11 @@ public class FlightLog {
     public Duration getTotalTime() {
         Duration totalDuration = Duration.ZERO;
         
-        for(Flight flight : flights) {
-            if(flight.getDuration() == null) continue;
+        for (Flight flight : flights) {
+            if (flight.getDuration() == null) {
+                continue;
+            }
+            
             totalDuration = totalDuration.plus(flight.getDuration());
         }
 
@@ -69,8 +70,11 @@ public class FlightLog {
     public Duration getTotalFlightTime() {
         Duration totalDuration = Duration.ZERO;
         
-        for(Flight flight : flights) {
-            if(flight.getFlightDuration() == null) continue;
+        for (Flight flight : flights) {
+            if (flight.getFlightDuration() == null) {
+                continue;
+            }
+            
             totalDuration = totalDuration.plus(flight.getFlightDuration());
         }
 
@@ -80,7 +84,7 @@ public class FlightLog {
     public int getTotalLandings() {
         int totalLandings = 0;
         
-        for(Flight flight : flights) {
+        for (Flight flight : flights) {
             totalLandings += flight.getNumLandings();
         }
         
@@ -90,7 +94,7 @@ public class FlightLog {
     public int getTotalTakeOffs() {
         int totalTakeOffs = 0;
         
-        for(Flight flight : flights) {
+        for (Flight flight : flights) {
             totalTakeOffs += flight.getNumTakeOffs();
         }
         

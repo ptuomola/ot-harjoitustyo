@@ -16,7 +16,7 @@ public class Airport {
     @Id @GeneratedValue
     private int id;
 
-    @Column(unique=true, nullable=false)
+    @Column(unique = true, nullable = false)
     private String code;
     
     private String name;

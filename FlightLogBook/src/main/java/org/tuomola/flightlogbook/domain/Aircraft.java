@@ -16,7 +16,7 @@ public class Aircraft {
     @Id @GeneratedValue
     private int id;
     
-    @Column(unique=true, nullable=false)
+    @Column(unique = true, nullable = false)
     private String identifier;
     
     private String type;

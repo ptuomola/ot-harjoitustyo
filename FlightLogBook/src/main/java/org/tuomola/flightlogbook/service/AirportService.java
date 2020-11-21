@@ -22,17 +22,16 @@ public class AirportService {
         this.ar = ar;
     }
 
-    public Airport saveAirport(Airport ap){
+    public Airport saveAirport(Airport ap) {
         return ar.save(ap);
     }
     
-    public Airport findOrCreateAirport(String code){
+    public Airport findOrCreateAirport(String code) {
         code = code.toUpperCase();
         
         Airport airport = ar.findOneByCode(code);
         
-        if(airport == null)
-        {
+        if (airport == null) {
             airport = new Airport();
             airport.setCode(code);
             

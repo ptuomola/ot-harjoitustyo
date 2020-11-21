@@ -20,7 +20,7 @@ public class MainController {
     }
     
     public void handleStartFlightButtonAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/flightScene.fxml"));
         
         Scene scene = new Scene(root);

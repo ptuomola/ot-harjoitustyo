@@ -20,17 +20,16 @@ public class AircraftService {
         this.ar = ar;
     }
 
-    public Aircraft saveAircraft(Aircraft ac){
+    public Aircraft saveAircraft(Aircraft ac) {
         return ar.save(ac);
     }
     
-    public Aircraft findOrCreateAircraft(String identifier){
+    public Aircraft findOrCreateAircraft(String identifier) {
         identifier = identifier.toUpperCase();
         
         Aircraft aircraft = ar.findOneByIdentifier(identifier);
         
-        if(aircraft == null)
-        {
+        if (aircraft == null) {
             aircraft = new Aircraft();
             aircraft.setIdentifier(identifier);
             

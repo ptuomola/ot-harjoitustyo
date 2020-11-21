@@ -26,17 +26,16 @@ public class FlightService {
     @Autowired
     private AirportService aps;
 
-    public FlightService(FlightRepository fr, AircraftService as, AirportService aps)
-    {
+    public FlightService(FlightRepository fr, AircraftService as, AirportService aps) {
         this.fr = fr;
         this.as = as;
         this.aps = aps;
     }
     
-    public void startTaxi(Flight f)
-    {
-        if(f.getFlightState() != FlightState.INITIAL)
+    public void startTaxi(Flight f) {
+        if (f.getFlightState() != FlightState.INITIAL) {
             return;
+        }
         
         f.setFlightState(FlightState.PRE_TAXI);
         f.setDepartureTime(new Date());
@@ -44,10 +43,10 @@ public class FlightService {
         fr.save(f);
     }
     
-    public void takeOff(Flight f)
-    {
-        if(f.getFlightState() != FlightState.PRE_TAXI)
+    public void takeOff(Flight f) {
+        if (f.getFlightState() != FlightState.PRE_TAXI) {
             return;
+        }
         
         f.setFlightState(FlightState.FLIGHT);
         f.setTakeOffTime(new Date());
@@ -56,10 +55,10 @@ public class FlightService {
         fr.save(f);
     }
     
-    public void land(Flight f)
-    {
-        if(f.getFlightState() != FlightState.FLIGHT)
+    public void land(Flight f) {
+        if (f.getFlightState() != FlightState.FLIGHT) {
             return;
+        }
         
         f.setFlightState(FlightState.POST_TAXI);
         f.setNumLandings(f.getNumLandings() + 1);
@@ -68,10 +67,10 @@ public class FlightService {
         fr.save(f);
     }
     
-    public void touchAndGo(Flight f)
-    {
-        if(f.getFlightState() != FlightState.FLIGHT)
+    public void touchAndGo(Flight f) {
+        if (f.getFlightState() != FlightState.FLIGHT) {
             return;
+        }
         
         f.setNumLandings(f.getNumLandings() + 1);
         f.setNumTakeOffs(f.getNumTakeOffs() + 1);
@@ -79,16 +78,14 @@ public class FlightService {
         fr.save(f);
     }
     
-    public void stopFlight(Flight f)
-    {
+    public void stopFlight(Flight f) {
         f.setFlightState(FlightState.ENDED);
         f.setArrivalTime(new Date());
         
         fr.save(f);
     }
 
-    public void setAircraft(Flight f, String aircraftId) {
-        
+    public void setAircraft(Flight f, String aircraftId) {     
         Aircraft aircraft = as.findOrCreateAircraft(aircraftId);
         f.setAircraft(aircraft);
         
