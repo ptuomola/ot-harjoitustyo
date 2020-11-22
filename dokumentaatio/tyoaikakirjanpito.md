@@ -8,4 +8,5 @@
 | 15.11 | 1.0  | JUnit ja Hamcrest asennettu, ensimmäiset testit |
 | 19.11 | 1.0  | Spring Data ja Hibernate toimii |
 | 21.11 | 2.0  | Toteutettu tiedon tallennuslogiikka ja checkstyle |
-| yht   | 8.0  | | 
+| 22.11 | 2.0  | Siirrytty Spring Bootiin ja JUnit 5:een, tietokanta mukaan testaukseen |
+| yht   | 10.0  | | 
