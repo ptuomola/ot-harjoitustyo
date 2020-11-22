@@ -4,7 +4,7 @@
 
 Ohjelman rakenne noudattelee kolmitasoista kerrosarkkitehtuuria, ja koodin pakkausrakenne on seuraava:
 
-<img src="packagediagram.png" width="160">
+<img src="packagediagram.png" width="500">
 
 Pakkauksien sisältö on seuraavaa:
 
