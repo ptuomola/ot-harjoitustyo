@@ -1,0 +1,132 @@
+package org.tuomola.flightlogbook.ui;
+
+import java.io.IOException;
+import java.time.ZoneId;
+import java.time.format.DateTimeParseException;
+import java.util.Date;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import net.rgielen.fxweaver.core.FxWeaver;
+import net.rgielen.fxweaver.core.FxmlView;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.tuomola.flightlogbook.domain.Pilot;
+import org.tuomola.flightlogbook.service.PasswordService;
+import org.tuomola.flightlogbook.service.PilotService;
+
+@Component
+@FxmlView("createPilotScene.fxml")
+public class CreatePilotController {
+    @FXML private TextField user;
+    @FXML private PasswordField password;
+    @FXML private PasswordField repeatPassword;
+    @FXML private Button okButton;
+    @FXML private Button cancelButton;
+    @FXML private TextField emailField;
+    @FXML private TextField fullNameField;
+    @FXML private DatePicker dobField;
+    
+    @Autowired
+    private PilotService ps;
+    
+    @Autowired
+    private PasswordService pwds;
+    
+    @Autowired
+    private FxWeaver fxWeaver;
+    
+    public CreatePilotController(PilotService ps, PasswordService pwds, FxWeaver fxWeaver) {
+        this.ps = ps;
+        this.pwds = pwds;
+        this.fxWeaver = fxWeaver;
+    }
+    
+    public void initialize() {
+        
+        dobField.getEditor().focusedProperty().addListener((obj, wasFocused, isFocused)-> {
+            if (!isFocused) {
+                try {
+                    dobField.setValue(dobField.getConverter().fromString(dobField.getEditor().getText()));
+                } catch (DateTimeParseException e) {
+                    dobField.getEditor().setText(dobField.getConverter().toString(dobField.getValue()));
+                }
+            }
+        });
+    }
+    
+    public void handleCreatePilotAction(ActionEvent event) {
+        String username = user.getText(); 
+        if(username == null || username.length() < 3)
+        {
+            displayAlert("Invalid username", "Must be at least 3 characters", AlertType.ERROR);
+            return;
+        }
+        
+        if(ps.isUsernameInUse(username)) {
+            displayAlert("Invalid username", "Username already in use", AlertType.ERROR);
+            return;
+        }
+        
+        String passwordStr = password.getText();
+        if(passwordStr == null || !pwds.isValid(passwordStr))
+        {
+            displayAlert("Invalid password", "Need to be at least 8 characters, and contain uppercase, lowercase, digit and special character", AlertType.ERROR);
+            return;
+        }       
+        
+        String repeatPasswordStr = repeatPassword.getText();
+        if(repeatPasswordStr == null || (repeatPasswordStr != null && !repeatPasswordStr.equals(passwordStr)))
+        {
+            displayAlert("Invalid password", "Passwords do not match", AlertType.ERROR);
+            return;
+        }
+        
+        String encryptedPassword = pwds.encrypt(passwordStr);
+        
+        Pilot p = new Pilot(username);
+        p.setPassword(encryptedPassword);
+        p.setFullName(fullNameField.getText());
+        p.setEmail(emailField.getText());
+        
+        if(dobField.getValue() != null) {
+            p.setDateOfBirth(Date.from(dobField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));            
+        }
+        
+        System.out.println(p.getDateOfBirth().toString());
+        
+        ps.savePilot(p);
+        
+        displayAlert("Pilot created", "New pilot created with name '" + username + "'", AlertType.INFORMATION);
+        
+        Parent root = fxWeaver.loadView(LoginController.class);
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void handleCancelAction(ActionEvent event) throws IOException {
+        Parent root = fxWeaver.loadView(LoginController.class);
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    private void displayAlert(String alertTitle, String alertContent, AlertType alertType) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(alertTitle);
+        alert.setHeaderText(alertTitle);
+        alert.setContentText(alertContent);
+        alert.showAndWait();    }
+}

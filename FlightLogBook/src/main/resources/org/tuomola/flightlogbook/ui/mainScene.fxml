@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tuomola.flightlogbook.ui.MainController">
+  <children>
+    <StackPane>
+      <children>
+        <VBox spacing="10.0">
+          <children>
+            <StackPane prefHeight="-1.0" prefWidth="-1.0" />
+            <GridPane prefHeight="96.0" prefWidth="632.0">
+              <children>
+                <Label text="Pilot" GridPane.columnIndex="0">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font></Label>
+                <Label fx:id="usernameLabel" text="&lt;username&gt;" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Arial" size="13.0" />
+                           </font></Label>
+                        <Label text="Total flight time" GridPane.rowIndex="1" />
+                        <Label fx:id="totalFlightTime" text="&lt;flight time&gt;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Total takeoffs" GridPane.rowIndex="2" />
+                        <Label text="Total landings" GridPane.rowIndex="3" />
+                        <Label fx:id="totalTakeOffs" text="&lt;takeoffs&gt;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="totalLandings" text="&lt;landings&gt;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="Last 12 months" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Label text="Last 3 months" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label text="Last 3 months" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Label fx:id="last12mFlightTime" text="&lt;flight time&gt;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Label fx:id="last3mTakeOffs" text="&lt;flight time&gt;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Label fx:id="last3mLandings" text="&lt;flight time&gt;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="107.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="548.0" minWidth="10.0" prefWidth="245.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="391.0" minWidth="10.0" prefWidth="123.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="428.0" minWidth="10.0" prefWidth="206.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+                  <HBox prefHeight="68.0" prefWidth="632.0">
+                     <children>
+                        <ButtonBar prefHeight="68.0" prefWidth="362.0">
+                          <buttons>
+                              <Button mnemonicParsing="false" onAction="#handleViewAircraftButtonAction" text="View Aircraft" />
+                              <Button mnemonicParsing="false" onAction="#handleViewAirportsButtonAction" text="View Airports" />
+                              <Button mnemonicParsing="false" onAction="#handleViewFlightsButtonAction" text="View Flights" />
+                          </buttons>
+                        </ButtonBar>
+                        <ButtonBar prefHeight="76.0" prefWidth="308.0">
+                          <buttons>
+                              <Button mnemonicParsing="false" onAction="#handleStartFlightButtonAction" text="Start New Flight" />
+                      <Button alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleLogoutButtonAction" text="Logout" />
+                          </buttons>
+                        </ButtonBar>
+                     </children>
+                  </HBox>
+          </children>
+        </VBox>
+      </children>
+    </StackPane>
+  </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+ </StackPane>

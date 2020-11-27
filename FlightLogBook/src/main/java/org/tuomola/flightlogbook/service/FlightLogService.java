@@ -33,7 +33,7 @@ public class FlightLogService {
     }
     
     public FlightLog findOrCreateLog(String name) {
-        Pilot pilot = pr.findByUserName(name);
+        Pilot pilot = pr.findByUserNameIgnoreCase(name);
         
         if (pilot == null) {
             System.out.println("New pilot - creating record");

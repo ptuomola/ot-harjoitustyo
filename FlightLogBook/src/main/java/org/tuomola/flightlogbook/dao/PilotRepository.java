@@ -9,5 +9,5 @@ import org.tuomola.flightlogbook.domain.Pilot;
  * @author ptuomola
  */
 public interface PilotRepository extends JpaRepository<Pilot, Long> {
-    public Pilot findByUserName(String userName);
+    public Pilot findByUserNameIgnoreCase(String userName);
 }
