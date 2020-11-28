@@ -1,5 +1,6 @@
 package org.tuomola.flightlogbook.service;
 
+import java.time.Instant;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,7 +39,7 @@ public class FlightService {
         }
         
         f.setFlightState(FlightState.PRE_TAXI);
-        f.setDepartureTime(new Date());
+        f.setDepartureTime(Instant.now());
         
         fr.save(f);
     }
@@ -49,7 +50,7 @@ public class FlightService {
         }
         
         f.setFlightState(FlightState.FLIGHT);
-        f.setTakeOffTime(new Date());
+        f.setTakeOffTime(Instant.now());
         f.setNumTakeOffs(f.getNumTakeOffs() + 1);
         
         fr.save(f);
@@ -62,7 +63,7 @@ public class FlightService {
         
         f.setFlightState(FlightState.POST_TAXI);
         f.setNumLandings(f.getNumLandings() + 1);
-        f.setLandingTime(new Date());
+        f.setLandingTime(Instant.now());
 
         fr.save(f);
     }
@@ -80,7 +81,7 @@ public class FlightService {
     
     public void stopFlight(Flight f) {
         f.setFlightState(FlightState.ENDED);
-        f.setArrivalTime(new Date());
+        f.setArrivalTime(Instant.now());
         
         fr.save(f);
     }

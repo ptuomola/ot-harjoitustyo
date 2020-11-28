@@ -1,10 +1,9 @@
 package org.tuomola.flightlogbook.domain;
 
 import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.Instant;
+import java.time.ZonedDateTime;
 import java.util.Date;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -41,11 +40,11 @@ public class Flight {
     @JoinColumn(name = "destination_id", referencedColumnName = "id")
     private Airport destination;
     
-    private Date departureTime;
-    private Date arrivalTime;
+    private Instant departureTime;
+    private Instant arrivalTime;
     
-    private Date takeOffTime;
-    private Date landingTime;
+    private Instant takeOffTime;
+    private Instant landingTime;
     
     private int numLandings;
     private int numTakeOffs;
@@ -62,7 +61,7 @@ public class Flight {
             return null;
         }
         
-        return Duration.between(departureTime.toInstant(), arrivalTime.toInstant());
+        return Duration.between(departureTime, arrivalTime);
     }
     
     public Duration getFlightDuration() {
@@ -70,7 +69,7 @@ public class Flight {
             return null;
         }
         
-        return Duration.between(takeOffTime.toInstant(), landingTime.toInstant());
+        return Duration.between(takeOffTime, landingTime);
     }
     
     public Pilot getPic() {
@@ -113,51 +112,35 @@ public class Flight {
         this.destination = destination;
     }
 
-    public Date getDepartureTime() {
+    public Instant getDepartureTime() {
         return departureTime;
     }
 
-    public void setDepartureTime(LocalDateTime departureTime) {
-        this.departureTime = DateHelper.toUTCDateTime(departureTime);
-    }
-
-    public void setDepartureTime(Date departureTime) {
+    public void setDepartureTime(Instant departureTime) {
         this.departureTime = departureTime;
     }
 
-    public Date getArrivalTime() {
+    public Instant getArrivalTime() {
         return arrivalTime;
     }
 
-    public void setArrivalTime(LocalDateTime arrivalTime) {
-        this.arrivalTime = DateHelper.toUTCDateTime(arrivalTime);
-    }
-
-    public void setArrivalTime(Date arrivalTime) {
+    public void setArrivalTime(Instant arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 
-    public Date getTakeOffTime() {
+    public Instant getTakeOffTime() {
         return takeOffTime;
     }
 
-    public void setTakeOffTime(LocalDateTime takeOffTime) {
-        this.takeOffTime = DateHelper.toUTCDateTime(takeOffTime);
-    }
-
-    public void setTakeOffTime(Date takeOffTime) {
+    public void setTakeOffTime(Instant takeOffTime) {
         this.takeOffTime = takeOffTime;
     }
 
-    public Date getLandingTime() {
+    public Instant getLandingTime() {
         return landingTime;
     }
 
-    public void setLandingTime(LocalDateTime landingTime) {
-        this.landingTime = DateHelper.toUTCDateTime(landingTime);
-    }
-
-    public void setLandingTime(Date landingTime) {
+    public void setLandingTime(Instant landingTime) {
         this.landingTime = landingTime;
     }
 

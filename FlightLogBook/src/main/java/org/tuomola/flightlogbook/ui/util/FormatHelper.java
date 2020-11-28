@@ -10,6 +10,6 @@ import org.apache.commons.lang3.time.DurationFormatUtils;
 public class FormatHelper {
     public static String formatDuration(Duration duration)
     {
-        return DurationFormatUtils.formatDuration(duration.toMillis(), "H 'h' mm 'm'", true);
+        return DurationFormatUtils.formatDuration(duration.toMillis(), "HH:mm:ss", true);
     }
 }

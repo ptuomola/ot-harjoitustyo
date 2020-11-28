@@ -1,8 +1,10 @@
 package org.tuomola.flightlogbook.domain;
 
 import java.time.Duration;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -71,12 +73,12 @@ public class FlightLog {
     }
     
     public Duration getFlightTimeDuringLast(Period last) {
-        Date cutoffDate = DateHelper.toUTCDate(LocalDate.now().minus(last));
+        Instant cutoffDate = Instant.now().minus(last);
 
         return (flights == null) ? 
                 Duration.ZERO : 
                 flights.stream()
-                        .filter(f -> f.getArrivalTime() != null && f.getArrivalTime().after(cutoffDate))
+                        .filter(f -> f.getArrivalTime() != null && f.getArrivalTime().isAfter(cutoffDate))
                         .map(f -> f.getFlightDuration())
                         .filter(Objects::nonNull)
                         .reduce(Duration.ZERO, (a,b) -> (a.plus(b)));
@@ -87,13 +89,13 @@ public class FlightLog {
     }
 
     public int getLandingsDuringLast(Period ofMonths) {
-        Date cutOffDate = DateHelper.toUTCDate(LocalDate.now().minus(ofMonths));
+        Instant cutoffDate = Instant.now().minus(ofMonths);
         
         return (flights == null) ? 
                 0 : 
                 flights
                     .stream()
-                    .filter(f -> f.getArrivalTime() != null && f.getArrivalTime().after(cutOffDate))
+                    .filter(f -> f.getArrivalTime() != null && f.getArrivalTime().isAfter(cutoffDate))
                     .map(f -> f.getNumLandings())
                     .reduce(0, (a,b) -> (a+b));
     }
@@ -103,14 +105,14 @@ public class FlightLog {
     }
     
     public int getTakeOffsDuringLast(Period ofMonths) {
-        Date cutOffDate = DateHelper.toUTCDate(LocalDate.now().minus(ofMonths));
+        Instant cutoffDate = Instant.now().minus(ofMonths);
         
         return (flights == null) ? 
                 0 : 
                 flights
                     .stream()
                     .filter(f -> f.getArrivalTime() != null)
-                    .filter(f -> f.getArrivalTime().after(cutOffDate))
+                    .filter(f -> f.getArrivalTime().isAfter(cutoffDate))
                     .map(f -> f.getNumTakeOffs())
                     .reduce(0, (a,b) -> (a+b));
     }

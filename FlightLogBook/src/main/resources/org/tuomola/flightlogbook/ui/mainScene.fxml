@@ -66,8 +66,8 @@
                         </ButtonBar>
                         <ButtonBar prefHeight="76.0" prefWidth="308.0">
                           <buttons>
-                              <Button mnemonicParsing="false" onAction="#handleStartFlightButtonAction" text="Start New Flight" />
-                      <Button alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleLogoutButtonAction" text="Logout" />
+                              <Button defaultButton="true" mnemonicParsing="false" onAction="#handleStartFlightButtonAction" text="Start New Flight" />
+                      <Button alignment="CENTER" cancelButton="true" mnemonicParsing="false" onAction="#handleLogoutButtonAction" text="Logout" />
                           </buttons>
                         </ButtonBar>
                      </children>
