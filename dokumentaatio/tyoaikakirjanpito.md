@@ -12,4 +12,5 @@
 | 27.11 | 2.0  | Toteutettu login ja perusnavigaatio JavaFX:lla |
 | 28.11 | 2.0  | Toteutettu main screen JavaFX:lla | 
 | 28.11 | 2.0  | Toteutettu flight screen JavaFX:lla | 
-| yht   | 14.0  | | 
+| 28.11 | 1.0  | Testauksen jatkaminen ja paketointi |
+| yht   | 17.0  | | 
