@@ -32,22 +32,14 @@ public class FlightLogService {
         this.fr = fr;
     }
     
-    public FlightLog findOrCreateLog(String name) {
-        Pilot pilot = pr.findByUserNameIgnoreCase(name);
-        
-        if (pilot == null) {
-            System.out.println("New pilot - creating record");
-            pilot = new Pilot(name);
-            pr.save(pilot);
-        }
-        
-        FlightLog fl = flr.findByLogOwner(pilot);
+    public FlightLog findOrCreateLog(Pilot p) {
+        FlightLog fl = flr.findByLogOwner(p);
         
         if (fl == null) {
             System.out.println("New flightlog - creating record");
 
             fl = new FlightLog();
-            fl.setLogOwner(pilot);
+            fl.setLogOwner(p);
             flr.save(fl);
         }
         

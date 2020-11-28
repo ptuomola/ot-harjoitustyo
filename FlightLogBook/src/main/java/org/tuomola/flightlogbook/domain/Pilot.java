@@ -91,6 +91,19 @@ public class Pilot {
     public String toString() {
         return "Pilot{" + "userName=" + userName + ", email=" + email + ", fullName=" + fullName + ", dateOfBirth=" + dateOfBirth + ", qualifications=" + qualifications + '}';
     }
+
+    public String getCompositeName() {
+        StringBuilder buf = new StringBuilder();
+        buf.append(userName);
+        
+        if(fullName != null) {
+            buf.append(" (");
+            buf.append(fullName);
+            buf.append(")");
+        }
+               
+        return buf.toString();
+    }
     
     
 }

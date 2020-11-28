@@ -54,7 +54,9 @@ public class TextUI {
     
     public void execute(Scanner reader) {
         System.out.println("Enter pilot name: ");
-        FlightLog fl = fls.findOrCreateLog(reader.nextLine());
+        
+        // TODO: Rework this to support new FlightLog interface
+        FlightLog fl = fls.findOrCreateLog(null);
         
         printInstructions();
         

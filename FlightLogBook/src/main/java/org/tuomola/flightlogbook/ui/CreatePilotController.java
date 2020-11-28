@@ -1,21 +1,18 @@
 package org.tuomola.flightlogbook.ui;
 
+import org.tuomola.flightlogbook.ui.util.AlertHelper;
+import org.tuomola.flightlogbook.ui.util.StageHelper;
 import java.io.IOException;
 import java.time.ZoneId;
 import java.time.format.DateTimeParseException;
 import java.util.Date;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,26 +65,26 @@ public class CreatePilotController {
         String username = user.getText(); 
         if(username == null || username.length() < 3)
         {
-            displayAlert("Invalid username", "Must be at least 3 characters", AlertType.ERROR);
+            AlertHelper.displayAlert("Invalid username", "Must be at least 3 characters", AlertType.ERROR);
             return;
         }
         
         if(ps.isUsernameInUse(username)) {
-            displayAlert("Invalid username", "Username already in use", AlertType.ERROR);
+            AlertHelper.displayAlert("Invalid username", "Username already in use", AlertType.ERROR);
             return;
         }
         
         String passwordStr = password.getText();
         if(passwordStr == null || !pwds.isValid(passwordStr))
         {
-            displayAlert("Invalid password", "Need to be at least 8 characters, and contain uppercase, lowercase, digit and special character", AlertType.ERROR);
+            AlertHelper.displayAlert("Invalid password", "Need to be at least 8 characters, and contain uppercase, lowercase, digit and special character", AlertType.ERROR);
             return;
         }       
         
         String repeatPasswordStr = repeatPassword.getText();
         if(repeatPasswordStr == null || (repeatPasswordStr != null && !repeatPasswordStr.equals(passwordStr)))
         {
-            displayAlert("Invalid password", "Passwords do not match", AlertType.ERROR);
+            AlertHelper.displayAlert("Invalid password", "Passwords do not match", AlertType.ERROR);
             return;
         }
         
@@ -106,27 +103,12 @@ public class CreatePilotController {
         
         ps.savePilot(p);
         
-        displayAlert("Pilot created", "New pilot created with name '" + username + "'", AlertType.INFORMATION);
+        AlertHelper.displayAlert("Pilot created", "New pilot created with name '" + username + "'", AlertType.INFORMATION);
         
-        Parent root = fxWeaver.loadView(LoginController.class);
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        StageHelper.switchToView(fxWeaver.loadView(LoginController.class), event);
     }
 
     public void handleCancelAction(ActionEvent event) throws IOException {
-        Parent root = fxWeaver.loadView(LoginController.class);
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        StageHelper.switchToView(fxWeaver.loadView(LoginController.class), event);
     }
-
-    private void displayAlert(String alertTitle, String alertContent, AlertType alertType) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(alertTitle);
-        alert.setHeaderText(alertTitle);
-        alert.setContentText(alertContent);
-        alert.showAndWait();    }
 }

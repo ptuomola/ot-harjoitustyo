@@ -30,17 +30,17 @@
                               <Font name="Arial" size="13.0" />
                            </font></Label>
                         <Label text="Total flight time" GridPane.rowIndex="1" />
-                        <Label fx:id="totalFlightTime" text="&lt;flight time&gt;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="totalFlightTimeLabel" text="&lt;flight time&gt;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label text="Total takeoffs" GridPane.rowIndex="2" />
                         <Label text="Total landings" GridPane.rowIndex="3" />
-                        <Label fx:id="totalTakeOffs" text="&lt;takeoffs&gt;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label fx:id="totalLandings" text="&lt;landings&gt;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="totalTakeOffsLabel" text="&lt;takeoffs&gt;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="totalLandingsLabel" text="&lt;landings&gt;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Label text="Last 12 months" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <Label text="Last 3 months" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <Label text="Last 3 months" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                        <Label fx:id="last12mFlightTime" text="&lt;flight time&gt;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <Label fx:id="last3mTakeOffs" text="&lt;flight time&gt;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                        <Label fx:id="last3mLandings" text="&lt;flight time&gt;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <Label fx:id="last12mFlightTimeLabel" text="&lt;flight time&gt;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Label fx:id="last3mTakeOffsLabel" text="&lt;flight time&gt;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Label fx:id="last3mLandingsLabel" text="&lt;flight time&gt;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="107.0" />

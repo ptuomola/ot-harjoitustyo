@@ -1,5 +1,7 @@
 package org.tuomola.flightlogbook.ui;
 
+import org.tuomola.flightlogbook.ui.util.AlertHelper;
+import org.tuomola.flightlogbook.ui.util.StageHelper;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -50,28 +52,15 @@ public class LoginController {
         Pilot pilot = ps.loginPilot(user.getText(), password.getText());
         
         if(pilot == null) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Login failed");
-            alert.setHeaderText("Login failed");
-            alert.setContentText("Invalid username or password");
-            alert.showAndWait();
+            AlertHelper.displayAlert("Login failed", "Invalid username or password", AlertType.ERROR);
             return;
         }
         
         lius.setLoggedInPilot(pilot);
-        
-        Parent root = fxWeaver.loadView(MainController.class);
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        StageHelper.switchToView(fxWeaver.loadView(MainController.class), event); 
     }
 
-    public void handleCreateUserButtonAction(ActionEvent event) throws IOException {
-        Parent root = fxWeaver.loadView(CreatePilotController.class);
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void handleCreateUserButtonAction(ActionEvent event) {
+        StageHelper.switchToView(fxWeaver.loadView(CreatePilotController.class), event);
     }
 }

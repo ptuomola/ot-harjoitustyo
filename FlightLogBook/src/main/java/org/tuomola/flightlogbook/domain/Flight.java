@@ -1,6 +1,8 @@
 package org.tuomola.flightlogbook.domain;
 
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -115,12 +117,20 @@ public class Flight {
         return departureTime;
     }
 
+    public void setDepartureTime(LocalDateTime departureTime) {
+        this.departureTime = DateHelper.toUTCDateTime(departureTime);
+    }
+
     public void setDepartureTime(Date departureTime) {
         this.departureTime = departureTime;
     }
 
     public Date getArrivalTime() {
         return arrivalTime;
+    }
+
+    public void setArrivalTime(LocalDateTime arrivalTime) {
+        this.arrivalTime = DateHelper.toUTCDateTime(arrivalTime);
     }
 
     public void setArrivalTime(Date arrivalTime) {
@@ -131,12 +141,20 @@ public class Flight {
         return takeOffTime;
     }
 
+    public void setTakeOffTime(LocalDateTime takeOffTime) {
+        this.takeOffTime = DateHelper.toUTCDateTime(takeOffTime);
+    }
+
     public void setTakeOffTime(Date takeOffTime) {
         this.takeOffTime = takeOffTime;
     }
 
     public Date getLandingTime() {
         return landingTime;
+    }
+
+    public void setLandingTime(LocalDateTime landingTime) {
+        this.landingTime = DateHelper.toUTCDateTime(landingTime);
     }
 
     public void setLandingTime(Date landingTime) {
