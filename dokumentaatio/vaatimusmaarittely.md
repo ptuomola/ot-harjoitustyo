@@ -16,21 +16,21 @@ Sovelluksella on vain yksi käyttäjärooli, eli _normaali käyttäjä_. Jokaist
 
 ### Ennen kirjautumista
 
-- Käyttäjä voi luoda järjestelmään käyttäjätunnuksen
-    - Käyttäjätunnuksen täytyy olla uniikki ja pituudeltaan vähintään 3 merkkiä
+- *TEHTY* Käyttäjä voi luoda järjestelmään käyttäjätunnuksen
+    - *TEHTY* Käyttäjätunnuksen täytyy olla uniikki ja pituudeltaan vähintään 3 merkkiä
     - Käyttäjätunnuksen luodessaan käyttäjän pitää antaa myös tärkeimmät henkilötiedot lokikirjan luomista varten (nimi, ja vapaaehtoisesti myös lentoluvan, lentokelpoisuuden, luokka/tyyppihyväksyntöjen tyypit ja viimeiset voimassaolopäivät)
 
-- Käyttäjä voi kirjautua järjestelmään
-    - Kirjautuminen onnistuu syötettäessä olemassaoleva käyttäjätunnus kirjautumislomakkeelle
-    - Jos käyttäjää ei ole olemassa, ilmoittaa järjestelmä tästä
+- *TEHTY* Käyttäjä voi kirjautua järjestelmään
+    - *TEHTY* Kirjautuminen onnistuu syötettäessä olemassaoleva käyttäjätunnus kirjautumislomakkeelle
+    - *TEHTY* Jos käyttäjää ei ole olemassa, ilmoittaa järjestelmä tästä
 
 ### Kirjautumisen jälkeen
 
-- Käyttäjä näkee yhteenvedon tähänastisista lennoistaan, mukaanlukien:
+- *TEHTY* Käyttäjä näkee yhteenvedon tähänastisista lennoistaan, mukaanlukien:
     - Lentojen kokonaismäärä
     - *TEHTY* Lentojen kokonaisaika
-    - Nousujen / laskeutumisien määrä viime 90 päivän aikana, ja varoitus mikäli vähemmän kuin kuin 3 kpl (matkustajia saa kuljettaa vain mikäli vähintään 3)
-    - Lentotuntien määrä viime 12 kk aikana - ja varoitus mikäli vähemmän kun 12 tuntia (luokkakelpoisuuden uusimiseen tarvitaan vähintään 12 tuntia viimeisen 12 kk aikana)
+    - *TEHTY* Nousujen / laskeutumisien määrä viime 90 päivän aikana, ja varoitus mikäli vähemmän kuin kuin 3 kpl (matkustajia saa kuljettaa vain mikäli vähintään 3)
+    - *TEHTY* Lentotuntien määrä viime 12 kk aikana - ja varoitus mikäli vähemmän kun 12 tuntia (luokkakelpoisuuden uusimiseen tarvitaan vähintään 12 tuntia viimeisen 12 kk aikana)
 
 - Käyttäjä voi myös katsoa yhteenvetotietoja:
     - Lentokentistä, joissa hän on käynyt, viimeinen käyntipäivä ja nousujen/laskeutumisien määrä per kenttä
