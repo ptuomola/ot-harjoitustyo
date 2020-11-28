@@ -34,11 +34,25 @@ Käyttöliittymä on täysin eristetty sovelluslogiikasta, ja se ainoastaan kuts
 
 Allaoleva kaavio näyttää sovelluksen loogisen datamallin: 
 
-<img src="luokkakaavio.png" width="500">
+<img src="luokkakaavio.png" width="800">
 
 ## Tietojen pysyväistallennus
 
 Pakkauksen domain-tietomallin luokkien tieto talletetaan tietokantaan käyttäen JPA-rajapinnan toteuttavaa Hibernate-kirjastoa, ja Spring Data-frameworkiä. Näiden avulla tietoja voidaan hakea ja tallentaa pakkauksen _org.tuomola.flightlogbook.dao_ Repository-luokilla. Haettu tieto toimitetaan sovelluslogiikalle automaattisesti _org.tuomola.flightlogbook.domain_ pakkauksen @Entity-luokkia kättäen. 
 
 Tietokantana sovelluksessa on käytössä H2. Taulut tietokantaan luodaan automaattisesti ensimmäisellä käyttökerralla, jos niitä ei vielä ole. Tietokanta talletetaan ohjelman kotihakemistoon nimellä _flightlogbook.db_. Jotta testauskerrat eivät vaikuta toisiinsa, testauksessa käytetään joka kerralla uutta vain muistissa sijaitsevaa tietokantaa. 
+
+## Päätoiminnallisuudet
+
+Kuvataan seuraavaksi sovelluksen toimintalogiikka muutaman päätoiminnallisuuden osalta sekvenssikaaviona.
+
+# Käyttäjän kirjautuminen
+
+Kun kirjautumisnäkymässä on syötetty käyttäjätunnus ja salasana, ja klikataan painiketta _loginButton_, etenee sovelluksen kontrolli seuraavasti:
+
+<img src="loginsequence.png" width="800">
+
+Painikkeen painamiseen reagoiva tapahtumankäsittelijä kutsuu sovelluslogiikan _PilotService_ metodia _loginPilot_ antaen parametriksi kirjautuneen käyttäjätunnuksen ja salasanan. Sovelluslogikka selvittää _PilotRepository_:n avulla onko käyttäjätunnus olemassa. Jos on, se enkryptoi annetun salasanan _PasswordService_:n avulla, ja vertaa sitä talletettuun salasanaan. Mikäli nämä ovat sama, sovelluslogiikka palauttaa Pilot-olion käyttöliittymään. Käyttöliittymä asettaa tämänhetkiseksi käyttäjäksi palautetun _Pilot_-olion käyttämällä palvelua _LoggedInUserService_, ja vaihtaa näkymäksi _StageHelper_:iä käyttäen MainScenen.
+
+
 
