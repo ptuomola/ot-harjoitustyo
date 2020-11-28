@@ -14,6 +14,10 @@ Sovellus laskee myös talletettujen lokikirjan tietojen perusteella yksinkertais
 
 [Arkkitehtuurikuvaus](https://github.com/ptuomola/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+## Releaset 
+
+[Viikko 5](https://github.com/ptuomola/ot-harjoitustyo/releases/tag/viikko5)
+
 ## Komentorivitoiminnot
 
 Maven projekti on hakemistossa "FlightLogBook". Allaolevat käskyt pitää suorittaa ko. hakemistossa. 
