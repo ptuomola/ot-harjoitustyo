@@ -96,7 +96,7 @@ public class Pilot {
         StringBuilder buf = new StringBuilder();
         buf.append(userName);
         
-        if(fullName != null) {
+        if (fullName != null) {
             buf.append(" (");
             buf.append(fullName);
             buf.append(")");

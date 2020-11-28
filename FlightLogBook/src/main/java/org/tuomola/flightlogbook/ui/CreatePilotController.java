@@ -63,27 +63,24 @@ public class CreatePilotController {
     
     public void handleCreatePilotAction(ActionEvent event) {
         String username = user.getText(); 
-        if(username == null || username.length() < 3)
-        {
+        if (username == null || username.length() < 3) {
             AlertHelper.displayAlert("Invalid username", "Must be at least 3 characters", AlertType.ERROR);
             return;
         }
         
-        if(ps.isUsernameInUse(username)) {
+        if (ps.isUsernameInUse(username)) {
             AlertHelper.displayAlert("Invalid username", "Username already in use", AlertType.ERROR);
             return;
         }
         
         String passwordStr = password.getText();
-        if(passwordStr == null || !pwds.isValid(passwordStr))
-        {
+        if (passwordStr == null || !pwds.isValid(passwordStr)) {
             AlertHelper.displayAlert("Invalid password", "Need to be at least 8 characters, and contain uppercase, lowercase, digit and special character", AlertType.ERROR);
             return;
         }       
         
         String repeatPasswordStr = repeatPassword.getText();
-        if(repeatPasswordStr == null || (repeatPasswordStr != null && !repeatPasswordStr.equals(passwordStr)))
-        {
+        if (repeatPasswordStr == null || (repeatPasswordStr != null && !repeatPasswordStr.equals(passwordStr))) {
             AlertHelper.displayAlert("Invalid password", "Passwords do not match", AlertType.ERROR);
             return;
         }
@@ -95,11 +92,9 @@ public class CreatePilotController {
         p.setFullName(fullNameField.getText());
         p.setEmail(emailField.getText());
         
-        if(dobField.getValue() != null) {
+        if (dobField.getValue() != null) {
             p.setDateOfBirth(Date.from(dobField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));            
         }
-        
-        System.out.println(p.getDateOfBirth().toString());
         
         ps.savePilot(p);
         

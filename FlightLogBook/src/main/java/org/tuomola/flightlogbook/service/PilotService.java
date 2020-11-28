@@ -24,7 +24,7 @@ public class PilotService {
     }
 
     public boolean isUsernameInUse(String username) {
-        if(pr.findByUserNameIgnoreCase(username) == null) {
+        if (pr.findByUserNameIgnoreCase(username) == null) {
             return false;
         } else {
             return true;
@@ -42,7 +42,7 @@ public class PilotService {
         }
         
         String encryptedPassword = ps.encrypt(password);
-        if(p.getPassword() != null && p.getPassword().equals(encryptedPassword)) {
+        if (p.getPassword() != null && p.getPassword().equals(encryptedPassword)) {
             return p;
         }
         

@@ -29,13 +29,13 @@ public class PasswordService {
 
     public String encrypt(String password) {
         try {
-            SecretKeyFactory skf = SecretKeyFactory.getInstance( "PBKDF2WithHmacSHA512" );
+            SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
             PBEKeySpec spec = new PBEKeySpec(password.toCharArray(), "1234".getBytes(), 10000, 512);
-            SecretKey key = skf.generateSecret( spec );
+            SecretKey key = skf.generateSecret(spec);
             byte[] res = key.getEncoded();
             return Hex.encodeHexString(res);
-        } catch ( NoSuchAlgorithmException | InvalidKeySpecException e ) {
-            throw new RuntimeException( e );
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+            throw new RuntimeException(e);
         }    
     }
     

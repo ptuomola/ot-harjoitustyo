@@ -106,4 +106,8 @@ public class FlightService {
         
         fr.save(f);    
     }
+
+    public Flight saveFlight(Flight f) {
+        return fr.save(f);
+    }
 }

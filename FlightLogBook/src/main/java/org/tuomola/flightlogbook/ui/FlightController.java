@@ -81,22 +81,21 @@ public class FlightController {
         }, 0, 1000);
     }
     
-    private void updateDurations()
-    {
+    private void updateDurations() {
         Instant now = Instant.now();
         currentTimeLabel.setText(DateHelper.toTimeString(now));
 
-        if(f.getDuration() != null) {
+        if (f.getDuration() != null) {
             totalTimeLabel.setText(FormatHelper.formatDuration(f.getDuration()));
-        } else if(f.getDepartureTime() != null) {
+        } else if (f.getDepartureTime() != null) {
             totalTimeLabel.setText(FormatHelper.formatDuration(Duration.between(f.getDepartureTime(), now)));
         } else {
             totalTimeLabel.setText("00:00:00");
         }
         
-        if(f.getFlightDuration() != null) {
+        if (f.getFlightDuration() != null) {
             flightTimeLabel.setText(FormatHelper.formatDuration(f.getFlightDuration()));
-        } else if(f.getTakeOffTime() != null) {
+        } else if (f.getTakeOffTime() != null) {
             flightTimeLabel.setText(FormatHelper.formatDuration(Duration.between(f.getTakeOffTime(), now)));
         } else {
             flightTimeLabel.setText("00:00:00");
@@ -104,7 +103,7 @@ public class FlightController {
     }
     
     public void handleNextActionButtonAction(ActionEvent event) {
-        switch(f.getFlightState()) {
+        switch (f.getFlightState()) {
             case INITIAL: 
                 fs.startTaxi(f);
                 displayFlight();
@@ -140,7 +139,7 @@ public class FlightController {
         numTakeOffsLabel.setText("" + f.getNumTakeOffs());
         numLandingsLabel.setText("" + f.getNumLandings());
                 
-        switch(f.getFlightState()) {
+        switch (f.getFlightState()) {
             case INITIAL: 
                 nextActionButton.setText("Start taxi");
                 touchAndGoButton.setDisable(true);

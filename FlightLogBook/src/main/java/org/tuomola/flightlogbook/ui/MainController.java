@@ -62,21 +62,21 @@ public class MainController {
         Duration flightTimeDuringLast12Months = fl.getFlightTimeDuringLast(Period.ofDays(365));
         last12mFlightTimeLabel.setText(FormatHelper.formatDuration(flightTimeDuringLast12Months));
  
-        if(flightTimeDuringLast12Months.compareTo(Duration.of(12, ChronoUnit.HOURS)) < 0) {
+        if (flightTimeDuringLast12Months.compareTo(Duration.of(12, ChronoUnit.HOURS)) < 0) {
             last12mFlightTimeLabel.setTextFill(Color.RED);
         }
         
         int takeOffsDuringLast3Months = fl.getTakeOffsDuringLast(Period.ofDays(90));
         last3mTakeOffsLabel.setText("" + takeOffsDuringLast3Months);
 
-        if(takeOffsDuringLast3Months < 3) {
+        if (takeOffsDuringLast3Months < 3) {
             last3mTakeOffsLabel.setTextFill(Color.RED);
         }
 
         int landingsDuringLast3Months = fl.getLandingsDuringLast(Period.ofDays(90));
         last3mLandingsLabel.setText("" + landingsDuringLast3Months);
 
-        if(landingsDuringLast3Months < 3) {
+        if (landingsDuringLast3Months < 3) {
             last3mLandingsLabel.setTextFill(Color.RED);
         }
     }
@@ -86,7 +86,7 @@ public class MainController {
     }
 
     public void handleLogoutButtonAction(ActionEvent event) throws IOException {
-        ((Stage)((Node) event.getSource()).getScene().getWindow()).close();
+        ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
     }
 
     public void handleViewAircraftButtonAction(ActionEvent event) throws IOException {

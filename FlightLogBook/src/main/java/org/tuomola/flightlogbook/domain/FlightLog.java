@@ -39,11 +39,6 @@ public class FlightLog {
     public FlightLog() {
     }
     
-    public FlightLog(Pilot logOwner) {
-        this.flights = new ArrayList<>();
-        this.logOwner = logOwner;
-    }
-
     public void setLogOwner(Pilot logOwner) {
         this.logOwner = logOwner;
     }
@@ -65,11 +60,11 @@ public class FlightLog {
     }
     
     public Duration getTotalTime() {
-        return (flights == null) ? Duration.ZERO : flights.stream().map(f -> f.getDuration()).filter(Objects::nonNull).reduce(Duration.ZERO, (a,b) -> (a.plus(b)));
+        return (flights == null) ? Duration.ZERO : flights.stream().map(f -> f.getDuration()).filter(Objects::nonNull).reduce(Duration.ZERO, (a, b) -> (a.plus(b)));
     }
 
     public Duration getTotalFlightTime() {
-        return (flights == null) ? Duration.ZERO : flights.stream().map(f -> f.getFlightDuration()).filter(Objects::nonNull).reduce(Duration.ZERO, (a,b) -> (a.plus(b)));
+        return (flights == null) ? Duration.ZERO : flights.stream().map(f -> f.getFlightDuration()).filter(Objects::nonNull).reduce(Duration.ZERO, (a, b) -> (a.plus(b)));
     }
     
     public Duration getFlightTimeDuringLast(Period last) {
@@ -81,11 +76,11 @@ public class FlightLog {
                         .filter(f -> f.getArrivalTime() != null && f.getArrivalTime().isAfter(cutoffDate))
                         .map(f -> f.getFlightDuration())
                         .filter(Objects::nonNull)
-                        .reduce(Duration.ZERO, (a,b) -> (a.plus(b)));
+                        .reduce(Duration.ZERO, (a, b) -> (a.plus(b)));
     }
 
     public int getTotalLandings() {
-        return (flights == null) ? 0 : flights.stream().map(f -> f.getNumLandings()).reduce(0, (a,b) -> (a+b));
+        return (flights == null) ? 0 : flights.stream().map(f -> f.getNumLandings()).reduce(0, (a, b) -> (a + b));
     }
 
     public int getLandingsDuringLast(Period ofMonths) {
@@ -95,13 +90,13 @@ public class FlightLog {
                 0 : 
                 flights
                     .stream()
-                    .filter(f -> f.getArrivalTime() != null && f.getArrivalTime().isAfter(cutoffDate))
+                    .filter(f -> (f.getArrivalTime() != null && f.getArrivalTime().isAfter(cutoffDate)))
                     .map(f -> f.getNumLandings())
-                    .reduce(0, (a,b) -> (a+b));
+                    .reduce(0, (a, b) -> (a + b));
     }
 
     public int getTotalTakeOffs() {
-        return (flights == null) ? 0 : flights.stream().map(f -> f.getNumTakeOffs()).reduce(0, (a,b) -> (a+b));
+        return (flights == null) ? 0 : flights.stream().map(f -> f.getNumTakeOffs()).reduce(0, (a, b) -> (a + b));
     }
     
     public int getTakeOffsDuringLast(Period ofMonths) {
@@ -114,7 +109,7 @@ public class FlightLog {
                     .filter(f -> f.getArrivalTime() != null)
                     .filter(f -> f.getArrivalTime().isAfter(cutoffDate))
                     .map(f -> f.getNumTakeOffs())
-                    .reduce(0, (a,b) -> (a+b));
+                    .reduce(0, (a, b) -> (a + b));
     }
     
     @Override

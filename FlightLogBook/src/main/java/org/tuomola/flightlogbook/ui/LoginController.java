@@ -51,7 +51,7 @@ public class LoginController {
     public void handleLoginButtonAction(ActionEvent event) {
         Pilot pilot = ps.loginPilot(user.getText(), password.getText());
         
-        if(pilot == null) {
+        if (pilot == null) {
             AlertHelper.displayAlert("Login failed", "Invalid username or password", AlertType.ERROR);
             return;
         }

@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 public class StageHelper {
 
     public static void switchToView(Parent newRoot, ActionEvent event) {
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
         stage.show();
