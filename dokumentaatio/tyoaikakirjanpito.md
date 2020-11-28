@@ -11,4 +11,5 @@
 | 22.11 | 2.0  | Siirrytty Spring Bootiin ja JUnit 5:een, tietokanta mukaan testaukseen |
 | 27.11 | 2.0  | Toteutettu login ja perusnavigaatio JavaFX:lla |
 | 28.11 | 2.0  | Toteutettu main screen JavaFX:lla | 
+| 28.11 | 2.0  | Toteutettu flight screen JavaFX:lla | 
 | yht   | 14.0  | | 
