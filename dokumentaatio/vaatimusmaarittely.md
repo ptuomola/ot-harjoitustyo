@@ -27,7 +27,7 @@ Sovelluksella on vain yksi käyttäjärooli, eli _normaali käyttäjä_. Jokaist
 ### Kirjautumisen jälkeen
 
 - *TEHTY* Käyttäjä näkee yhteenvedon tähänastisista lennoistaan, mukaanlukien:
-    - Lentojen kokonaismäärä
+    - *TEHTY* Lentojen kokonaismäärä
     - *TEHTY* Lentojen kokonaisaika
     - *TEHTY* Nousujen / laskeutumisien määrä viime 90 päivän aikana, ja varoitus mikäli vähemmän kuin kuin 3 kpl (matkustajia saa kuljettaa vain mikäli vähintään 3)
     - *TEHTY* Lentotuntien määrä viime 12 kk aikana - ja varoitus mikäli vähemmän kun 12 tuntia (luokkakelpoisuuden uusimiseen tarvitaan vähintään 12 tuntia viimeisen 12 kk aikana)
@@ -40,7 +40,7 @@ Sovelluksella on vain yksi käyttäjärooli, eli _normaali käyttäjä_. Jokaist
 
 ### Uuden lennon tallennustilassa
 
-- *TEHTY* Käyttäjä voi syöttää tiedot lentokoneesta, lähtökentästä, saapumiskentästä ja lennon tyypistä. Mikäli lentokonetta tai kenttiä ei ole sovelluksen tietokannassa, ne luodaan
+- Käyttäjä voi syöttää tiedot lentokoneesta, lähtökentästä, saapumiskentästä ja lennon tyypistä. Mikäli lentokonetta tai kenttiä ei ole sovelluksen tietokannassa, ne luodaan
 
 - Tietoja lentokoneesta, lähtökentästä, saapumiskentästä ja lennon tyypistä voidaan korjata lennon aikana kirjoittamalla uuden kentän tiedot
 
