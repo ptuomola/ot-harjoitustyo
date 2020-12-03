@@ -18,7 +18,7 @@ Sovelluksella on vain yksi käyttäjärooli, eli _normaali käyttäjä_. Jokaist
 
 - *TEHTY* Käyttäjä voi luoda järjestelmään käyttäjätunnuksen
     - *TEHTY* Käyttäjätunnuksen täytyy olla uniikki ja pituudeltaan vähintään 3 merkkiä
-    - Käyttäjätunnuksen luodessaan käyttäjän pitää antaa myös tärkeimmät henkilötiedot lokikirjan luomista varten (nimi, ja vapaaehtoisesti myös lentoluvan, lentokelpoisuuden, luokka/tyyppihyväksyntöjen tyypit ja viimeiset voimassaolopäivät)
+    - *TEHTY* Käyttäjätunnuksen luodessaan käyttäjä voi myös antaa tärkeimmät henkilötiedot lokikirjan luomista varten (syntymäaika, koko nimi, email)
 
 - *TEHTY* Käyttäjä voi kirjautua järjestelmään
     - *TEHTY* Kirjautuminen onnistuu syötettäessä olemassaoleva käyttäjätunnus kirjautumislomakkeelle
@@ -27,7 +27,7 @@ Sovelluksella on vain yksi käyttäjärooli, eli _normaali käyttäjä_. Jokaist
 ### Kirjautumisen jälkeen
 
 - *TEHTY* Käyttäjä näkee yhteenvedon tähänastisista lennoistaan, mukaanlukien:
-    - Lentojen kokonaismäärä
+    - *TEHTY* Lentojen kokonaismäärä
     - *TEHTY* Lentojen kokonaisaika
     - *TEHTY* Nousujen / laskeutumisien määrä viime 90 päivän aikana, ja varoitus mikäli vähemmän kuin kuin 3 kpl (matkustajia saa kuljettaa vain mikäli vähintään 3)
     - *TEHTY* Lentotuntien määrä viime 12 kk aikana - ja varoitus mikäli vähemmän kun 12 tuntia (luokkakelpoisuuden uusimiseen tarvitaan vähintään 12 tuntia viimeisen 12 kk aikana)
@@ -42,7 +42,7 @@ Sovelluksella on vain yksi käyttäjärooli, eli _normaali käyttäjä_. Jokaist
 
 - *TEHTY* Käyttäjä voi syöttää tiedot lentokoneesta, lähtökentästä, saapumiskentästä ja lennon tyypistä. Mikäli lentokonetta tai kenttiä ei ole sovelluksen tietokannassa, ne luodaan
 
-- Tietoja lentokoneesta, lähtökentästä, saapumiskentästä ja lennon tyypistä voidaan korjata lennon aikana kirjoittamalla uuden kentän tiedot
+- *TEHTY* Tietoja lentokoneesta, lähtökentästä, saapumiskentästä ja lennon tyypistä voidaan korjata lennon aikana kirjoittamalla uuden kentän tiedot
 
 - *TEHTY* Käyttäjä voi yhtä nappia painamalla aloittaa lennon, jolloin lähtöaika talletetaan muistiin ja matkustusajan lasku alkaa
 
@@ -59,6 +59,8 @@ Sovelluksella on vain yksi käyttäjärooli, eli _normaali käyttäjä_. Jokaist
 - Lisätietojen tallennus lentokentistä - esim. koordinaatit, palvelut, nettisivujen osoite, radiotaajuudet
 
 - Lisätietojen tallennus lentokoneista - esim. tyyppi, tarvittava kelpuutustyyppi, tärkeimmät tiedot (lentonopeus, paino, kantama)
+
+- Lentolupien ja kelpoisuuksien tietojen talletus: tuokka/tyyppihyväksyntöjen tyypit ja viimeiset voimassaolopäivät, varoitus kun pitää uusia yms.
 
 - Mahdollisuus erilaisten ohjaajatyyppien lentoaikojen laskemiseen erikseen (single pilot / multi-pilot ja PIC / Co-Pilot / Dual / FI)
 

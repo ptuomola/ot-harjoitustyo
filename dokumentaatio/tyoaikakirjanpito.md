@@ -13,4 +13,5 @@
 | 28.11 | 2.0  | Toteutettu main screen JavaFX:lla | 
 | 28.11 | 2.0  | Toteutettu flight screen JavaFX:lla | 
 | 28.11 | 1.0  | Testauksen jatkaminen ja paketointi |
-| yht   | 17.0  | | 
+| 2.12 | 1.0  | Lisätoiminnallisuuksien ohjelmointi |
+| yht   | 18.0  | | 
