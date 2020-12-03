@@ -4,12 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import lombok.Data;
 
 /**
  *
  * @author ptuomola
  */
 
+@Data
 @Entity
 public class Aircraft {
     
@@ -21,24 +23,7 @@ public class Aircraft {
     
     private String type;
 
-    public String getIdentifier() {
-        return identifier;
-    }
-
     public void setIdentifier(String identifier) {
         this.identifier = identifier.toUpperCase();
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    @Override
-    public String toString() {
-        return "Aircraft{" + "identifier=" + identifier + ", type=" + type + '}';
     }
 }

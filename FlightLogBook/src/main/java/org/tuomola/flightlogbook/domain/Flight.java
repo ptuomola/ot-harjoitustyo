@@ -2,19 +2,20 @@ package org.tuomola.flightlogbook.domain;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.time.ZonedDateTime;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import lombok.Data;
 
 /**
  *
  * @author ptuomola
  */
 
+@Data
 @Entity
 public class Flight {
     @Id @GeneratedValue
@@ -51,9 +52,13 @@ public class Flight {
 
     private FlightState flightState = FlightState.INITIAL;
     
-
-    public FlightState getFlightState() {
-        return flightState;
+    public Date getFlightDate()
+    {
+        if(departureTime == null) { 
+            return null;
+        }
+        
+        return Date.from(departureTime); 
     }
     
     public Duration getDuration() {
@@ -71,103 +76,46 @@ public class Flight {
         
         return Duration.between(takeOffTime, landingTime);
     }
-    
-    public Pilot getPic() {
-        return pic;
+        
+    public String getDeptAirportCode()
+    {
+        if (this.origin == null) {
+            return null;
+        }
+        
+        return origin.getCode();
     }
 
-    public void setPic(Pilot pic) {
-        this.pic = pic;
-    }
-
-    public Pilot getCopilot() {
-        return copilot;
-    }
-
-    public void setCopilot(Pilot copilot) {
-        this.copilot = copilot;
-    }    
-    
-    public Aircraft getAircraft() {
-        return aircraft;
-    }
-
-    public void setAircraft(Aircraft aircraft) {
-        this.aircraft = aircraft;
-    }
-
-    public Airport getOrigin() {
-        return origin;
-    }
-
-    public void setOrigin(Airport origin) {
-        this.origin = origin;
-    }
-
-    public Airport getDestination() {
-        return destination;
-    }
-
-    public void setDestination(Airport destination) {
-        this.destination = destination;
-    }
-
-    public Instant getDepartureTime() {
-        return departureTime;
-    }
-
-    public void setDepartureTime(Instant departureTime) {
-        this.departureTime = departureTime;
-    }
-
-    public Instant getArrivalTime() {
-        return arrivalTime;
-    }
-
-    public void setArrivalTime(Instant arrivalTime) {
-        this.arrivalTime = arrivalTime;
-    }
-
-    public Instant getTakeOffTime() {
-        return takeOffTime;
-    }
-
-    public void setTakeOffTime(Instant takeOffTime) {
-        this.takeOffTime = takeOffTime;
-    }
-
-    public Instant getLandingTime() {
-        return landingTime;
-    }
-
-    public void setLandingTime(Instant landingTime) {
-        this.landingTime = landingTime;
-    }
-
-    public int getNumLandings() {
-        return numLandings;
-    }
-
-    public void setNumLandings(int numLandings) {
-        this.numLandings = numLandings;
-    }
-
-    public int getNumTakeOffs() {
-        return numTakeOffs;
-    }
-
-    public void setNumTakeOffs(int numTakeoffs) {
-        this.numTakeOffs = numTakeoffs;
+    public String getArrAirportCode()
+    {
+        if (this.destination == null) {
+            return null;
+        }
+        
+        return destination.getCode();
     }
     
-    public void setFlightState(FlightState flightState) {
-        this.flightState = flightState;        
+    public String getAircraftType() {
+        if (this.aircraft == null) {
+            return null;
+        }
+        
+        return aircraft.getType();
     }
-
-
-    @Override
-    public String toString() {
-        return "Flight: Aircraft=" + aircraft + ", pic=" + pic + ", copilot=" + copilot + ", origin=" + origin + ", destination=" + destination + ", departureTime=" + departureTime + ", arrivalTime=" + arrivalTime + ", takeOffTime=" + takeOffTime + ", landingTime=" + landingTime + ", numLandings=" + numLandings + ", numTakeOffs=" + numTakeOffs + ", flightState=" + flightState + "\nDuration: " + getDuration() + " Flight time: " + getFlightDuration();
+    
+    public String getAircraftIdentifier() {
+        if (this.aircraft == null) {
+            return null;
+        }
+        
+        return aircraft.getIdentifier();
     }
-
+    
+    public String getPilotFullName() {
+        if (this.pic == null) {
+            return null;
+        }
+        
+        return pic.getFullName();
+    }
 }

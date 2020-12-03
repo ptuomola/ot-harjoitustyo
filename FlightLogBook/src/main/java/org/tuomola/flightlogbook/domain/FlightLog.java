@@ -2,14 +2,10 @@ package org.tuomola.flightlogbook.domain;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.time.LocalDate;
 import java.time.Period;
-import java.time.ZonedDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.BinaryOperator;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -79,10 +75,26 @@ public class FlightLog {
                         .reduce(Duration.ZERO, (a, b) -> (a.plus(b)));
     }
 
+    public int getTotalFlights() {
+        return (flights == null) ? 0 : flights.size();
+    }
+    
     public int getTotalLandings() {
         return (flights == null) ? 0 : flights.stream().map(f -> f.getNumLandings()).reduce(0, (a, b) -> (a + b));
     }
 
+    public int getFlightsDuringLast(Period ofMonths) {
+        Instant cutoffDate = Instant.now().minus(ofMonths);
+        
+        return (flights == null) ? 
+                0 : 
+                flights
+                    .stream()
+                    .filter(f -> (f.getArrivalTime() != null && f.getArrivalTime().isAfter(cutoffDate)))
+                    .map(f -> 1)
+                    .reduce(0, (a, b) -> (a + b));
+    }
+    
     public int getLandingsDuringLast(Period ofMonths) {
         Instant cutoffDate = Instant.now().minus(ofMonths);
         

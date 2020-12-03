@@ -12,56 +12,77 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tuomola.flightlogbook.ui.MainController">
+<StackPane prefHeight="221.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tuomola.flightlogbook.ui.MainController">
   <children>
     <StackPane>
       <children>
         <VBox spacing="10.0">
           <children>
             <StackPane prefHeight="-1.0" prefWidth="-1.0" />
-            <GridPane prefHeight="96.0" prefWidth="632.0">
+            <GridPane>
               <children>
                 <Label text="Pilot" GridPane.columnIndex="0">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font></Label>
-                <Label fx:id="usernameLabel" text="&lt;username&gt;" GridPane.columnIndex="1">
+                <Label fx:id="usernameLabel" prefHeight="16.0" prefWidth="477.0" text="&lt;username&gt;" GridPane.columnIndex="1" GridPane.columnSpan="2147483647">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial Bold" size="13.0" />
                            </font></Label>
-                        <Label text="Total flight time" GridPane.rowIndex="1" />
-                        <Label fx:id="totalFlightTimeLabel" text="&lt;flight time&gt;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label text="Total takeoffs" GridPane.rowIndex="2" />
-                        <Label text="Total landings" GridPane.rowIndex="3" />
-                        <Label fx:id="totalTakeOffsLabel" text="&lt;takeoffs&gt;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label fx:id="totalLandingsLabel" text="&lt;landings&gt;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label text="Last 12 months" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Label text="Last 3 months" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <Label text="Last 3 months" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                        <Label fx:id="last12mFlightTimeLabel" text="&lt;flight time&gt;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <Label fx:id="last3mTakeOffsLabel" text="&lt;flight time&gt;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                        <Label fx:id="last3mLandingsLabel" text="&lt;flight time&gt;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <Label text="Total flight time" GridPane.rowIndex="3" />
+                        <Label fx:id="totalFlightTimeLabel" text="&lt;flight time&gt;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="Total takeoffs" GridPane.rowIndex="4" />
+                        <Label text="Total landings" GridPane.rowIndex="5" />
+                        <Label fx:id="totalTakeOffsLabel" text="&lt;takeoffs&gt;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="totalLandingsLabel" text="&lt;landings&gt;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label text="Last 12 months" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Label text="Last 3 months" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <Label text="Last 3 months" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <Label fx:id="last12mFlightTimeLabel" text="&lt;flight time&gt;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <Label fx:id="last3mTakeOffsLabel" text="&lt;flight time&gt;" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <Label fx:id="last3mLandingsLabel" text="&lt;flight time&gt;" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                        <Label text="Total flights" GridPane.rowIndex="2" />
+                        <Label fx:id="totalFlightsLabel" text="&lt;number of flights&gt;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="last12mFlightsLabel" text="&lt;number of flights&gt;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Label text="Last 12 months" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label prefHeight="16.0" prefWidth="600.0" text="Warnings" GridPane.columnSpan="2147483647" GridPane.rowIndex="7">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="warningsLabel" text="All OK" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                        </Label>
               </children>
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="107.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="548.0" minWidth="10.0" prefWidth="245.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="391.0" minWidth="10.0" prefWidth="123.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="428.0" minWidth="10.0" prefWidth="206.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="112.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="548.0" minWidth="10.0" prefWidth="195.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="391.0" minWidth="10.0" prefWidth="109.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="428.0" minWidth="10.0" prefWidth="184.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="18.0" minHeight="10.0" prefHeight="13.0" vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="14.0" minHeight="9.0" prefHeight="12.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
               </rowConstraints>
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
             </GridPane>
                   <HBox prefHeight="68.0" prefWidth="632.0">
                      <children>
-                        <ButtonBar prefHeight="68.0" prefWidth="362.0">
+                        <ButtonBar>
                           <buttons>
-                              <Button mnemonicParsing="false" onAction="#handleViewAircraftButtonAction" text="View Aircraft" />
                               <Button mnemonicParsing="false" onAction="#handleViewAirportsButtonAction" text="View Airports" />
                               <Button mnemonicParsing="false" onAction="#handleViewFlightsButtonAction" text="View Flights" />
+                              <Button mnemonicParsing="false" onAction="#handleViewAircraftButtonAction" text="View Aircraft" />
                           </buttons>
                         </ButtonBar>
                         <ButtonBar prefHeight="76.0" prefWidth="308.0">

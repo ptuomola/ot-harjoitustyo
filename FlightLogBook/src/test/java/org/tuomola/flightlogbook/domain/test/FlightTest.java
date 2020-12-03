@@ -43,7 +43,8 @@ public class FlightTest {
     @Test
     public void testFlightStateMachine()
     {
-        Pilot p = new Pilot(RandomStringUtils.randomAlphanumeric(10));
+        Pilot p = new Pilot();
+        p.setUserName(RandomStringUtils.randomAlphanumeric(10));
         ps.savePilot(p);
         FlightLog fl = fls.findOrCreateLog(p);
         Flight flight = fls.addNewFlight(fl);
@@ -61,7 +62,8 @@ public class FlightTest {
     @Test
     public void testCountLandingTakeoff()
     {
-        Pilot p = new Pilot(RandomStringUtils.randomAlphanumeric(10));
+        Pilot p = new Pilot();
+        p.setUserName(RandomStringUtils.randomAlphanumeric(10));
         ps.savePilot(p);
         FlightLog fl = fls.findOrCreateLog(p);
         Flight flight = fls.addNewFlight(fl);
@@ -79,7 +81,8 @@ public class FlightTest {
     @Test
     public void testTouchAndGoNumLandingsTakeOffs()
     {
-        Pilot p = new Pilot(RandomStringUtils.randomAlphanumeric(10));
+        Pilot p = new Pilot();
+        p.setUserName(RandomStringUtils.randomAlphanumeric(10));
         ps.savePilot(p);
         FlightLog fl = fls.findOrCreateLog(p);
         Flight flight = fls.addNewFlight(fl);
@@ -103,7 +106,8 @@ public class FlightTest {
     @Test
     public void testDurationFromStates() throws InterruptedException
     {
-        Pilot p = new Pilot(RandomStringUtils.randomAlphanumeric(10));
+        Pilot p = new Pilot();
+        p.setUserName(RandomStringUtils.randomAlphanumeric(10));
         ps.savePilot(p);
         FlightLog fl = fls.findOrCreateLog(p);
         Flight flight = fls.addNewFlight(fl);
@@ -119,7 +123,8 @@ public class FlightTest {
     @Test
     public void testFlightDurationFromStates() throws InterruptedException
     {
-        Pilot p = new Pilot(RandomStringUtils.randomAlphanumeric(10));
+        Pilot p = new Pilot();
+        p.setUserName(RandomStringUtils.randomAlphanumeric(10));
         ps.savePilot(p);
         FlightLog fl = fls.findOrCreateLog(p);
         Flight flight = fls.addNewFlight(fl);
@@ -135,7 +140,8 @@ public class FlightTest {
     @Test
     public void testDurationBySetting() throws InterruptedException
     {
-        Pilot p = new Pilot(RandomStringUtils.randomAlphanumeric(10));
+        Pilot p = new Pilot();
+        p.setUserName(RandomStringUtils.randomAlphanumeric(10));
         ps.savePilot(p);
         FlightLog fl = fls.findOrCreateLog(p);
         Flight flight = fls.addNewFlight(fl);
@@ -148,7 +154,8 @@ public class FlightTest {
     @Test
     public void testFlightDurationBySetting() throws InterruptedException
     {
-        Pilot p = new Pilot(RandomStringUtils.randomAlphanumeric(10));
+        Pilot p = new Pilot();
+        p.setUserName(RandomStringUtils.randomAlphanumeric(10));
         ps.savePilot(p);
         FlightLog fl = fls.findOrCreateLog(p);
         Flight flight = fls.addNewFlight(fl);
@@ -160,7 +167,8 @@ public class FlightTest {
     @Test
     public void testSetOrigin() {
         String originCode = RandomStringUtils.randomAlphanumeric(4).toUpperCase();
-        Pilot p = new Pilot(RandomStringUtils.randomAlphanumeric(10));
+        Pilot p = new Pilot();
+        p.setUserName(RandomStringUtils.randomAlphanumeric(10));
         ps.savePilot(p);
         FlightLog fl = fls.findOrCreateLog(p);
         Flight flight = fls.addNewFlight(fl);
@@ -171,7 +179,8 @@ public class FlightTest {
     @Test
     public void testSetDestination() {
         String destinationCode = RandomStringUtils.randomAlphanumeric(4).toUpperCase();
-        Pilot p = new Pilot(RandomStringUtils.randomAlphanumeric(10));
+        Pilot p = new Pilot();
+        p.setUserName(RandomStringUtils.randomAlphanumeric(10));
         ps.savePilot(p);
         FlightLog fl = fls.findOrCreateLog(p);
         Flight flight = fls.addNewFlight(fl);
@@ -182,7 +191,8 @@ public class FlightTest {
     @Test
     public void testSetAircraft() {
         String aircraftId = "OH-" + RandomStringUtils.randomAlphanumeric(3).toUpperCase();
-        Pilot p = new Pilot(RandomStringUtils.randomAlphanumeric(10));
+        Pilot p = new Pilot();
+        p.setUserName(RandomStringUtils.randomAlphanumeric(10));
         ps.savePilot(p);
         FlightLog fl = fls.findOrCreateLog(p);
         Flight flight = fls.addNewFlight(fl);

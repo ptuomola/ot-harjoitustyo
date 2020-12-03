@@ -87,7 +87,8 @@ public class CreatePilotController {
         
         String encryptedPassword = pwds.encrypt(passwordStr);
         
-        Pilot p = new Pilot(username);
+        Pilot p = new Pilot();
+        p.setUserName(username);
         p.setPassword(encryptedPassword);
         p.setFullName(fullNameField.getText());
         p.setEmail(emailField.getText());

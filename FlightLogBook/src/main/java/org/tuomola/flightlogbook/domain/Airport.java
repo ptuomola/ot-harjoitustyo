@@ -4,12 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import lombok.Data;
 
 /**
  *
  * @author ptuomola
  */
 
+@Data
 @Entity
 public class Airport {
     
@@ -21,24 +23,7 @@ public class Airport {
     
     private String name;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
     public void setCode(String code) {
         this.code = code.toUpperCase();
-    }
-
-    @Override
-    public String toString() {
-        return "Airport{" + "code=" + code + ", name=" + name + '}';
     }
 }

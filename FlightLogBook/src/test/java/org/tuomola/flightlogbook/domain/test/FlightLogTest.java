@@ -2,17 +2,12 @@ package org.tuomola.flightlogbook.domain.test;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Month;
 import java.time.Period;
-import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import org.apache.commons.lang3.RandomStringUtils;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +42,8 @@ public class FlightLogTest {
     @Test
     public void testEmptyLog() throws InterruptedException
     {
-        Pilot p = new Pilot(RandomStringUtils.randomAlphanumeric(10));
+        Pilot p = new Pilot();
+        p.setUserName(RandomStringUtils.randomAlphanumeric(10));
         ps.savePilot(p);
         FlightLog fl = fls.findOrCreateLog(p);
         assertThat(fl.getTotalLandings(), is(0));
@@ -62,7 +58,8 @@ public class FlightLogTest {
     @Test
     public void testAllWithinLast3Months() throws InterruptedException
     {
-        Pilot p = new Pilot(RandomStringUtils.randomAlphanumeric(10));
+        Pilot p = new Pilot();
+        p.setUserName(RandomStringUtils.randomAlphanumeric(10));
         ps.savePilot(p);
         FlightLog fl = fls.findOrCreateLog(p);
         
@@ -89,7 +86,8 @@ public class FlightLogTest {
     @Test
     public void testAllOlderThan12Months() throws InterruptedException
     {
-        Pilot p = new Pilot(RandomStringUtils.randomAlphanumeric(10));
+        Pilot p = new Pilot();
+        p.setUserName(RandomStringUtils.randomAlphanumeric(10));
         ps.savePilot(p);
         FlightLog fl = fls.findOrCreateLog(p);
         

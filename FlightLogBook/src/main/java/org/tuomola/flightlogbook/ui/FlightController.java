@@ -1,21 +1,25 @@
 package org.tuomola.flightlogbook.ui;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import net.rgielen.fxweaver.core.FxControllerAndView;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.tuomola.flightlogbook.domain.DateHelper;
+import org.tuomola.flightlogbook.domain.util.DateHelper;
 import org.tuomola.flightlogbook.domain.Flight;
 import org.tuomola.flightlogbook.domain.FlightLog;
 import org.tuomola.flightlogbook.service.FlightLogService;
@@ -166,7 +170,17 @@ public class FlightController {
                 break;
         }
     }
+    
+    
+    
+    public void handleAddFlightDetailsButton(ActionEvent event) throws IOException {
+        FxControllerAndView<FlightDetailsDialogController, Parent> cav = fxWeaver.load(FlightDetailsDialogController.class);
+        cav.getController().setFlight(f);
+        
+        Scene scene = new Scene(cav.getView().get());
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.showAndWait();
+    }
 }
-
-
-
