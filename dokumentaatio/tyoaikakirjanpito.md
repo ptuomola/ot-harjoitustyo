@@ -16,4 +16,4 @@
 | 2.12 | 1.0  | Lisätoiminnallisuuksien ohjelmointi |
 | 3.12 | 2.0  | Lisätoiminnallisuuksien ohjelmointi |
 | 5.12 | 2.0  | Lisätoiminnallisuuksien ohjelmointi |
-| yht   | 20.0  | | 
+| yht   | 22.0  | | 
