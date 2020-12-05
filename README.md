@@ -63,7 +63,7 @@ generoi hakemistoon _target_ suoritettavan jar-tiedoston FlightLogBook-1.0-SNAPS
 JavaDoc generoidaan komennolla
 
 ```
-mvn javadoc:javadoc
+mvn clean javadoc:javadoc
 ```
 
 JavaDocia voi tarkastella avaamalla selaimella tiedosto _target/site/apidocs/index.html_
