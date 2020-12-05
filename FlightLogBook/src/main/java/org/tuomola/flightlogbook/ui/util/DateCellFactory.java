@@ -15,10 +15,9 @@ public class DateCellFactory  {
             @Override
             protected void updateItem(Date item, boolean empty) {
                 super.updateItem(item, empty);
-                if(empty) {
+                if (empty) {
                     setText(null);
-                }
-                else {
+                } else {
                     setText(FormatHelper.formatDate(item));
                 }
             }

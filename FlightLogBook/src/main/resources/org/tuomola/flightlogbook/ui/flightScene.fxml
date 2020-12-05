@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefWidth="231.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tuomola.flightlogbook.ui.FlightController">
+<StackPane prefHeight="574.0" prefWidth="271.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tuomola.flightlogbook.ui.FlightController">
   <children>
     <StackPane>
       <children>
@@ -125,17 +125,17 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </GridPane>
-                  <Button fx:id="touchAndGoButton1" alignment="CENTER" mnemonicParsing="false" onAction="#handleAddFlightDetailsButton" prefHeight="42.0" prefWidth="222.0" text="Add flight details">
+                  <Button fx:id="touchAndGoButton1" alignment="CENTER" mnemonicParsing="false" onAction="#handleAddFlightDetailsButton" prefHeight="42.0" prefWidth="244.0" text="Add flight details">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="touchAndGoButton" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#handleTouchAndGoButtonAction" prefHeight="42.0" prefWidth="191.0" text="Touch and go">
+                  <Button fx:id="touchAndGoButton" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#handleTouchAndGoButtonAction" prefHeight="42.0" prefWidth="257.0" text="Touch and go">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="nextActionButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleNextActionButtonAction" prefHeight="42.0" prefWidth="191.0" text="Start taxi">
+                  <Button fx:id="nextActionButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleNextActionButtonAction" prefHeight="42.0" prefWidth="271.0" text="Start taxi">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" />
                      </VBox.margin>

@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.tuomola.flightlogbook.dao.AircraftRepository;
 import org.tuomola.flightlogbook.dao.FlightRepository;
-import org.tuomola.flightlogbook.dao.PilotAircraftDAO;
 import org.tuomola.flightlogbook.domain.Aircraft;
 import org.tuomola.flightlogbook.domain.Flight;
 import org.tuomola.flightlogbook.domain.Pilot;
@@ -56,24 +55,24 @@ public class AircraftService {
         return ar.findAll();
     }
     
-    public Collection<PilotAircraftDAO> getAllAircraftWithFlightData(Pilot p) {
+    public Collection<PilotAircraftVO> getAllAircraftWithFlightData(Pilot p) {
         List<Flight> flights = fr.getByPic(p);
 
-        if(flights == null) {
+        if (flights == null) {
             return null;
         }
         
-        HashMap<String, PilotAircraftDAO> aircraftMap = new HashMap<>();
+        HashMap<String, PilotAircraftVO> aircraftMap = new HashMap<>();
         
         for (Flight f : flights) {
             if (f.getAircraft() == null) {
                 continue;
             }
             
-            PilotAircraftDAO dao = aircraftMap.get(f.getAircraft().getIdentifier());
+            PilotAircraftVO dao = aircraftMap.get(f.getAircraft().getIdentifier());
             
             if (dao == null) {
-                dao = new PilotAircraftDAO(f.getAircraft());
+                dao = new PilotAircraftVO(f.getAircraft());
                 aircraftMap.put(f.getAircraft().getIdentifier(), dao);
             }
             

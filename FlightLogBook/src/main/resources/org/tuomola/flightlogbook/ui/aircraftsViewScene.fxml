@@ -14,10 +14,10 @@
          <children>
             <TableView fx:id="table" prefHeight="477.0" prefWidth="856.0">
               <columns>
-                  <TableColumn fx:id="identifier" editable="false" prefWidth="108.0" style="-fx-alignment: CENTER;" text="Registration" />
-                  <TableColumn fx:id="type" prefWidth="117.0" style="-fx-alignment: CENTER;" text="Type" />
-                  <TableColumn fx:id="hoursFlown" prefWidth="115.0" style="-fx-alignment: CENTER;" text="Total time flown" />
-                  <TableColumn fx:id="lastFlightDate" minWidth="0.0" prefWidth="108.0" style="-fx-alignment: CENTER;" text="Last flight" />
+                  <TableColumn fx:id="identifier" editable="false" prefWidth="127.0" style="-fx-alignment: CENTER;" text="Registration" />
+                  <TableColumn fx:id="type" prefWidth="118.0" style="-fx-alignment: CENTER;" text="Type" />
+                  <TableColumn fx:id="hoursFlown" prefWidth="121.0" style="-fx-alignment: CENTER;" text="Total time flown" />
+                  <TableColumn fx:id="lastFlightDate" minWidth="0.0" prefWidth="105.0" style="-fx-alignment: CENTER;" text="Last flight" />
               </columns>
             </TableView>
             <ButtonBar prefHeight="40.0" prefWidth="200.0">

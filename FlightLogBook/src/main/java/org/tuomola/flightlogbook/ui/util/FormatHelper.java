@@ -13,8 +13,8 @@ import org.apache.commons.lang3.time.DurationFormatUtils;
  * @author ptuomola
  */
 public class FormatHelper {
-    private static SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
-    private static final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss").withZone(ZoneId.of("Z"));
+    private static final SimpleDateFormat FORMATTER = new SimpleDateFormat("dd.MM.yyyy");
+    private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss").withZone(ZoneId.of("Z"));
 
    
     public static String formatDuration(Duration duration) {
@@ -30,7 +30,7 @@ public class FormatHelper {
             return "";
         }
         
-        return formatter.format(date);
+        return FORMATTER.format(date);
     }
 
     public static String formatTime(Instant instant) {
@@ -38,6 +38,6 @@ public class FormatHelper {
             return "";
         }
         
-        return timeFormatter.format(instant);
+        return TIME_FORMATTER.format(instant);
     }
 }

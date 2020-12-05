@@ -9,4 +9,6 @@
     <suppress files="org.tuomola.flightlogbook.ui.FlightController.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="org.tuomola.flightlogbook.ui.LoginController.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="org.tuomola.flightlogbook.ui.MainController.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="org.tuomola.flightlogbook.ui.FlightsViewController.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="org.tuomola.flightlogbook.ui.FlightDetailsDialogController.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>

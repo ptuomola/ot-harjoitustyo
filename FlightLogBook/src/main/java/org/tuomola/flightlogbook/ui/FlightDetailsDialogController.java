@@ -72,28 +72,28 @@ public class FlightDetailsDialogController {
     public void setFlight(Flight flight) {
         this.flight = flight;
         
-        if(flight.getOrigin() != null) {
+        if (flight.getOrigin() != null) {
             origOrigin = flight.getOrigin().getCode();
             originField.setText(origOrigin);
         } else {
             origOrigin = null;
         }
         
-        if(flight.getDestination() != null) {
+        if (flight.getDestination() != null) {
             origDestination = flight.getDestination().getCode();
             destinationField.setText(origDestination);
         } else {
             origDestination = null;
         }
         
-        if(flight.getAircraft() != null) {
+        if (flight.getAircraft() != null) {
             origAircraft = flight.getAircraft().getIdentifier();
             aircraftField.setText(origAircraft);
         } else {
             origAircraft = null;
         }
         
-        if(flight.getPic() != null) {
+        if (flight.getPic() != null) {
             origPilot = flight.getPic().getFullName();
             pilotField.setText(origPilot);
         } else {
@@ -145,9 +145,14 @@ public class FlightDetailsDialogController {
 
     private boolean hasFieldChanged(String origValue, TextField field) {
         String newValue = field.getText();     
-        if (origValue == null && newValue != null) return true;
-        else if (newValue == null && origValue != null) return true;
-        else if (!origValue.equals(newValue)) return true;
-        else return false;
+        if (origValue == null && newValue != null) { 
+            return true;
+        } else if (newValue == null && origValue != null) {
+            return true;
+        } else if (!origValue.equals(newValue)) { 
+            return true;
+        } else {
+            return false;
+        }
     }
 }

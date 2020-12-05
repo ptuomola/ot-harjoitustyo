@@ -1,4 +1,4 @@
-package org.tuomola.flightlogbook.dao;
+package org.tuomola.flightlogbook.service;
 
 import java.time.Duration;
 import java.util.Date;
@@ -13,14 +13,14 @@ import org.tuomola.flightlogbook.domain.Airport;
 
 @Data
 @NoArgsConstructor
-public class PilotAirportDAO {
+public class PilotAirportVO {
     private String code;
     private String name;
     private Date lastVisit;
     private int numDepartures;
     private int numArrivals;
 
-    public PilotAirportDAO(Airport airport) {
+    public PilotAirportVO(Airport airport) {
         code = airport.getCode();
         name = airport.getName();
         numDepartures = 0;
@@ -29,11 +29,11 @@ public class PilotAirportDAO {
     }
 
     public void setLastVisitIfBefore(Date flightDate) {
-        if(flightDate == null) {
+        if (flightDate == null) {
             return;
         }
         
-        if(lastVisit == null || lastVisit.before(flightDate)) {
+        if (lastVisit == null || lastVisit.before(flightDate)) {
             lastVisit = flightDate;
         }
     }

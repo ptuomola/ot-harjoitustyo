@@ -14,8 +14,8 @@ import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.tuomola.flightlogbook.dao.PilotAircraftDAO;
-import org.tuomola.flightlogbook.dao.PilotAirportDAO;
+import org.tuomola.flightlogbook.service.PilotAircraftVO;
+import org.tuomola.flightlogbook.service.PilotAirportVO;
 import org.tuomola.flightlogbook.domain.Pilot;
 import org.tuomola.flightlogbook.service.AircraftService;
 import org.tuomola.flightlogbook.service.AirportService;
@@ -38,7 +38,7 @@ public class AirportsViewController {
     
     @FXML private TableColumn code;
     @FXML private TableColumn name;
-    @FXML private TableColumn<PilotAirportDAO, Date> lastVisit;
+    @FXML private TableColumn<PilotAirportVO, Date> lastVisit;
     @FXML private TableColumn numDepartures;
     @FXML private TableColumn numArrivals;
     @FXML private TableView table;
@@ -52,15 +52,15 @@ public class AirportsViewController {
     public void initialize() {
         Pilot p = lius.getLoggedInPilot();
         
-        final ObservableList<PilotAirportDAO> data = FXCollections.observableArrayList(as.getAllAirportsWithVisits(p));
-        code.setCellValueFactory(new PropertyValueFactory<PilotAirportDAO, String>("code"));
-        name.setCellValueFactory(new PropertyValueFactory<PilotAirportDAO, String>("name"));
+        final ObservableList<PilotAirportVO> data = FXCollections.observableArrayList(as.getAllAirportsWithVisits(p));
+        code.setCellValueFactory(new PropertyValueFactory<PilotAirportVO, String>("code"));
+        name.setCellValueFactory(new PropertyValueFactory<PilotAirportVO, String>("name"));
 
-        lastVisit.setCellFactory(column -> DateCellFactory.<PilotAirportDAO>createCell());
+        lastVisit.setCellFactory(column -> DateCellFactory.<PilotAirportVO>createCell());
         lastVisit.setCellValueFactory(new PropertyValueFactory<>("lastVisit"));
 
-        numDepartures.setCellValueFactory(new PropertyValueFactory<PilotAirportDAO, Integer>("numDepartures"));
-        numArrivals.setCellValueFactory(new PropertyValueFactory<PilotAirportDAO, Integer>("numArrivals"));
+        numDepartures.setCellValueFactory(new PropertyValueFactory<PilotAirportVO, Integer>("numDepartures"));
+        numArrivals.setCellValueFactory(new PropertyValueFactory<PilotAirportVO, Integer>("numArrivals"));
         
         table.setItems(data);
         

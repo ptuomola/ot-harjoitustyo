@@ -16,10 +16,9 @@ public class DurationCellFactory  {
             @Override
             protected void updateItem(Duration item, boolean empty) {
                 super.updateItem(item, empty);
-                if(empty) {
+                if (empty) {
                     setText(null);
-                }
-                else {
+                } else {
                     setText(FormatHelper.formatDuration(item));
                 }
             }

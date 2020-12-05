@@ -17,10 +17,9 @@ public class TimeCellFactory  {
             @Override
             protected void updateItem(Instant item, boolean empty) {
                 super.updateItem(item, empty);
-                if(empty) {
+                if (empty) {
                     setText(null);
-                }
-                else {
+                } else {
                     setText(FormatHelper.formatTime(item));
                 }
             }

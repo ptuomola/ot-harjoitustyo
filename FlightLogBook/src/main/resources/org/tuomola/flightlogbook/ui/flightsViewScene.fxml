@@ -35,8 +35,8 @@
                   </TableColumn>
                   <TableColumn fx:id="totalTime" prefWidth="87.0" style="-fx-alignment: CENTER;" text="Total time" />
                   <TableColumn fx:id="picName" prefWidth="162.0" text="Name PIC" />
-                  <TableColumn fx:id="numTakeoffs" minWidth="0.0" prefWidth="70.0" style="-fx-alignment: CENTER;" text="Takeoffs" />
-                  <TableColumn fx:id="numLandings" prefWidth="70.0" style="-fx-alignment: CENTER;" text="Landings" />
+                  <TableColumn fx:id="numTakeoffs" minWidth="0.0" style="-fx-alignment: CENTER;" text="Takeoffs" />
+                  <TableColumn fx:id="numLandings" prefWidth="93.0" style="-fx-alignment: CENTER;" text="Landings" />
               </columns>
             </TableView>
             <ButtonBar prefHeight="40.0" prefWidth="200.0">

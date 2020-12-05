@@ -11,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.tuomola.flightlogbook.dao.AirportRepository;
 import org.tuomola.flightlogbook.dao.FlightRepository;
-import org.tuomola.flightlogbook.dao.PilotAircraftDAO;
-import org.tuomola.flightlogbook.dao.PilotAirportDAO;
 import org.tuomola.flightlogbook.domain.Airport;
 import org.tuomola.flightlogbook.domain.Flight;
 import org.tuomola.flightlogbook.domain.Pilot;
@@ -58,14 +56,14 @@ public class AirportService {
         return ar.findAll();
     }
     
-    public Collection<PilotAirportDAO> getAllAirportsWithVisits(Pilot p) {
+    public Collection<PilotAirportVO> getAllAirportsWithVisits(Pilot p) {
         List<Flight> flights = fr.getByPic(p);
 
-        if(flights == null) {
+        if (flights == null) {
             return null;
         }
         
-        HashMap<String, PilotAirportDAO> airportMap = new HashMap<>();
+        HashMap<String, PilotAirportVO> airportMap = new HashMap<>();
         
         for (Flight f : flights) {
             processAirport(airportMap, f.getOrigin(), f.getFlightDate(), dao -> dao.incrementDepartures());
@@ -75,16 +73,15 @@ public class AirportService {
         return airportMap.values();
     }
 
-    private void processAirport(HashMap<String, PilotAirportDAO> airportMap, Airport a, Date visitDate, Consumer <PilotAirportDAO> increment)
-    {
-        if(a == null) { 
+    private void processAirport(HashMap<String, PilotAirportVO> airportMap, Airport a, Date visitDate, Consumer<PilotAirportVO> increment) {
+        if (a == null) { 
             return;
         }
         
-        PilotAirportDAO dao = airportMap.get(a.getCode());
+        PilotAirportVO dao = airportMap.get(a.getCode());
 
         if (dao == null) {
-            dao = new PilotAirportDAO(a);
+            dao = new PilotAirportVO(a);
             airportMap.put(a.getCode(), dao);
         }
 

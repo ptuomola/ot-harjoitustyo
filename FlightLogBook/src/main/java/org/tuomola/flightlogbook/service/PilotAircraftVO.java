@@ -1,4 +1,4 @@
-package org.tuomola.flightlogbook.dao;
+package org.tuomola.flightlogbook.service;
 
 import java.time.Duration;
 import java.util.Date;
@@ -14,13 +14,13 @@ import org.tuomola.flightlogbook.domain.Airport;
 
 @Data
 @NoArgsConstructor
-public class PilotAircraftDAO {
+public class PilotAircraftVO {
     private String identifier;
     private String type;
     private Date lastFlight;
     private Duration hoursFlown;
 
-    public PilotAircraftDAO(Aircraft aircraft) {
+    public PilotAircraftVO(Aircraft aircraft) {
         identifier = aircraft.getIdentifier();
         type = aircraft.getType();
         lastFlight = null;
@@ -40,7 +40,7 @@ public class PilotAircraftDAO {
             return;
         }
         
-        if(lastFlight == null || lastFlight.before(flightDate)) {
+        if (lastFlight == null || lastFlight.before(flightDate)) {
             lastFlight = flightDate;
         }
     }

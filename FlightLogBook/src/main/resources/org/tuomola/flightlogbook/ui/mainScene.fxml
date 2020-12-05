@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="221.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tuomola.flightlogbook.ui.MainController">
+<StackPane prefHeight="221.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tuomola.flightlogbook.ui.MainController">
   <children>
     <StackPane>
       <children>
@@ -50,7 +50,7 @@
                               <Font name="Arial Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="warningsLabel" text="All OK" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                        <Label fx:id="warningsLabel" prefHeight="16.0" prefWidth="541.0" text="All OK" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="7">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
@@ -80,15 +80,15 @@
                      <children>
                         <ButtonBar>
                           <buttons>
-                              <Button mnemonicParsing="false" onAction="#handleViewAirportsButtonAction" text="View Airports" />
+                              <Button mnemonicParsing="false" onAction="#handleViewAirportsButtonAction" prefHeight="27.0" prefWidth="125.0" text="View Airports" />
                               <Button mnemonicParsing="false" onAction="#handleViewFlightsButtonAction" text="View Flights" />
                               <Button mnemonicParsing="false" onAction="#handleViewAircraftButtonAction" text="View Aircraft" />
                           </buttons>
                         </ButtonBar>
                         <ButtonBar prefHeight="76.0" prefWidth="308.0">
                           <buttons>
-                              <Button defaultButton="true" mnemonicParsing="false" onAction="#handleStartFlightButtonAction" text="Start New Flight" />
                       <Button alignment="CENTER" cancelButton="true" mnemonicParsing="false" onAction="#handleLogoutButtonAction" text="Logout" />
+                              <Button defaultButton="true" mnemonicParsing="false" onAction="#handleStartFlightButtonAction" text="Start New Flight" />
                           </buttons>
                         </ButtonBar>
                      </children>
