@@ -52,70 +52,39 @@ public class Flight {
 
     private FlightState flightState = FlightState.INITIAL;
     
-    public Date getFlightDate()
-    {
-        if(departureTime == null) { 
-            return null;
-        }
-        
-        return Date.from(departureTime); 
+    public Date getFlightDate() {
+        return departureTime == null ? null : Date.from(departureTime);
     }
     
+    public Date getArrivalDate() {
+        return arrivalTime == null ? null : Date.from(arrivalTime);
+    }  
+    
     public Duration getDuration() {
-        if (departureTime == null || arrivalTime == null) {
-            return null;
-        }
-        
-        return Duration.between(departureTime, arrivalTime);
+        return (departureTime == null || arrivalTime == null) ? null : Duration.between(departureTime, arrivalTime);
     }
     
     public Duration getFlightDuration() {
-        if (takeOffTime == null || landingTime == null) {
-            return null;
-        }
-        
-        return Duration.between(takeOffTime, landingTime);
+        return (takeOffTime == null || landingTime == null) ? null : Duration.between(takeOffTime, landingTime);
     }
         
-    public String getDeptAirportCode()
-    {
-        if (this.origin == null) {
-            return null;
-        }
-        
-        return origin.getCode();
+    public String getDeptAirportCode() {
+        return this.origin == null ? null : origin.getCode();
     }
 
-    public String getArrAirportCode()
-    {
-        if (this.destination == null) {
-            return null;
-        }
-        
-        return destination.getCode();
+    public String getArrAirportCode() {
+        return this.destination == null ? null : destination.getCode();
     }
     
     public String getAircraftType() {
-        if (this.aircraft == null) {
-            return null;
-        }
-        
-        return aircraft.getType();
+        return this.aircraft == null ? null : aircraft.getType();
     }
     
     public String getAircraftIdentifier() {
-        if (this.aircraft == null) {
-            return null;
-        }
-        
-        return aircraft.getIdentifier();
+        return this.aircraft == null ? null : aircraft.getIdentifier();
     }
     
     public String getPilotFullName() {
-        if (this.pic == null) {
-            return null;
-        }
-        
-        return pic.getFullName();
+        return this.pic == null ? null : pic.getFullName();
     }
 }

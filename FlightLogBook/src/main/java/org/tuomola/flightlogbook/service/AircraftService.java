@@ -65,7 +65,7 @@ public class AircraftService {
         
         HashMap<String, PilotAircraftDAO> aircraftMap = new HashMap<>();
         
-        for(Flight f : flights) {
+        for (Flight f : flights) {
             if (f.getAircraft() == null) {
                 continue;
             }
@@ -73,22 +73,12 @@ public class AircraftService {
             PilotAircraftDAO dao = aircraftMap.get(f.getAircraft().getIdentifier());
             
             if (dao == null) {
-                dao = new PilotAircraftDAO();
-                dao.setIdentifier(f.getAircraft().getIdentifier());
-                dao.setType(f.getAircraft().getType());
-                dao.setHoursFlown(Duration.ZERO);
+                dao = new PilotAircraftDAO(f.getAircraft());
                 aircraftMap.put(f.getAircraft().getIdentifier(), dao);
             }
             
-            if(f.getFlightDate() != null) {
-                if(dao.getLastFlight() == null || dao.getLastFlight().before(f.getFlightDate())) {
-                    dao.setLastFlight(f.getFlightDate());
-                }
-                
-                if(f.getDuration() != null) {
-                    dao.setHoursFlown(dao.getHoursFlown().plus(f.getDuration()));
-                }
-            }
+            dao.addToHoursFlown(f.getDuration());
+            dao.setLastDateIfBefore(f.getFlightDate());            
         }
         
         return aircraftMap.values();

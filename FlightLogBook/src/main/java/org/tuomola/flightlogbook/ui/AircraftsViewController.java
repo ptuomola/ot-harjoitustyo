@@ -2,27 +2,19 @@ package org.tuomola.flightlogbook.ui;
 
 import java.time.Duration;
 import java.util.Date;
-import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.beans.property.SimpleObjectProperty;
 import org.tuomola.flightlogbook.ui.util.StageHelper;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableObjectValue;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.Callback;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.tuomola.flightlogbook.dao.PilotAircraftDAO;
-import org.tuomola.flightlogbook.domain.Aircraft;
 import org.tuomola.flightlogbook.domain.Pilot;
 import org.tuomola.flightlogbook.service.AircraftService;
 import org.tuomola.flightlogbook.service.LoggedInUserService;
@@ -53,8 +45,6 @@ public class AircraftsViewController {
         this.lius = lius;
         this.as = as;
     }
-
-
     
     public void initialize() {
         Pilot p = lius.getLoggedInPilot();
