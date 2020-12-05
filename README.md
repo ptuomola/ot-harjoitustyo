@@ -8,6 +8,8 @@ Sovellus laskee myös talletettujen lokikirjan tietojen perusteella yksinkertais
 
 ## Dokumentaatio
 
+[Käyttöohje](https://github.com/ptuomola/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+
 [Vaatimusmäärittely](https://github.com/ptuomola/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 [Työaikakirjanpito](https://github.com/ptuomola/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
@@ -55,6 +57,16 @@ mvn package
 ```
 
 generoi hakemistoon _target_ suoritettavan jar-tiedoston FlightLogBook-1.0-SNAPSHOT.jar
+
+### JavaDoc
+
+JavaDoc generoidaan komennolla
+
+```
+mvn javadoc:javadoc
+```
+
+JavaDocia voi tarkastella avaamalla selaimella tiedosto _target/site/apidocs/index.html_
 
 ### Checkstyle
 
