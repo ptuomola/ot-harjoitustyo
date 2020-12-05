@@ -6,7 +6,6 @@ import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
-import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,9 +14,7 @@ import org.tuomola.flightlogbook.domain.Airport;
 import org.tuomola.flightlogbook.domain.Flight;
 import org.tuomola.flightlogbook.service.AircraftService;
 import org.tuomola.flightlogbook.service.AirportService;
-import org.tuomola.flightlogbook.service.FlightLogService;
 import org.tuomola.flightlogbook.service.FlightService;
-import org.tuomola.flightlogbook.service.LoggedInUserService;
 
 /**
  *
@@ -36,22 +33,23 @@ public class FlightDetailsDialogController {
     @FXML private TextField pilotField;
     
     @Autowired
-    private FlightService fs;
+    private final FlightService fs;
     
     @Autowired
-    private AirportService apts; 
+    private final AirportService apts; 
 
     @Autowired
-    private AircraftService acs; 
+    private final AircraftService acs; 
 
     private String origDestination;
     private String origOrigin;
     private String origAircraft;
     private String origPilot;
     
-    public FlightDetailsDialogController(FlightService fs, AirportService apts) {
+    public FlightDetailsDialogController(FlightService fs, AirportService apts,  AircraftService acs) {
         this.fs = fs;
         this.apts = apts;
+        this.acs = acs; 
     }    
     
     public void initialize() {

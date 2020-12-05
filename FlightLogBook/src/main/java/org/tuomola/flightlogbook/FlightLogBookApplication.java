@@ -42,31 +42,3 @@ public class FlightLogBookApplication extends Application {
     }
     
 }
-
-
-/*
-public class Main  {
-      
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(""));
-        
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getClassLoader().getResource("css/styles.css").toExternalForm());
-        
-        stage.setTitle("Flight Log Book");
-        stage.setScene(scene);
-        stage.show();
-    }
-    
-    public static void main(String[] args) {
-        launch(args);
-        
-        // Start off UI
-        // ApplicationContext ctx = new AnnotationConfigApplicationContext(Main.class);
-        // TextUI ui = ctx.getBean(TextUI.class);
-        // ui.execute(new Scanner(System.in));
-    }
-}
-*/

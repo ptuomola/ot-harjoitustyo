@@ -33,7 +33,7 @@ public class FormatHelper {
         return formatter.format(date);
     }
 
-    static String formatTime(Instant instant) {
+    public static String formatTime(Instant instant) {
         if (instant == null) {
             return "";
         }

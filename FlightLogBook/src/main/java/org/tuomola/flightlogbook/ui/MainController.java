@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.time.Duration;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -29,13 +28,13 @@ import org.tuomola.flightlogbook.ui.util.FormatHelper;
 public class MainController {
     
     @Autowired
-    private FxWeaver fxWeaver;
+    private final FxWeaver fxWeaver;
 
     @Autowired
-    private LoggedInUserService lius;
+    private final LoggedInUserService lius;
     
     @Autowired
-    private FlightLogService fls;
+    private final FlightLogService fls;
     
     @FXML private Label usernameLabel;
     @FXML private Label totalFlightTimeLabel;
@@ -66,51 +65,54 @@ public class MainController {
         last12mFlightsLabel.setText("" + fl.getFlightsDuringLast(Period.ofDays(365)));
         
         Duration flightTimeDuringLast12Months = fl.getFlightTimeDuringLast(Period.ofDays(365));
- 
-        if (flightTimeDuringLast12Months.compareTo(Duration.of(12, ChronoUnit.HOURS)) < 0) {
-            last12mFlightTimeLabel.setTextFill(Color.RED);
-            last12mFlightTimeLabel.setText(FormatHelper.formatDuration(flightTimeDuringLast12Months));
-        } else {
-            last12mFlightTimeLabel.setText(FormatHelper.formatDuration(flightTimeDuringLast12Months));
-        }
+        last12mFlightTimeLabel.setText(FormatHelper.formatDuration(flightTimeDuringLast12Months));
                 
         int takeOffsDuringLast3Months = fl.getTakeOffsDuringLast(Period.ofDays(90));
-
-        if (takeOffsDuringLast3Months < 3) {
-            last3mTakeOffsLabel.setText("" + takeOffsDuringLast3Months);
-            last3mTakeOffsLabel.setTextFill(Color.RED);
-        } else {
-            last3mTakeOffsLabel.setText("" + takeOffsDuringLast3Months);
-        }
+        last3mTakeOffsLabel.setText("" + takeOffsDuringLast3Months);
 
         int landingsDuringLast3Months = fl.getLandingsDuringLast(Period.ofDays(90));
         last3mLandingsLabel.setText("" + landingsDuringLast3Months);
 
-        if (landingsDuringLast3Months < 3) {
-            last3mLandingsLabel.setText("" + landingsDuringLast3Months); 
-            last3mLandingsLabel.setTextFill(Color.RED);
-        } else {
-            last3mLandingsLabel.setText("" + landingsDuringLast3Months);
-        }
-        
-        String warnings = "";
-        
+        setWarnings(flightTimeDuringLast12Months, landingsDuringLast3Months, takeOffsDuringLast3Months);
+    }
+
+    private void setWarnings(Duration flightTimeDuringLast12Months, int landingsDuringLast3Months, int takeOffsDuringLast3Months) {
+
         if (flightTimeDuringLast12Months.compareTo(Duration.of(12, ChronoUnit.HOURS)) < 0) {
-            if((landingsDuringLast3Months < 3) || (takeOffsDuringLast3Months < 3)) {
-                warnings = "Not able to renew, no passengers";
-            } else {
-                warnings = "Not able to renew";
-            }
-        } else {
-            if((landingsDuringLast3Months < 3) || (takeOffsDuringLast3Months < 3)) {
-                warnings = "No passengers";
-            } 
+            last12mFlightTimeLabel.setTextFill(Color.RED);
+        } 
+
+        if (takeOffsDuringLast3Months < 3) {
+            last3mTakeOffsLabel.setTextFill(Color.RED);
+        } 
+
+        if (landingsDuringLast3Months < 3) {
+            last3mLandingsLabel.setTextFill(Color.RED);
         }
+
+        String warnings = determineWarningLabel(flightTimeDuringLast12Months, landingsDuringLast3Months, takeOffsDuringLast3Months);
         
         if(!warnings.equals("")) {
             warningsLabel.setTextFill(Color.RED);
             warningsLabel.setText(warnings);
         }
+    }
+
+    private String determineWarningLabel(Duration flightTimeDuringLast12Months, int landingsDuringLast3Months, int takeOffsDuringLast3Months) {
+
+        if (flightTimeDuringLast12Months.compareTo(Duration.of(12, ChronoUnit.HOURS)) < 0) {
+            if((landingsDuringLast3Months < 3) || (takeOffsDuringLast3Months < 3)) {
+                return "Not able to renew, no passengers";
+            } else {
+                return "Not able to renew";
+            }
+        } else {
+            if((landingsDuringLast3Months < 3) || (takeOffsDuringLast3Months < 3)) {
+                return "No passengers";
+            } 
+        }
+        
+        return "";
     }
     
     public void handleStartFlightButtonAction(ActionEvent event) {
@@ -122,14 +124,14 @@ public class MainController {
     }
 
     public void handleViewAircraftButtonAction(ActionEvent event) throws IOException {
-        AlertHelper.displayAlert("Not implemented yet", "Not implemented yet", Alert.AlertType.ERROR);
+        StageHelper.switchToView(fxWeaver.loadView(AircraftsViewController.class), event);
     }
 
     public void handleViewAirportsButtonAction(ActionEvent event) throws IOException {
-        AlertHelper.displayAlert("Not implemented yet", "Not implemented yet", Alert.AlertType.ERROR);
+        StageHelper.switchToView(fxWeaver.loadView(AirportsViewController.class), event);
     }
 
     public void handleViewFlightsButtonAction(ActionEvent event) throws IOException {
-        StageHelper.switchToView(fxWeaver.loadView(FlightViewController.class), event);
+        StageHelper.switchToView(fxWeaver.loadView(FlightsViewController.class), event);
     }
 }

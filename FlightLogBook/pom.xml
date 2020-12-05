@@ -76,7 +76,8 @@
             <version>15.0.1</version>
         </dependency>
         
-        <!--    Remove these for Netbeans to work --> 
+        <!--    Remove these for Netbeans to work -->     
+        
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics</artifactId>
@@ -97,6 +98,7 @@
             <version>15.0.1</version>
             <classifier>mac</classifier>
         </dependency>
+       
     </dependencies>
     <build>
         <plugins>
@@ -111,6 +113,8 @@
                 <configuration>
                     <excludes>
                         <exclude>org/tuomola/flightlogbook/ui/*</exclude>
+                        <exclude>org/tuomola/flightlogbook/ui/util/*</exclude>
+
                     </excludes>
                 </configuration>
                 <executions>

@@ -198,7 +198,27 @@ public class FlightTest {
         Flight flight = fls.addNewFlight(fl);
         fs.setAircraft(flight, aircraftId);
         assertThat(flight.getAircraft().getIdentifier(), equalTo(aircraftId));
-        
     }
 
+    @Test
+    public void testFlightEquals() {
+        Flight flight = new Flight();
+        Flight secondFlight = new Flight();
+        
+        assertThat(flight, equalTo(secondFlight));
+        
+        secondFlight.setNumLandings(4);
+        assertThat(flight, not(equalTo(secondFlight)));
+    }
+    
+    @Test
+    public void testFlightHashcode() {
+        Flight flight = new Flight();
+        Flight secondFlight = new Flight();
+        
+        assertThat(flight.hashCode(), equalTo(secondFlight.hashCode()));
+        
+        secondFlight.setNumLandings(4);
+        assertThat(flight.hashCode(), not(equalTo(secondFlight.hashCode())));
+    }
 }

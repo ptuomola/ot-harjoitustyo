@@ -9,7 +9,6 @@ import java.util.Date;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -27,20 +26,18 @@ public class CreatePilotController {
     @FXML private TextField user;
     @FXML private PasswordField password;
     @FXML private PasswordField repeatPassword;
-    @FXML private Button okButton;
-    @FXML private Button cancelButton;
     @FXML private TextField emailField;
     @FXML private TextField fullNameField;
     @FXML private DatePicker dobField;
     
     @Autowired
-    private PilotService ps;
+    private final PilotService ps;
     
     @Autowired
-    private PasswordService pwds;
+    private final PasswordService pwds;
     
     @Autowired
-    private FxWeaver fxWeaver;
+    private final FxWeaver fxWeaver;
     
     public CreatePilotController(PilotService ps, PasswordService pwds, FxWeaver fxWeaver) {
         this.ps = ps;
@@ -62,28 +59,12 @@ public class CreatePilotController {
     }
     
     public void handleCreatePilotAction(ActionEvent event) {
-        String username = user.getText(); 
-        if (username == null || username.length() < 3) {
-            AlertHelper.displayAlert("Invalid username", "Must be at least 3 characters", AlertType.ERROR);
-            return;
-        }
         
-        if (ps.isUsernameInUse(username)) {
-            AlertHelper.displayAlert("Invalid username", "Username already in use", AlertType.ERROR);
-            return;
-        }
+        String username = user.getText(); 
+        if (isInvalidUsername(username)) return;
         
         String passwordStr = password.getText();
-        if (passwordStr == null || !pwds.isValid(passwordStr)) {
-            AlertHelper.displayAlert("Invalid password", "Need to be at least 8 characters, and contain uppercase, lowercase, digit and special character", AlertType.ERROR);
-            return;
-        }       
-        
-        String repeatPasswordStr = repeatPassword.getText();
-        if (repeatPasswordStr == null || (repeatPasswordStr != null && !repeatPasswordStr.equals(passwordStr))) {
-            AlertHelper.displayAlert("Invalid password", "Passwords do not match", AlertType.ERROR);
-            return;
-        }
+        if (isInvalidPassword(passwordStr)) return;       
         
         String encryptedPassword = pwds.encrypt(passwordStr);
         
@@ -102,6 +83,31 @@ public class CreatePilotController {
         AlertHelper.displayAlert("Pilot created", "New pilot created with name '" + username + "'", AlertType.INFORMATION);
         
         StageHelper.switchToView(fxWeaver.loadView(LoginController.class), event);
+    }
+
+    private boolean isInvalidUsername(String username) {
+        if (username == null || username.length() < 3) {
+            AlertHelper.displayAlert("Invalid username", "Must be at least 3 characters", AlertType.ERROR);
+            return true;
+        }
+        if (ps.isUsernameInUse(username)) {
+            AlertHelper.displayAlert("Invalid username", "Username already in use", AlertType.ERROR);
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isInvalidPassword(String passwordStr) {
+        if (passwordStr == null || !pwds.isValid(passwordStr)) {
+            AlertHelper.displayAlert("Invalid password", "Need to be at least 8 characters, and contain uppercase, lowercase, digit and special character", AlertType.ERROR);
+            return true;
+        }
+        String repeatPasswordStr = repeatPassword.getText();
+        if (repeatPasswordStr == null || (repeatPasswordStr != null && !repeatPasswordStr.equals(passwordStr))) {
+            AlertHelper.displayAlert("Invalid password", "Passwords do not match", AlertType.ERROR);
+            return true;
+        }
+        return false;
     }
 
     public void handleCancelAction(ActionEvent event) throws IOException {

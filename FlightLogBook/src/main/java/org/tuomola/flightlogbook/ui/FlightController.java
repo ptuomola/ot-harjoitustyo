@@ -19,7 +19,6 @@ import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.tuomola.flightlogbook.domain.util.DateHelper;
 import org.tuomola.flightlogbook.domain.Flight;
 import org.tuomola.flightlogbook.domain.FlightLog;
 import org.tuomola.flightlogbook.service.FlightLogService;
@@ -33,16 +32,16 @@ import org.tuomola.flightlogbook.ui.util.StageHelper;
 public class FlightController {
     
     @Autowired
-    private FxWeaver fxWeaver;
+    private final FxWeaver fxWeaver;
     
     @Autowired
-    private FlightService fs;
+    private final FlightService fs;
     
     @Autowired
-    private FlightLogService fls;
+    private final FlightLogService fls;
     
     @Autowired
-    private LoggedInUserService lius;
+    private final LoggedInUserService lius;
     
     private Flight f;
     private Timer timer;
@@ -67,7 +66,7 @@ public class FlightController {
     }
     
     public void initialize() {
-        currentTimeLabel.setText(DateHelper.toTimeString(Instant.now()));
+        currentTimeLabel.setText(FormatHelper.formatTime(Instant.now()));
         
         FlightLog fl = fls.findOrCreateLog(lius.getLoggedInPilot());
         f = fls.addNewFlight(fl);
@@ -87,7 +86,7 @@ public class FlightController {
     
     private void updateDurations() {
         Instant now = Instant.now();
-        currentTimeLabel.setText(DateHelper.toTimeString(now));
+        currentTimeLabel.setText(FormatHelper.formatTime(now));
 
         if (f.getDuration() != null) {
             totalTimeLabel.setText(FormatHelper.formatDuration(f.getDuration()));
@@ -136,10 +135,10 @@ public class FlightController {
     }
 
     private void displayFlight() {
-        departureTimeLabel.setText(DateHelper.toTimeString(f.getDepartureTime()));
-        arrivalTimeLabel.setText(DateHelper.toTimeString(f.getArrivalTime()));
-        takeOffTimeLabel.setText(DateHelper.toTimeString(f.getTakeOffTime()));
-        landingTimeLabel.setText(DateHelper.toTimeString(f.getLandingTime()));
+        departureTimeLabel.setText(FormatHelper.formatTime(f.getDepartureTime()));
+        arrivalTimeLabel.setText(FormatHelper.formatTime(f.getArrivalTime()));
+        takeOffTimeLabel.setText(FormatHelper.formatTime(f.getTakeOffTime()));
+        landingTimeLabel.setText(FormatHelper.formatTime(f.getLandingTime()));
         numTakeOffsLabel.setText("" + f.getNumTakeOffs());
         numLandingsLabel.setText("" + f.getNumLandings());
                 
@@ -170,8 +169,6 @@ public class FlightController {
                 break;
         }
     }
-    
-    
     
     public void handleAddFlightDetailsButton(ActionEvent event) throws IOException {
         FxControllerAndView<FlightDetailsDialogController, Parent> cav = fxWeaver.load(FlightDetailsDialogController.class);

@@ -18,9 +18,12 @@ public class Aircraft {
     @Id @GeneratedValue
     private int id;
     
+    // Callsign of the aircraft (i.e. OH-KAW)
     @Column(unique = true, nullable = false)
     private String identifier;
     
+    // Type of the aircraft based on ICAO DOC8643 Aircraft Type Designators
+    // @see https://www.icao.int/publications/DOC8643/Pages/default.aspx
     private String type;
 
     public void setIdentifier(String identifier) {

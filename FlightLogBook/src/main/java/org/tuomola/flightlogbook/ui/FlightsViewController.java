@@ -25,16 +25,16 @@ import org.tuomola.flightlogbook.ui.util.TimeCellFactory;
 
 @Component
 @FxmlView("flightsViewScene.fxml")
-public class FlightViewController {
+public class FlightsViewController {
     
     @Autowired
-    private FxWeaver fxWeaver;
+    private final FxWeaver fxWeaver;
 
     @Autowired
-    private LoggedInUserService lius;
+    private final LoggedInUserService lius;
     
     @Autowired
-    private FlightLogService fls;
+    private final FlightLogService fls;
     
     @FXML private TableColumn dateColumn;
     @FXML private TableColumn deptAirportCode;
@@ -49,7 +49,7 @@ public class FlightViewController {
     @FXML private TableColumn numLandings;
     @FXML private TableView table;
     
-    public FlightViewController(FxWeaver fxWeaver, LoggedInUserService lius, FlightLogService fls) {
+    public FlightsViewController(FxWeaver fxWeaver, LoggedInUserService lius, FlightLogService fls) {
         this.fxWeaver = fxWeaver;
         this.lius = lius;
         this.fls = fls;
