@@ -10,7 +10,7 @@ import org.tuomola.flightlogbook.domain.FlightLog;
 import org.tuomola.flightlogbook.domain.Pilot;
 
 /**
- *
+ * Business logic corresponding to handling of FlightLogs
  * @author ptuomola
  */
 
@@ -32,6 +32,11 @@ public class FlightLogService {
         this.fr = fr;
     }
     
+    /**
+     * Find a flight log for a pilot, or create new if one does not exist
+     * @param p Pilot whose FlightLog should be returned
+     * @return FlightLog for the pilot
+     */
     public FlightLog findOrCreateLog(Pilot p) {
         FlightLog fl = flr.findByLogOwner(p);
         
@@ -46,6 +51,11 @@ public class FlightLogService {
         return fl;
     }
     
+    /**
+     * Create a new flight to be added to a FlightLog
+     * @param fl FlightLog to which the Flight should be added
+     * @return New flight that has been added to the flightlog
+     */
     public Flight addNewFlight(FlightLog fl) {
         Flight flight = new Flight();
         flight.setPic(fl.getLogOwner());

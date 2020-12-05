@@ -15,7 +15,8 @@ import org.tuomola.flightlogbook.domain.Flight;
 import org.tuomola.flightlogbook.domain.Pilot;
 
 /**
- *
+ * Business logic related to handling of aircraft
+ * 
  * @author ptuomola
  */
 @Service
@@ -32,10 +33,22 @@ public class AircraftService {
         this.fr = fr;
     }
 
+    /**
+     * Save a single aircraft to the repository
+     * @param ac Aircraft to be saved
+     * @return Saved aircraft
+     */
+    
     public Aircraft saveAircraft(Aircraft ac) {
         return ar.save(ac);
     }
     
+    /**
+     * Find an aircraft from the repository based on identifier, or create
+     * it if it does not exist
+     * @param identifier Identifier of the aircraft to look for
+     * @return Aircraft corresponding to the identifier
+     */
     public Aircraft findOrCreateAircraft(String identifier) {
         identifier = identifier.toUpperCase();
         
@@ -51,10 +64,20 @@ public class AircraftService {
         return aircraft;
     }
 
+    /**
+     * Get all aircraft stored in the repository
+     * @return List of aircraft currently stored
+     */
     public List<Aircraft> getAllAircraft() {
         return ar.findAll();
     }
     
+    /**
+     * Get a list of value objects containing information about the aircraft
+     * flown by the pilot passed in as parameter
+     * @param p Pilot whose flights to retrieve
+     * @return List of aircraft flown by the pilot
+     */
     public Collection<PilotAircraftVO> getAllAircraftWithFlightData(Pilot p) {
         List<Flight> flights = fr.getByPic(p);
 

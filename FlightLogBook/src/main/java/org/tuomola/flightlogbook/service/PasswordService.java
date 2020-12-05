@@ -11,7 +11,7 @@ import org.apache.commons.codec.binary.Hex;
 import org.springframework.stereotype.Service;
 
 /**
- *
+ * Business logic related to handling of passwords
  * @author ptuomola
  */
 
@@ -27,6 +27,11 @@ public class PasswordService {
         pattern = Pattern.compile(PASSWORD_PATTERN);
     }
 
+    /**
+     * Encrypt the password provided as parameter
+     * @param password password to be encrypted
+     * @return Encrypted password
+     */
     public String encrypt(String password) {
         try {
             SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
@@ -39,6 +44,11 @@ public class PasswordService {
         }    
     }
     
+    /**
+     * Check if the password meets the complexity rules
+     * @param password password to be checked
+     * @return true if password meets the complexity rules, false otherwise
+     */
     public boolean isValid(String password) {
         matcher = pattern.matcher(password);
         return matcher.matches();

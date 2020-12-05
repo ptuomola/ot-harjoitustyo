@@ -16,7 +16,7 @@ import org.tuomola.flightlogbook.domain.Flight;
 import org.tuomola.flightlogbook.domain.Pilot;
 
 /**
- *
+ * Business logic related to handling of airports
  * @author ptuomola
  */
 @Service
@@ -33,10 +33,20 @@ public class AirportService {
         this.fr = fr;
     }
 
+    /**
+     * Save single airport into the repository
+     * @param ap Airport to be saved
+     * @return Saved airport
+     */
     public Airport saveAirport(Airport ap) {
         return ar.save(ap);
     }
     
+    /**
+     * Find an airport based on the code, or create one if it does not exist
+     * @param code Code of the airport to be retrieved
+     * @return Airport corresponding to the code
+     */
     public Airport findOrCreateAirport(String code) {
         code = code.toUpperCase();
         
@@ -52,10 +62,19 @@ public class AirportService {
         return airport;
     }
 
+    /**
+     * Get all airports from the repository
+     * @return list of all airports currently known
+     */
     public List<Airport> getAllAirports() {
         return ar.findAll();
     }
     
+    /**
+     * Get value objects representing all airports visited by a pilot
+     * @param p Pilot whose visits are to be retrieved
+     * @return List of airports visited by the pilot
+     */
     public Collection<PilotAirportVO> getAllAirportsWithVisits(Pilot p) {
         List<Flight> flights = fr.getByPic(p);
 
