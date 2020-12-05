@@ -33,7 +33,7 @@ Sovelluksella on vain yksi käyttäjärooli, eli _normaali käyttäjä_. Jokaist
     - *TEHTY* Lentotuntien määrä viime 12 kk aikana - ja varoitus mikäli vähemmän kun 12 tuntia (luokkakelpoisuuden uusimiseen tarvitaan vähintään 12 tuntia viimeisen 12 kk aikana)
 
 - Käyttäjä voi myös katsoa yhteenvetotietoja:
-    - Lentokentistä, joissa hän on käynyt, viimeinen käyntipäivä ja nousujen/laskeutumisien määrä per kenttä
+    - *TEHTY* Lentokentistä, joissa hän on käynyt, viimeinen käyntipäivä ja nousujen/laskeutumisien määrä per kenttä
     - *TEHTY* Lentokoneista, joilla hän on lentänyt: viimeinen lentopäivä ja lentotuntien määrä per kone
 
 - *TEHTY* Käyttäjä voi siirtyä uuden lennon tallennustilaan
