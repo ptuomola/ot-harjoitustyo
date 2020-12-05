@@ -34,7 +34,7 @@ Sovelluksella on vain yksi käyttäjärooli, eli _normaali käyttäjä_. Jokaist
 
 - Käyttäjä voi myös katsoa yhteenvetotietoja:
     - Lentokentistä, joissa hän on käynyt, viimeinen käyntipäivä ja nousujen/laskeutumisien määrä per kenttä
-    - Lentokoneista, joilla hän on lentänyt: viimeinen lentopäivä ja lentotuntien määrä per kone
+    - *TEHTY* Lentokoneista, joilla hän on lentänyt: viimeinen lentopäivä ja lentotuntien määrä per kone
 
 - *TEHTY* Käyttäjä voi siirtyä uuden lennon tallennustilaan
 
