@@ -4,7 +4,7 @@
 
 Ohjelman rakenne noudattelee kolmitasoista kerrosarkkitehtuuria, ja koodin pakkausrakenne on seuraava:
 
-<img src="packagediagram.png" width="500">
+<img src="images/packagediagram.png" width="500">
 
 Pakkauksien sisältö on seuraavaa:
 
@@ -34,7 +34,7 @@ Käyttöliittymä on täysin eristetty sovelluslogiikasta, ja se ainoastaan kuts
 
 Allaoleva kaavio näyttää sovelluksen loogisen datamallin: 
 
-<img src="luokkakaavio.png" width="800">
+<img src="images/luokkakaavio.png" width="800">
 
 ## Tietojen pysyväistallennus
 
@@ -50,7 +50,7 @@ Kuvataan seuraavaksi sovelluksen toimintalogiikka muutaman päätoiminnallisuude
 
 Kun kirjautumisnäkymässä on syötetty käyttäjätunnus ja salasana, ja klikataan painiketta _loginButton_, etenee sovelluksen kontrolli seuraavasti:
 
-<img src="loginsequence.png" width="800">
+<img src="images/loginsequence.png" width="800">
 
 Painikkeen painamiseen reagoiva tapahtumankäsittelijä kutsuu sovelluslogiikan _PilotService_ metodia _loginPilot_ antaen parametriksi kirjautuneen käyttäjätunnuksen ja salasanan. Sovelluslogikka selvittää _PilotRepository_:n avulla onko käyttäjätunnus olemassa. Jos on, se enkryptoi annetun salasanan _PasswordService_:n avulla, ja vertaa sitä talletettuun salasanaan. Mikäli nämä ovat sama, sovelluslogiikka palauttaa Pilot-olion käyttöliittymään. Käyttöliittymä asettaa tämänhetkiseksi käyttäjäksi palautetun _Pilot_-olion käyttämällä palvelua _LoggedInUserService_, ja vaihtaa näkymäksi _StageHelper_:iä käyttäen MainScenen.
 
