@@ -70,8 +70,6 @@ Painamalla "Add flight details" painiketta voidaan siirtyä tallettamaan lisäti
 
 ## Lisätietojen tallennus
 
-<img src="images/flightDetails.png">
-
 Lisätietojen tallennustilassa voidaan tallentaa lennolle:
 
 - Lähtökenttä
@@ -81,6 +79,8 @@ Lisätietojen tallennustilassa voidaan tallentaa lennolle:
 Lentäjän nimi tässä versiossa on aina lokin omistajan nimi. 
 
 Takaisin lentotilaan voidaan palata painamalla "Save", joka tallettaa muutokset lentotietoihin.  Painamalla "Cancel" kaikki tehdyt muutokset hylätään. 
+
+<img src="images/flightDetails.png">
 
 ## Lokitietojen tutkinta
 
