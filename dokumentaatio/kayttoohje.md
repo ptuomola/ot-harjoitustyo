@@ -1,6 +1,7 @@
 # Käyttöohje
 
-Lataa tiedosto FlightLogBook.jar
+Lataa tiedosto [FlightLogBook.jar](https://github.com/ptuomola/ot-harjoitustyo/releases/download/viikko6/FlightLogBook.jar)
+
 
 ## Ohjelman käynnistäminen
 

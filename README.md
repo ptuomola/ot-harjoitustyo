@@ -18,6 +18,8 @@ Sovellus laskee myös talletettujen lokikirjan tietojen perusteella yksinkertais
 
 ## Releaset 
 
+[Viikko 6](https://github.com/ptuomola/ot-harjoitustyo/releases/tag/viikko6)
+
 [Viikko 5](https://github.com/ptuomola/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Komentorivitoiminnot
@@ -63,7 +65,7 @@ generoi hakemistoon _target_ suoritettavan jar-tiedoston FlightLogBook-1.0-SNAPS
 JavaDoc generoidaan komennolla
 
 ```
-mvn javadoc:javadoc
+mvn clean javadoc:javadoc
 ```
 
 JavaDocia voi tarkastella avaamalla selaimella tiedosto _target/site/apidocs/index.html_
