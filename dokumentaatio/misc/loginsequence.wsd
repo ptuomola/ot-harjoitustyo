@@ -1,0 +1,14 @@
+title Login
+
+User->UI: Click login button
+UI->PilotService: loginPilot(username, password)
+PilotService->PilotRepository: findByUserNameIgnoreCase(username)
+PilotRepository-->PilotService: pilot
+PilotService->PasswordService: encrypt(password)
+PasswordService-->PilotService: encryptedPassword
+PilotService->PilotService: compare passwords
+PilotService-->UI: pilot
+UI->LoggedInPilotService: setLoggedInPilot(pilot)
+UI->StageHelper: switchToView(MainController.class)
+StageHelper-->User:
+

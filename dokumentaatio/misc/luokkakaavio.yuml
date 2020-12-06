@@ -1,0 +1,21 @@
+[Aircraft|+identifier: String; type: String]
+
+[Airport|+code:String; name: String]
+
+[Flight]*-1[Aircraft]
+[Flight]*-pilot1[Pilot]
+[Flight]*-copilot1[Pilot]
+[Flight]*-origin1[Airport]
+[Flight]*-destination1[Airport]
+
+[Flight|departureTime: Instant; arrivalTime: Instant; takeOffTime: Instant; landingTime: Instant; numLandings: int; numTakeOffs: int; flightState: FlightState]
+
+[FlightLog]1-owner1[Pilot]
+
+[FlightLog]1-*[Flight]
+
+[Pilot|userName: String; password: String; email: String; fullName: String; dateOfBirth: Date]
+
+[License|rating: String; issueDate: Date; expiryDate: Date]
+
+[Pilot]1-*[License] 
