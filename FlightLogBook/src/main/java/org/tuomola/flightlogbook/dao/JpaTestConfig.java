@@ -11,14 +11,17 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 
 /**
- *
+ * Class for overriding the data source configuration when in test mode.
  * @author ptuomola
  */
 
 @Configuration
 public class JpaTestConfig {
 
-
+    /** 
+     * Provide the data source to eb used in test mode.
+     * @return Configured data source object for test use. 
+     */
     @Bean
     @Profile("test")
     public DriverManagerDataSource dataSource() {

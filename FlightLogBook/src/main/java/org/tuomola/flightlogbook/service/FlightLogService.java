@@ -10,7 +10,7 @@ import org.tuomola.flightlogbook.domain.FlightLog;
 import org.tuomola.flightlogbook.domain.Pilot;
 
 /**
- * Business logic corresponding to handling of FlightLogs
+ * Business logic corresponding to handling of FlightLogs.
  * @author ptuomola
  */
 
@@ -26,6 +26,12 @@ public class FlightLogService {
     @Autowired
     private final FlightRepository fr;
     
+    /**
+     * Constructor.
+     * @param pr PilotRepository to be used
+     * @param flr FlightLogRepository to be used
+     * @param fr FlightRepository to be used
+     */
     public FlightLogService(PilotRepository pr, FlightLogRepository flr, FlightRepository fr) {
         this.pr = pr;
         this.flr = flr;
@@ -33,7 +39,7 @@ public class FlightLogService {
     }
     
     /**
-     * Find a flight log for a pilot, or create new if one does not exist
+     * Find a flight log for a pilot, or create new if one does not exist.
      * @param p Pilot whose FlightLog should be returned
      * @return FlightLog for the pilot
      */
@@ -52,7 +58,7 @@ public class FlightLogService {
     }
     
     /**
-     * Create a new flight to be added to a FlightLog
+     * Create a new flight to be added to a FlightLog.
      * @param fl FlightLog to which the Flight should be added
      * @return New flight that has been added to the flightlog
      */

@@ -1,7 +1,7 @@
 package org.tuomola.flightlogbook.domain;
 
 /**
- *
+ * Enumeration for the different states that a Flight can be in.
  * @author ptuomola
  */
 public enum FlightState {

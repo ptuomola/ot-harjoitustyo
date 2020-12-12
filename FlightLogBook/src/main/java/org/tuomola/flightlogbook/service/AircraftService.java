@@ -1,9 +1,7 @@
 package org.tuomola.flightlogbook.service;
 
-import java.time.Duration;
-import java.time.ZoneOffset;
+import org.tuomola.flightlogbook.dto.PilotAircraftDTO;
 import java.util.Collection;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +13,7 @@ import org.tuomola.flightlogbook.domain.Flight;
 import org.tuomola.flightlogbook.domain.Pilot;
 
 /**
- * Business logic related to handling of aircraft
- * 
+ * Business logic related to handling of aircraft. * 
  * @author ptuomola
  */
 @Service
@@ -28,24 +25,28 @@ public class AircraftService {
     @Autowired
     private final FlightRepository fr;
     
+    /**
+     * Constructor.
+     * @param ar AircraftRepository to be used
+     * @param fr FlightRepository to be used 
+     */
     public AircraftService(AircraftRepository ar, FlightRepository fr) {
         this.ar = ar;
         this.fr = fr;
     }
 
     /**
-     * Save a single aircraft to the repository
+     * Save a single aircraft to the repository.
      * @param ac Aircraft to be saved
      * @return Saved aircraft
      */
-    
     public Aircraft saveAircraft(Aircraft ac) {
         return ar.save(ac);
     }
     
     /**
      * Find an aircraft from the repository based on identifier, or create
-     * it if it does not exist
+     * it if it does not exist.
      * @param identifier Identifier of the aircraft to look for
      * @return Aircraft corresponding to the identifier
      */
@@ -65,7 +66,7 @@ public class AircraftService {
     }
 
     /**
-     * Get all aircraft stored in the repository
+     * Get all aircraft stored in the repository.
      * @return List of aircraft currently stored
      */
     public List<Aircraft> getAllAircraft() {
@@ -74,28 +75,28 @@ public class AircraftService {
     
     /**
      * Get a list of value objects containing information about the aircraft
-     * flown by the pilot passed in as parameter
+     * flown by the pilot passed in as parameter.
      * @param p Pilot whose flights to retrieve
      * @return List of aircraft flown by the pilot
      */
-    public Collection<PilotAircraftVO> getAllAircraftWithFlightData(Pilot p) {
+    public Collection<PilotAircraftDTO> getAllAircraftWithFlightData(Pilot p) {
         List<Flight> flights = fr.getByPic(p);
 
         if (flights == null) {
             return null;
         }
         
-        HashMap<String, PilotAircraftVO> aircraftMap = new HashMap<>();
+        HashMap<String, PilotAircraftDTO> aircraftMap = new HashMap<>();
         
         for (Flight f : flights) {
             if (f.getAircraft() == null) {
                 continue;
             }
             
-            PilotAircraftVO dao = aircraftMap.get(f.getAircraft().getIdentifier());
+            PilotAircraftDTO dao = aircraftMap.get(f.getAircraft().getIdentifier());
             
             if (dao == null) {
-                dao = new PilotAircraftVO(f.getAircraft());
+                dao = new PilotAircraftDTO(f.getAircraft());
                 aircraftMap.put(f.getAircraft().getIdentifier(), dao);
             }
             

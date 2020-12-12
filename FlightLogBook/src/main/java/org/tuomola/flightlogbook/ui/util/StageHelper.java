@@ -7,11 +7,16 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- *
+ * Helper class for switching scenes in a stage.
  * @author ptuomola
  */
 public class StageHelper {
 
+    /**
+     * Switch the current stage to show the new view.
+     * @param newRoot view to show
+     * @param event event that has triggered the view change
+     */
     public static void switchToView(Parent newRoot, ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(newRoot);

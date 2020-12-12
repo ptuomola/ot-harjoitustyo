@@ -17,7 +17,7 @@ import org.tuomola.flightlogbook.service.AirportService;
 import org.tuomola.flightlogbook.service.FlightService;
 
 /**
- *
+ * Controller for the Add Flight Details dialog.
  * @author ptuomola
  */
 

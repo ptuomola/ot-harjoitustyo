@@ -8,7 +8,6 @@ import java.time.temporal.ChronoUnit;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -20,9 +19,12 @@ import org.tuomola.flightlogbook.domain.FlightLog;
 import org.tuomola.flightlogbook.domain.Pilot;
 import org.tuomola.flightlogbook.service.FlightLogService;
 import org.tuomola.flightlogbook.service.LoggedInUserService;
-import org.tuomola.flightlogbook.ui.util.AlertHelper;
 import org.tuomola.flightlogbook.ui.util.FormatHelper;
 
+/**
+ * Controller for the Main scene.
+ * @author ptuomola
+ */
 @Component
 @FxmlView("mainScene.fxml")
 public class MainController {

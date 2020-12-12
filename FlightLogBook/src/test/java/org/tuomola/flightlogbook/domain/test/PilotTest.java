@@ -25,7 +25,7 @@ import org.tuomola.flightlogbook.service.AirportService;
 import org.tuomola.flightlogbook.service.FlightLogService;
 import org.tuomola.flightlogbook.service.FlightService;
 import org.tuomola.flightlogbook.service.PasswordService;
-import org.tuomola.flightlogbook.service.PilotAirportVO;
+import org.tuomola.flightlogbook.dto.PilotAirportDTO;
 import org.tuomola.flightlogbook.service.PilotService;
 
 /**

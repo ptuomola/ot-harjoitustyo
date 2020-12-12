@@ -11,24 +11,25 @@ import org.apache.commons.codec.binary.Hex;
 import org.springframework.stereotype.Service;
 
 /**
- * Business logic related to handling of passwords
+ * Business logic related to handling of passwords.
  * @author ptuomola
  */
 
 @Service
 public class PasswordService {
     
-    private Pattern pattern;
-    private Matcher matcher;
- 
+    private final Pattern pattern;
     private static final String PASSWORD_PATTERN = "((?=.*[a-z])(?=.*\\d)(?=.*[A-Z])(?=.*[@#$%!]).{8,40})";
  
+    /**
+     * Constructor.
+     */
     public PasswordService() {
         pattern = Pattern.compile(PASSWORD_PATTERN);
     }
 
     /**
-     * Encrypt the password provided as parameter
+     * Encrypt the password provided as parameter.
      * @param password password to be encrypted
      * @return Encrypted password
      */
@@ -45,12 +46,12 @@ public class PasswordService {
     }
     
     /**
-     * Check if the password meets the complexity rules
+     * Check if the password meets the complexity rules.
      * @param password password to be checked
      * @return true if password meets the complexity rules, false otherwise
      */
     public boolean isValid(String password) {
-        matcher = pattern.matcher(password);
+        Matcher matcher = pattern.matcher(password);
         return matcher.matches();
     }
 }

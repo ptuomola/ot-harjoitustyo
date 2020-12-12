@@ -27,8 +27,8 @@ import org.tuomola.flightlogbook.service.AirportService;
 import org.tuomola.flightlogbook.service.FlightLogService;
 import org.tuomola.flightlogbook.service.FlightService;
 import org.tuomola.flightlogbook.service.PasswordService;
-import org.tuomola.flightlogbook.service.PilotAircraftVO;
-import org.tuomola.flightlogbook.service.PilotAirportVO;
+import org.tuomola.flightlogbook.dto.PilotAircraftDTO;
+import org.tuomola.flightlogbook.dto.PilotAirportDTO;
 import org.tuomola.flightlogbook.service.PilotService;
 
 /**
@@ -51,8 +51,8 @@ public class AircraftTest {
     @Test
     public void testPilotAircraftVO() 
     {
-        PilotAircraftVO vo1 = new PilotAircraftVO();
-        PilotAircraftVO vo2 = new PilotAircraftVO();
+        PilotAircraftDTO vo1 = new PilotAircraftDTO();
+        PilotAircraftDTO vo2 = new PilotAircraftDTO();
         
         vo1.setIdentifier("ABCD");
         vo2.setIdentifier("ABCD");

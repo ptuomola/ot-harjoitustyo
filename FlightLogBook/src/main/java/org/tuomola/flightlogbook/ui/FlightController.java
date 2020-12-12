@@ -27,6 +27,10 @@ import org.tuomola.flightlogbook.service.LoggedInUserService;
 import org.tuomola.flightlogbook.ui.util.FormatHelper;
 import org.tuomola.flightlogbook.ui.util.StageHelper;
 
+/**
+ * Controller for handling the Flight scene.
+ * @author ptuomola
+ */
 @Component
 @FxmlView("flightScene.fxml")
 public class FlightController {

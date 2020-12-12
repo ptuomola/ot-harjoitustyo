@@ -20,6 +20,10 @@ import org.tuomola.flightlogbook.domain.Pilot;
 import org.tuomola.flightlogbook.service.PasswordService;
 import org.tuomola.flightlogbook.service.PilotService;
 
+/**
+ * Controller for handling the Create Pilot scene.
+ * @author ptuomola
+ */
 @Component
 @FxmlView("createPilotScene.fxml")
 public class CreatePilotController {

@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import lombok.Data;
 
 /**
- *
+ * Domain object representing a Flight.
  * @author ptuomola
  */
 

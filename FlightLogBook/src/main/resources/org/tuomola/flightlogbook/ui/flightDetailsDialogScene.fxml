@@ -47,7 +47,7 @@
                   <VBox alignment="TOP_CENTER" prefHeight="0.0" prefWidth="211.0">
                      <children>
                         <Label alignment="CENTER" text="Pilot" />
-                        <TextField fx:id="pilotField" editable="false">
+                        <TextField fx:id="pilotField" disable="true" editable="false">
                            <font>
                               <Font size="18.0" />
                            </font>

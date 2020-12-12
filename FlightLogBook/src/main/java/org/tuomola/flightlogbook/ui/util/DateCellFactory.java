@@ -4,7 +4,7 @@ import java.util.Date;
 import javafx.scene.control.TableCell;
 
 /**
- *
+ * Cell factory for formatting cells with Date values. 
  * @author ptuomola
  */
 public class DateCellFactory  {

@@ -1,7 +1,6 @@
 package org.tuomola.flightlogbook.service;
 
 import java.time.Instant;
-import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.tuomola.flightlogbook.dao.FlightRepository;
@@ -11,7 +10,7 @@ import org.tuomola.flightlogbook.domain.Flight;
 import org.tuomola.flightlogbook.domain.FlightState;
 
 /**
- * Business logic related to handling of Flights
+ * Business logic related to handling of Flights.
  * @author ptuomola
  */
 
@@ -27,6 +26,12 @@ public class FlightService {
     @Autowired
     private AirportService aps;
 
+    /**
+     * Constructor.
+     * @param fr FlightRepository to be used
+     * @param as AircraftService to be used
+     * @param aps AirportService to be used
+     */
     public FlightService(FlightRepository fr, AircraftService as, AirportService aps) {
         this.fr = fr;
         this.as = as;
@@ -34,7 +39,7 @@ public class FlightService {
     }
     
     /**
-     * Indicate that the flight has started taxiing
+     * Indicate that the flight has started taxiing.
      * @param f Flight to start taxiing
      */
     public void startTaxi(Flight f) {
@@ -49,7 +54,7 @@ public class FlightService {
     }
     
     /**
-     * Indicate that the flight has taken off
+     * Indicate that the flight has taken off.
      * @param f Flight to take off
      */
     public void takeOff(Flight f) {
@@ -65,7 +70,7 @@ public class FlightService {
     }
 
     /**
-     * Indicate that the flight has landed
+     * Indicate that the flight has landed.
      * @param f Flight to land
      */
     public void land(Flight f) {
@@ -81,7 +86,7 @@ public class FlightService {
     }
     
     /**
-     * Indicate that the flight performed a touch-and-go
+     * Indicate that the flight performed a touch-and-go.
      * @param f Flight that has performed a touch-and-go
      */
     public void touchAndGo(Flight f) {
@@ -96,7 +101,7 @@ public class FlightService {
     }
     
     /**
-     * Indicate that the flight has been completed
+     * Indicate that the flight has been completed.
      * @param f Flight that has been completed
      */
     public void stopFlight(Flight f) {
@@ -107,7 +112,7 @@ public class FlightService {
     }
 
     /**
-     * Indicate which aircraft was used for the flight
+     * Indicate which aircraft was used for the flight.
      * @param f Flight to be updated
      * @param aircraftId Aircraft that was used for the flight
      */
@@ -119,7 +124,7 @@ public class FlightService {
     }
 
     /**
-     * Indicate the airport from which the flight originated
+     * Indicate the airport from which the flight originated.
      * @param f Flight to be updated
      * @param originCode Code of the airport from which the flight originated
      */
@@ -131,7 +136,7 @@ public class FlightService {
     }
 
     /**
-     * Indicate the airport to which the flight was destined
+     * Indicate the airport to which the flight was destined.
      * @param f Flight to be updated
      * @param destionationCode Code of the airport to which the flight was destined
      */
@@ -143,7 +148,7 @@ public class FlightService {
     }
 
     /**
-     * Save the flight information to the repository
+     * Save the flight information to the repository.
      * @param f Flight to be saved
      * @return Saved flight
      */

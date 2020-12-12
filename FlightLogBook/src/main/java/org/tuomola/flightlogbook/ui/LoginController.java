@@ -15,6 +15,10 @@ import org.tuomola.flightlogbook.domain.Pilot;
 import org.tuomola.flightlogbook.service.LoggedInUserService;
 import org.tuomola.flightlogbook.service.PilotService;
 
+/**
+ * Controller for the Login scene.
+ * @author ptuomola
+ */
 @Component
 @FxmlView("loginScene.fxml")
 public class LoginController {

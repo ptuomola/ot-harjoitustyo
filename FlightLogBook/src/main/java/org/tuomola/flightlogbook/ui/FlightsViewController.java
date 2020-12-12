@@ -23,6 +23,10 @@ import org.tuomola.flightlogbook.ui.util.DateCellFactory;
 import org.tuomola.flightlogbook.ui.util.DurationCellFactory;
 import org.tuomola.flightlogbook.ui.util.TimeCellFactory;
 
+/**
+ * Controller for the View Flights scene.
+ * @author ptuomola
+ */
 @Component
 @FxmlView("flightsViewScene.fxml")
 public class FlightsViewController {

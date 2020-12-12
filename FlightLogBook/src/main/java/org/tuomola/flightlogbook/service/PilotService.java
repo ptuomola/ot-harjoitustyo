@@ -6,7 +6,7 @@ import org.tuomola.flightlogbook.dao.PilotRepository;
 import org.tuomola.flightlogbook.domain.Pilot;
 
 /**
- * Business logic related to handling of Pilots
+ * Business logic related to handling of Pilots.
  * @author ptuomola
  */
 @Service
@@ -18,13 +18,18 @@ public class PilotService {
     @Autowired
     private final PasswordService ps;
 
+    /**
+     * Constructor.
+     * @param pr PilotRepository to be used
+     * @param ps PasswordService to be used
+     */
     public PilotService(PilotRepository pr, PasswordService ps) {
         this.pr = pr;
         this.ps = ps; 
     }
 
     /**
-     * Check if the provided user name is already in use
+     * Check if the provided user name is already in use.
      * @param username username to be checked
      * @return true if the username is already in use, false otherwise
      */
@@ -37,7 +42,7 @@ public class PilotService {
     }
     
     /**
-     * Save the pilot into the repository
+     * Save the pilot into the repository.
      * @param p Pilot to be saved
      * @return Saved pilot
      */
@@ -46,7 +51,7 @@ public class PilotService {
     }    
 
     /**
-     * Check if a username and password combination is valid
+     * Check if a username and password combination is valid.
      * @param username username of the user to be logged in
      * @param password cleartext password for the user to be logged in
      * @return Pilot object for the username if username and password match, 

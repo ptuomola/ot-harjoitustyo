@@ -25,7 +25,7 @@ import org.tuomola.flightlogbook.domain.Pilot;
 import org.tuomola.flightlogbook.service.AirportService;
 import org.tuomola.flightlogbook.service.FlightLogService;
 import org.tuomola.flightlogbook.service.FlightService;
-import org.tuomola.flightlogbook.service.PilotAirportVO;
+import org.tuomola.flightlogbook.dto.PilotAirportDTO;
 import org.tuomola.flightlogbook.service.PilotService;
 
 /**
@@ -56,7 +56,7 @@ public class AirportTest {
         p.setUserName(RandomStringUtils.randomAlphanumeric(10));
         ps.savePilot(p);
         FlightLog fl = fls.findOrCreateLog(p);
-        Collection<PilotAirportVO> airportsVisited = aps.getAllAirportsWithVisits(p);
+        Collection<PilotAirportDTO> airportsVisited = aps.getAllAirportsWithVisits(p);
         assertThat(airportsVisited.isEmpty(), is(true));
     }
 
@@ -72,9 +72,9 @@ public class AirportTest {
         fs.setOrigin(flight, originCode);
         flight.setDepartureTime(LocalDateTime.of(2020, Month.NOVEMBER, 1, 12, 0, 0).atZone(ZoneId.systemDefault()).toInstant());
         fs.saveFlight(flight);
-        Collection<PilotAirportVO> airportsVisited = aps.getAllAirportsWithVisits(p);
+        Collection<PilotAirportDTO> airportsVisited = aps.getAllAirportsWithVisits(p);
         assertThat(airportsVisited.size(), is(1));
-        PilotAirportVO visitedAirport = airportsVisited.iterator().next();
+        PilotAirportDTO visitedAirport = airportsVisited.iterator().next();
         assertThat(visitedAirport.getCode(), equalTo(originCode));
         assertThat(visitedAirport.getNumDepartures(), is(1));
         assertThat(visitedAirport.getNumArrivals(), is(0));
@@ -93,9 +93,9 @@ public class AirportTest {
         fs.setDestination(flight, destinationCode);
         flight.setArrivalTime(LocalDateTime.of(2020, Month.NOVEMBER, 1, 12, 0, 0).atZone(ZoneId.systemDefault()).toInstant());
         fs.saveFlight(flight);
-        Collection<PilotAirportVO> airportsVisited = aps.getAllAirportsWithVisits(p);
+        Collection<PilotAirportDTO> airportsVisited = aps.getAllAirportsWithVisits(p);
         assertThat(airportsVisited.size(), is(1));
-        PilotAirportVO visitedAirport = airportsVisited.iterator().next();
+        PilotAirportDTO visitedAirport = airportsVisited.iterator().next();
         assertThat(visitedAirport.getCode(), equalTo(destinationCode));
         assertThat(visitedAirport.getNumDepartures(), is(0));
         assertThat(visitedAirport.getNumArrivals(), is(1));
@@ -121,9 +121,9 @@ public class AirportTest {
             fs.saveFlight(flight);
         }
 
-        Collection<PilotAirportVO> airportsVisited = aps.getAllAirportsWithVisits(p);
+        Collection<PilotAirportDTO> airportsVisited = aps.getAllAirportsWithVisits(p);
         assertThat(airportsVisited.size(), is(2));
-        PilotAirportVO visitedAirport = airportsVisited.iterator().next();
+        PilotAirportDTO visitedAirport = airportsVisited.iterator().next();
 
         if(visitedAirport.getCode().equals(destinationCode)) {
             assertThat(visitedAirport.getNumDepartures(), is(0));
@@ -140,8 +140,8 @@ public class AirportTest {
     @Test
     public void testPilotAirportVO() 
     {
-        PilotAirportVO vo1 = new PilotAirportVO();
-        PilotAirportVO vo2 = new PilotAirportVO();
+        PilotAirportDTO vo1 = new PilotAirportDTO();
+        PilotAirportDTO vo2 = new PilotAirportDTO();
         
         vo1.setCode("ABCD");
         vo2.setCode("ABCD");

@@ -1,12 +1,11 @@
 package org.tuomola.flightlogbook.service;
 
-import java.time.Duration;
+import org.tuomola.flightlogbook.dto.PilotAirportDTO;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.UnaryOperator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.tuomola.flightlogbook.dao.AirportRepository;
@@ -16,7 +15,7 @@ import org.tuomola.flightlogbook.domain.Flight;
 import org.tuomola.flightlogbook.domain.Pilot;
 
 /**
- * Business logic related to handling of airports
+ * Business logic related to handling of airports.
  * @author ptuomola
  */
 @Service
@@ -28,13 +27,18 @@ public class AirportService {
     @Autowired
     private final FlightRepository fr;
     
+    /**
+     * Constructor.
+     * @param ar AirportRepository to be used
+     * @param fr FlightRepository to be used
+     */
     public AirportService(AirportRepository ar, FlightRepository fr) {
         this.ar = ar;
         this.fr = fr;
     }
 
     /**
-     * Save single airport into the repository
+     * Save single airport into the repository.
      * @param ap Airport to be saved
      * @return Saved airport
      */
@@ -43,7 +47,7 @@ public class AirportService {
     }
     
     /**
-     * Find an airport based on the code, or create one if it does not exist
+     * Find an airport based on the code, or create one if it does not exist.
      * @param code Code of the airport to be retrieved
      * @return Airport corresponding to the code
      */
@@ -63,7 +67,7 @@ public class AirportService {
     }
 
     /**
-     * Get all airports from the repository
+     * Get all airports from the repository.
      * @return list of all airports currently known
      */
     public List<Airport> getAllAirports() {
@@ -71,18 +75,18 @@ public class AirportService {
     }
     
     /**
-     * Get value objects representing all airports visited by a pilot
+     * Get value objects representing all airports visited by a pilot.
      * @param p Pilot whose visits are to be retrieved
      * @return List of airports visited by the pilot
      */
-    public Collection<PilotAirportVO> getAllAirportsWithVisits(Pilot p) {
+    public Collection<PilotAirportDTO> getAllAirportsWithVisits(Pilot p) {
         List<Flight> flights = fr.getByPic(p);
 
         if (flights == null) {
             return null;
         }
         
-        HashMap<String, PilotAirportVO> airportMap = new HashMap<>();
+        HashMap<String, PilotAirportDTO> airportMap = new HashMap<>();
         
         for (Flight f : flights) {
             processAirport(airportMap, f.getOrigin(), f.getFlightDate(), dao -> dao.incrementDepartures());
@@ -92,15 +96,15 @@ public class AirportService {
         return airportMap.values();
     }
 
-    private void processAirport(HashMap<String, PilotAirportVO> airportMap, Airport a, Date visitDate, Consumer<PilotAirportVO> increment) {
+    private void processAirport(HashMap<String, PilotAirportDTO> airportMap, Airport a, Date visitDate, Consumer<PilotAirportDTO> increment) {
         if (a == null) { 
             return;
         }
         
-        PilotAirportVO dao = airportMap.get(a.getCode());
+        PilotAirportDTO dao = airportMap.get(a.getCode());
 
         if (dao == null) {
-            dao = new PilotAirportVO(a);
+            dao = new PilotAirportDTO(a);
             airportMap.put(a.getCode(), dao);
         }
 

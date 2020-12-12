@@ -5,10 +5,15 @@
     "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
 
 <suppressions>
+    <suppress files="org.tuomola.flightlogbook.ui.AircraftsViewController.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="org.tuomola.flightlogbook.ui.AirportsViewController.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="org.tuomola.flightlogbook.ui.CreatePilotController.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="org.tuomola.flightlogbook.ui.FlightController.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="org.tuomola.flightlogbook.ui.LoginController.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="org.tuomola.flightlogbook.ui.MainController.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="org.tuomola.flightlogbook.ui.FlightsViewController.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="org.tuomola.flightlogbook.ui.FlightDetailsDialogController.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="org.tuomola.flightlogbook.ui.util.DateCellFactory.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="org.tuomola.flightlogbook.ui.util.TimeCellFactory.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="org.tuomola.flightlogbook.ui.util.DurationCellFactory.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>

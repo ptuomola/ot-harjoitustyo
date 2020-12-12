@@ -1,11 +1,10 @@
 package org.tuomola.flightlogbook.ui.util;
 
 import java.time.Duration;
-import java.util.Date;
 import javafx.scene.control.TableCell;
 
 /**
- *
+ * Cell factory for formatting cells with Duration values. 
  * @author ptuomola
  */
 public class DurationCellFactory  {

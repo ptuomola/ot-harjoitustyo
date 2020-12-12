@@ -11,7 +11,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.tuomola.flightlogbook.ui.LoginController;
 
 /**
- *
+ * Class for launching the JavaFX and Spring applications. 
  * @author ptuomola
  */
 public class FlightLogBookApplication extends Application {

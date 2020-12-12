@@ -1,6 +1,5 @@
 package org.tuomola.flightlogbook.ui;
 
-import java.time.Duration;
 import java.util.Date;
 import org.tuomola.flightlogbook.ui.util.StageHelper;
 import javafx.collections.FXCollections;
@@ -14,15 +13,16 @@ import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.tuomola.flightlogbook.service.PilotAircraftVO;
-import org.tuomola.flightlogbook.service.PilotAirportVO;
+import org.tuomola.flightlogbook.dto.PilotAirportDTO;
 import org.tuomola.flightlogbook.domain.Pilot;
-import org.tuomola.flightlogbook.service.AircraftService;
 import org.tuomola.flightlogbook.service.AirportService;
 import org.tuomola.flightlogbook.service.LoggedInUserService;
 import org.tuomola.flightlogbook.ui.util.DateCellFactory;
-import org.tuomola.flightlogbook.ui.util.DurationCellFactory;
 
+/**
+ * Controller for handling the View Airports scene.
+ * @author ptuomola
+ */
 @Component
 @FxmlView("airportsViewScene.fxml")
 public class AirportsViewController {
@@ -38,7 +38,7 @@ public class AirportsViewController {
     
     @FXML private TableColumn code;
     @FXML private TableColumn name;
-    @FXML private TableColumn<PilotAirportVO, Date> lastVisit;
+    @FXML private TableColumn<PilotAirportDTO, Date> lastVisit;
     @FXML private TableColumn numDepartures;
     @FXML private TableColumn numArrivals;
     @FXML private TableView table;
@@ -52,15 +52,15 @@ public class AirportsViewController {
     public void initialize() {
         Pilot p = lius.getLoggedInPilot();
         
-        final ObservableList<PilotAirportVO> data = FXCollections.observableArrayList(as.getAllAirportsWithVisits(p));
-        code.setCellValueFactory(new PropertyValueFactory<PilotAirportVO, String>("code"));
-        name.setCellValueFactory(new PropertyValueFactory<PilotAirportVO, String>("name"));
+        final ObservableList<PilotAirportDTO> data = FXCollections.observableArrayList(as.getAllAirportsWithVisits(p));
+        code.setCellValueFactory(new PropertyValueFactory<PilotAirportDTO, String>("code"));
+        name.setCellValueFactory(new PropertyValueFactory<PilotAirportDTO, String>("name"));
 
-        lastVisit.setCellFactory(column -> DateCellFactory.<PilotAirportVO>createCell());
+        lastVisit.setCellFactory(column -> DateCellFactory.<PilotAirportDTO>createCell());
         lastVisit.setCellValueFactory(new PropertyValueFactory<>("lastVisit"));
 
-        numDepartures.setCellValueFactory(new PropertyValueFactory<PilotAirportVO, Integer>("numDepartures"));
-        numArrivals.setCellValueFactory(new PropertyValueFactory<PilotAirportVO, Integer>("numArrivals"));
+        numDepartures.setCellValueFactory(new PropertyValueFactory<PilotAirportDTO, Integer>("numDepartures"));
+        numArrivals.setCellValueFactory(new PropertyValueFactory<PilotAirportDTO, Integer>("numArrivals"));
         
         table.setItems(data);
         

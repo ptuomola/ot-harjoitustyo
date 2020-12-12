@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import lombok.Data;
 
 /**
- *
+ * Domain object representing a License.
  * @author ptuomola
  */
 

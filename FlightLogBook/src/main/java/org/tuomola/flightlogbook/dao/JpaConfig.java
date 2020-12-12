@@ -11,14 +11,18 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 
 /**
- *
+ * Class for configuring the JPA layer.
  * @author ptuomola
  */
 
 @Configuration
 public class JpaConfig {
 
-
+    /**
+     * Configure the data source to be used.
+     * @return Configured data source object
+     */
+    
     @Bean
     @Profile("!test")
     public DriverManagerDataSource dataSource() {
@@ -31,6 +35,10 @@ public class JpaConfig {
         return ds;
     }
     
+    /**
+     * Configure the entity manager to be used.
+     * @return Configured entity manager object
+     */
     @Bean
     public EntityManagerFactory entityManagerFactory() {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
@@ -46,6 +54,10 @@ public class JpaConfig {
         return factory.getObject();
     }
 
+    /**
+     * Configure the transaction manager to be used.
+     * @return Configured transaction manager object
+     */
     @Bean
     public PlatformTransactionManager transactionManager() {
         JpaTransactionManager txManager = new JpaTransactionManager();

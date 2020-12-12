@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import org.tuomola.flightlogbook.domain.Pilot;
 
 /**
- *
+ * Service for keeping track of the currently logged in user.
  * @author ptuomola
  */
 

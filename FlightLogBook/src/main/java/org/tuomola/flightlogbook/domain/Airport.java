@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import lombok.Data;
 
 /**
- *
+ * Domain object representing an Airport.
  * @author ptuomola
  */
 
