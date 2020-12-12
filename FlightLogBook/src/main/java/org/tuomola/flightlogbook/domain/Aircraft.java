@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * Domain object representing an Aircraft.
@@ -16,7 +17,7 @@ import lombok.Data;
 public class Aircraft {
     
     @Id @GeneratedValue
-    private int id;
+    @EqualsAndHashCode.Exclude private int id;
     
     // Callsign of the aircraft (i.e. OH-KAW)
     @Column(unique = true, nullable = false)

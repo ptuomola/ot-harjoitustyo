@@ -1,8 +1,8 @@
 package org.tuomola.flightlogbook.dto;
 
 import java.util.Date;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import org.tuomola.flightlogbook.domain.Airport;
 
 /**
@@ -10,11 +10,11 @@ import org.tuomola.flightlogbook.domain.Airport;
  * @author ptuomola
  */
 
-@Data
-@NoArgsConstructor
+@Getter
+@Setter
 public class PilotAirportDTO {
-    private String code;
-    private String name;
+    private final String code;
+    private final String name;
     private Date lastVisit;
     private int numDepartures;
     private int numArrivals;

@@ -2,8 +2,8 @@ package org.tuomola.flightlogbook.dto;
 
 import java.time.Duration;
 import java.util.Date;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import org.tuomola.flightlogbook.domain.Aircraft;
 
 /**
@@ -11,11 +11,11 @@ import org.tuomola.flightlogbook.domain.Aircraft;
  * @author ptuomola
  */
 
-@Data
-@NoArgsConstructor
+@Getter
+@Setter
 public class PilotAircraftDTO {
-    private String identifier;
-    private String type;
+    private final String identifier;
+    private final String type;
     private Date lastFlight;
     private Duration hoursFlown;
 

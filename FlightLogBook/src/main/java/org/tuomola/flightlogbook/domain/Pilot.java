@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * Domain object representing a Pilot.
@@ -19,7 +20,7 @@ import lombok.Data;
 public class Pilot {
     
     @Id @GeneratedValue
-    private int id;
+    @EqualsAndHashCode.Exclude private int id;
 
     private String userName;
     private String password;

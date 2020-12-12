@@ -1,16 +1,13 @@
 package org.tuomola.flightlogbook.domain.test;
 
-import java.time.Duration;
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.ZoneId;
-import java.time.temporal.ChronoUnit;
 import java.util.Collection;
 import java.util.Date;
+import nl.jqno.equalsverifier.EqualsVerifier;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.tuomola.flightlogbook.domain.Flight;
-import org.tuomola.flightlogbook.domain.FlightState;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import org.junit.jupiter.api.Test;
@@ -138,47 +135,9 @@ public class AirportTest {
     }
     
     @Test
-    public void testPilotAirportVO() 
+    public void testAirport() 
     {
-        PilotAirportDTO vo1 = new PilotAirportDTO();
-        PilotAirportDTO vo2 = new PilotAirportDTO();
-        
-        vo1.setCode("ABCD");
-        vo2.setCode("ABCD");
-        
-        vo1.setNumArrivals(123);
-        vo2.setNumArrivals(123);
-        
-        vo1.setName("test123");
-        vo2.setName("test123");
-        
-        vo1.setNumDepartures(321);
-        vo2.setNumDepartures(321);
-        
-        vo1.setLastVisit(new Date());
-        vo2.setLastVisit(new Date());
-        
-        assertThat(vo1, equalTo(vo2));
-        assertThat(vo1.hashCode(), is(vo2.hashCode()));
-    }
-    
-    @Test
-    public void testAirportDTO() 
-    {
-        Airport a1 = new Airport();
-        Airport a2 = new Airport();
-
-        a1.setCode("ABCD");
-        a2.setCode("ABCD");
-        
-        a1.setId(1);
-        a2.setId(1);
-        
-        a1.setName("Test airport");
-        a2.setName("Test airport");
-        
-        assertThat(a1, equalTo(a2));
-        assertThat(a1.hashCode(), is(a2.hashCode()));
+        EqualsVerifier.forClass(Airport.class).verify();
     }
     
 }

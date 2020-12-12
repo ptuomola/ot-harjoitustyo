@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
+import nl.jqno.equalsverifier.EqualsVerifier;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.tuomola.flightlogbook.domain.Flight;
 import org.tuomola.flightlogbook.domain.FlightState;
@@ -202,23 +203,6 @@ public class FlightTest {
 
     @Test
     public void testFlightEquals() {
-        Flight flight = new Flight();
-        Flight secondFlight = new Flight();
-        
-        assertThat(flight, equalTo(secondFlight));
-        
-        secondFlight.setNumLandings(4);
-        assertThat(flight, not(equalTo(secondFlight)));
-    }
-    
-    @Test
-    public void testFlightHashcode() {
-        Flight flight = new Flight();
-        Flight secondFlight = new Flight();
-        
-        assertThat(flight.hashCode(), equalTo(secondFlight.hashCode()));
-        
-        secondFlight.setNumLandings(4);
-        assertThat(flight.hashCode(), not(equalTo(secondFlight.hashCode())));
+        EqualsVerifier.forClass(Flight.class).verify();
     }
 }

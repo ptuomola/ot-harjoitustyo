@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
+import nl.jqno.equalsverifier.EqualsVerifier;
 import org.apache.commons.lang3.RandomStringUtils;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.lessThan;
@@ -111,5 +112,8 @@ public class FlightLogTest {
         assertThat(Duration.of(30, ChronoUnit.HOURS).minus(fl.getTotalTime()), lessThan(Duration.ofSeconds(1)));
     }
 
-    
+    @Test
+    public void testFlightLogEquals() {
+        EqualsVerifier.forClass(FlightLog.class).verify();
+    }
 }

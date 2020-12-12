@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * Domain object representing a Flight.
@@ -19,7 +20,7 @@ import lombok.Data;
 @Entity
 public class Flight {
     @Id @GeneratedValue
-    private int id;
+    @EqualsAndHashCode.Exclude private int id;
 
     @OneToOne
     @JoinColumn(name = "aircraft_id", referencedColumnName = "id")

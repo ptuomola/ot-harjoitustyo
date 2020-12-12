@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * Domain object representing a License.
@@ -17,7 +18,7 @@ import lombok.Data;
 public class License {
 
     @Id @GeneratedValue
-    private int id;
+    @EqualsAndHashCode.Exclude private int id;
 
     @Column(nullable = false)
     private String rating;
