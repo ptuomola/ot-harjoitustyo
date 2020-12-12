@@ -16,43 +16,46 @@ Sovelluksella on vain yksi käyttäjärooli, eli _normaali käyttäjä_. Jokaist
 
 ### Ennen kirjautumista
 
-- *TEHTY* Käyttäjä voi luoda järjestelmään käyttäjätunnuksen
-    - *TEHTY* Käyttäjätunnuksen täytyy olla uniikki ja pituudeltaan vähintään 3 merkkiä
-    - *TEHTY* Käyttäjätunnuksen luodessaan käyttäjä voi myös antaa tärkeimmät henkilötiedot lokikirjan luomista varten (syntymäaika, koko nimi, email)
+- Käyttäjä voi luoda järjestelmään käyttäjätunnuksen
+    - Käyttäjätunnuksen täytyy olla uniikki ja pituudeltaan vähintään 3 merkkiä
+    - Käyttäjätunnukselle pitää antaa salasana, jonka pitää olla vähintään 8 merkkiä pitkä ja sisältää pieniä ja isoja kirjaimia, ja vähintään yksi erikoismerkki ja numero
+    - Salasanat talletetaan tietokantaan kryptattuna
+    - Käyttäjätunnuksen luodessaan käyttäjä voi myös antaa tärkeimmät henkilötiedot lokikirjan luomista varten (syntymäaika, koko nimi, email)
 
-- *TEHTY* Käyttäjä voi kirjautua järjestelmään
-    - *TEHTY* Kirjautuminen onnistuu syötettäessä olemassaoleva käyttäjätunnus kirjautumislomakkeelle
-    - *TEHTY* Jos käyttäjää ei ole olemassa, ilmoittaa järjestelmä tästä
+- Käyttäjä voi kirjautua järjestelmään
+    - Kirjautuminen onnistuu syötettäessä olemassaoleva käyttäjätunnus ja sitä vastaava salasana kirjautumislomakkeelle
+    - Jos käyttäjää ei ole olemassa, kirjautuminen hylätään
+    - Jos syötetty salasana ei vastaa käyttäjän tallennettua salasanaa, kirjautuminen hylätään
 
 ### Kirjautumisen jälkeen
 
-- *TEHTY* Käyttäjä näkee yhteenvedon tähänastisista lennoistaan, mukaanlukien:
-    - *TEHTY* Lentojen kokonaismäärä
-    - *TEHTY* Lentojen kokonaisaika
-    - *TEHTY* Nousujen / laskeutumisien määrä viime 90 päivän aikana, ja varoitus mikäli vähemmän kuin kuin 3 kpl (matkustajia saa kuljettaa vain mikäli vähintään 3)
-    - *TEHTY* Lentotuntien määrä viime 12 kk aikana - ja varoitus mikäli vähemmän kun 12 tuntia (luokkakelpoisuuden uusimiseen tarvitaan vähintään 12 tuntia viimeisen 12 kk aikana)
+- Käyttäjä näkee yhteenvedon tähänastisista lennoistaan, mukaanlukien:
+    - Lentojen kokonaismäärä
+    - Lentojen kokonaisaika
+    - Nousujen / laskeutumisien määrä viimeisten 90 päivän aikana, ja varoitus mikäli vähemmän kuin kuin 3 kpl (matkustajia saa kuljettaa vain mikäli vähintään 3)
+    - Lentotuntien määrä viimeisten 365 päivän aikana - ja varoitus mikäli vähemmän kun 12 tuntia (luokkakelpoisuuden uusimiseen tarvitaan vähintään 12 tuntia viimeisen vuoden aikana)
 
 - Käyttäjä voi myös katsoa yhteenvetotietoja:
-    - *TEHTY* Lentokentistä, joissa hän on käynyt, viimeinen käyntipäivä ja nousujen/laskeutumisien määrä per kenttä
-    - *TEHTY* Lentokoneista, joilla hän on lentänyt: viimeinen lentopäivä ja lentotuntien määrä per kone
+    - Lentokentistä, joissa hän on käynyt, viimeinen käyntipäivä ja nousujen/laskeutumisien määrä per kenttä
+    - Lentokoneista, joilla hän on lentänyt: viimeinen lentopäivä ja lentotuntien määrä per kone
 
-- *TEHTY* Käyttäjä voi siirtyä uuden lennon tallennustilaan
+- Käyttäjä voi siirtyä uuden lennon tallennustilaan
 
 ### Uuden lennon tallennustilassa
 
-- *TEHTY* Käyttäjä voi syöttää tiedot lentokoneesta, lähtökentästä, saapumiskentästä ja lennon tyypistä. Mikäli lentokonetta tai kenttiä ei ole sovelluksen tietokannassa, ne luodaan
+- Käyttäjä voi syöttää tiedot lentokoneesta, lähtökentästä ja saapumiskentästä. Mikäli lentokonetta tai kenttiä ei ole sovelluksen tietokannassa, ne luodaan
 
-- *TEHTY* Tietoja lentokoneesta, lähtökentästä, saapumiskentästä ja lennon tyypistä voidaan korjata lennon aikana kirjoittamalla uuden kentän tiedot
+- Tietoja lentokoneesta, lähtökentästä ja saapumiskentästä voidaan korjata lennon aikana kirjoittamalla uudet tiedot
 
-- *TEHTY* Käyttäjä voi yhtä nappia painamalla aloittaa lennon, jolloin lähtöaika talletetaan muistiin ja matkustusajan lasku alkaa
+- Käyttäjä voi yhtä nappia painamalla aloittaa lennon, jolloin lähtöaika talletetaan muistiin ja matkustusajan lasku alkaa
 
-- *TEHTY* Tämän jälkeen käyttäjä voi yhtä nappia painamalla merkitä lentoonlähdön, jolloin lentoonlähtöaika talletetaan muistiin ja lentoajan lasku alkaa
+- Tämän jälkeen käyttäjä voi yhtä nappia painamalla merkitä lentoonlähdön, jolloin lentoonlähtöaika talletetaan muistiin ja lentoajan lasku alkaa
 
-- *TEHTY* Tämän jälkeen käyttäjä voi merkitä yhtä nappia painamalla läpilaskun, jolloin lentoonlähtöjen ja nousujen määrää kasvatetaan yhdellä
+- Tämän jälkeen käyttäjä voi merkitä yhtä nappia painamalla läpilaskun, jolloin lentoonlähtöjen ja nousujen määrää kasvatetaan yhdellä
 
-- *TEHTY* Tämän jälkeen käyttäjä voi merkitä yhtä nappia painamalla laskeutumisen, jolloin lentoajan laskeminen päätetään ja laskeutumisaika talletetaan muistiin
+- Tämän jälkeen käyttäjä voi merkitä yhtä nappia painamalla laskeutumisen, jolloin lentoajan laskeminen päätetään ja laskeutumisaika talletetaan muistiin
 
-- *TEHTY* Tämän jälkeen käyttäjä voi merkitä yhtä nappia painamalla saapumisajan, jolloin matkustusajan laskeminen päätetään ja saapumisaika talletetaan muistiin. Tämän jälkeen sovellus palaa alkunäkymään (sama kuin kirjautumisen jälkeen).
+- Tämän jälkeen käyttäjä voi merkitä yhtä nappia painamalla saapumisajan, jolloin matkustusajan laskeminen päätetään ja saapumisaika talletetaan muistiin. Tämän jälkeen sovellus palaa alkunäkymään (sama kuin kirjautumisen jälkeen).
 
 ## Jatkokehitysideoita
 
