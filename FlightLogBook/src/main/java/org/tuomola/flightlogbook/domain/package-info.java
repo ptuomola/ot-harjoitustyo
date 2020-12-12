@@ -1,4 +1,4 @@
 /**
- * Domain objects
+ * Domain objects.
  */
 package org.tuomola.flightlogbook.domain;

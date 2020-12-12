@@ -1,4 +1,4 @@
 /**
- * User interface
+ * User interface.
  */
 package org.tuomola.flightlogbook.ui;
