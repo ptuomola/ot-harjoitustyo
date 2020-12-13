@@ -8,10 +8,13 @@ Ohjelman rakenne noudattelee kolmitasoista kerrosarkkitehtuuria, ja koodin pakka
 
 Pakkauksien sisältö on seuraavaa:
 
-- _org.tuomola.flightlogbook.ui_ sisältää käyttöliittymän - tällä hetkellä toteutettuna tekstikäyttöliittymänä, myöhemmin JavaFX:llä
+- _org.tuomola.flightlogbook.ui_ sisältää käyttöliittymän toteutettuna JavaFX:llä 
+- _org.tuomola.flightlogbook.ui.util_ sisältää työkalu/apuluokkia käyttöliittymän toteutukseen 
 - _org.tuomola.flightlogbook.service_ sisältää sovelluslogiikan
+- _org.tuomola.flightlogbook.dto_ sisältää Data Transfer Objectit sovelluslogiikan ja käyttöliittymän väliseen kommunikaatiooan, jotka ovat ns. "value object":ejä, eli eivät siis osa itse domain-tietomallia
 - _org.tuomola.flightlogbook.domain_ sisältää domain-tietomallin POJO:ina
-- _org.tuomola.flightlogbook.dao_ sisältää tietojen pysyväistallenuksesta vastaavan koodin (toteutettu JPA:lla)
+
+- _org.tuomola.flightlogbook.dao_ sisältää tietojen pysyväistallennuksesta vastaavan koodin (toteutettu JPA:lla)
 
 Ohjelman logiikka tukeutuu Spring-kirjastoihin (Spring, Spring Boot) riippuvuuksien automaattiseen injektointiin. 
 
@@ -19,16 +22,19 @@ Ohjelman logiikka tukeutuu Spring-kirjastoihin (Spring, Spring Boot) riippuvuuks
 
 Ohjelman käyttöliittymä on toteutettu käyttäen JavaFX-kirjastoja ja FXML-määrittelytiedostoja. Niiden yhteentoimivuus Spring-kirjastojen kanssa on järjestetty FxWeaver-kirjastoa käyttäen.
 
-Käyttöliittymä sisältää 4 erillistä näkymää:
+Käyttöliittymä sisältää 7 erillistä näkymää:
 
 - Sisäänkirjautuminen
 - Uuden käyttäjän luominen
 - Päänäkymä (lokin yhteenvetotiedot)
 - Lentonäkymä (lennon aikainen käyttäliittymä)
+- Lentotiedot
+- Lentokenttätiedot
+- Lentokonetiedot
 
 Jokainen näistä on toteutettu omana FXML-tiedostona ja jokaiselle on oma kontrolleriluokka pakkauksessa _org.tuomola.flightlogbook.ui_. Näistä yksi on kerrallaan näkyvänä ja käytössä, ja sijoitettuna sovelluksen stageen.
 
-Käyttöliittymä on täysin eristetty sovelluslogiikasta, ja se ainoastaan kutsuu sopivin parametrein sovelluslogiikkaa, joka sijaitsee pakkauksen _org.tuomola.flightlogbook.service_ luokissa.
+Käyttöliittymä on täysin eristetty sovelluslogiikasta, ja se ainoastaan kutsuu sopivin parametrein sovelluslogiikkaa, joka sijaitsee pakkauksen _org.tuomola.flightlogbook.service_ luokissa. Sovelluslogiikka puolestaan käyttää DAO-luokkia (_org.tuomola.flightlogbook.dao_) tiedon tallennukseen / hakuun, ja kommunikoi logiikan toteutuksen tulokset käyttäen joko domain-mallin olioita (_org.tuomola.flightlogbook.domain_) tai Data Transfer-olioita (_org.tuomola.flightlogbook.dto_). 
 
 ## Sovelluslogiikka
 
