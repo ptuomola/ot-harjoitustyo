@@ -11,7 +11,7 @@ Pakkauksien sisältö on seuraavaa:
 - _org.tuomola.flightlogbook.ui_ sisältää käyttöliittymän toteutettuna JavaFX:llä 
 - _org.tuomola.flightlogbook.ui.util_ sisältää työkalu/apuluokkia käyttöliittymän toteutukseen 
 - _org.tuomola.flightlogbook.service_ sisältää sovelluslogiikan
-- _org.tuomola.flightlogbook.dto_ sisältää Data Transfer Objectit sovelluslogiikan ja käyttöliittymän väliseen kommunikaatiooan, jotka ovat ns. "value object":ejä, eli eivät siis osa itse domain-tietomallia
+- _org.tuomola.flightlogbook.dto_ sisältää Data Transfer Objectit sovelluslogiikan ja käyttöliittymän väliseen kommunikaatioon. Näitä käytetään, kun sovelluslogiikka palauttaa rakenteista tietoa, joka ei ole osa itse domain-tietomallia. 
 - _org.tuomola.flightlogbook.domain_ sisältää domain-tietomallin POJO:ina
 
 - _org.tuomola.flightlogbook.dao_ sisältää tietojen pysyväistallennuksesta vastaavan koodin (toteutettu JPA:lla)
@@ -52,7 +52,7 @@ Tietokantana sovelluksessa on käytössä H2. Taulut tietokantaan luodaan automa
 
 Kuvataan seuraavaksi sovelluksen toimintalogiikka muutaman päätoiminnallisuuden osalta sekvenssikaaviona.
 
-# Käyttäjän kirjautuminen
+### Käyttäjän kirjautuminen
 
 Kun kirjautumisnäkymässä on syötetty käyttäjätunnus ja salasana, ja klikataan painiketta _loginButton_, etenee sovelluksen kontrolli seuraavasti:
 
