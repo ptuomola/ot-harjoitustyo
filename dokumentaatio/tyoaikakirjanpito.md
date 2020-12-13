@@ -17,4 +17,6 @@
 | 3.12 | 2.0  | Lisätoiminnallisuuksien ohjelmointi |
 | 5.12 | 2.0  | Lisätoiminnallisuuksien ohjelmointi |
 | 6.12 | 2.0  | Testauksen jatkaminen, Javadoc |
-| yht   | 24.0  | | 
+| 12.12 | 1.0  | Javadoc loppuun |
+| 13.12 | 2.0  | Testaus loppuun ja dokumentaatio |
+| yht   | 27.0  | | 
