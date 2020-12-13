@@ -62,9 +62,13 @@ Painikkeen painamiseen reagoiva tapahtumankäsittelijä kutsuu sovelluslogiikan 
 
 ### Lennon tallennus
 
+Kun päänäkymästä klikataan painkiketta _Start flight_, etenee sovelluksen kontrolli seuraavasti: 
+
 <img src="images/flightsequence.png" width="800">
 
 ### Lentokenttätietojen katselu
+
+Kun päänäkymästä klikataan painiketta _View airports_, etenee sovelluksen kontrolli seuraavasti: 
 
 <img src="images/viewairportssequence.png" width="800">
 
