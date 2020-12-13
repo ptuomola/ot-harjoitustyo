@@ -20,6 +20,8 @@ Sovellus laskee myös talletettujen lokikirjan tietojen perusteella yksinkertais
 
 ## Releaset 
 
+[Loppupalautus](https://github.com/ptuomola/ot-harjoitustyo/releases/tag/loppupalautus)
+
 [Viikko 6](https://github.com/ptuomola/ot-harjoitustyo/releases/tag/viikko6)
 
 [Viikko 5](https://github.com/ptuomola/ot-harjoitustyo/releases/tag/viikko5)
