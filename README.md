@@ -16,7 +16,11 @@ Sovellus laskee myös talletettujen lokikirjan tietojen perusteella yksinkertais
 
 [Arkkitehtuurikuvaus](https://github.com/ptuomola/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+[Testausdokumentti](https://github.com/ptuomola/ot-harjoitustyo/blob/master/dokumentaatio/testaus.md)
+
 ## Releaset 
+
+[Loppupalautus](https://github.com/ptuomola/ot-harjoitustyo/releases/tag/loppupalautus)
 
 [Viikko 6](https://github.com/ptuomola/ot-harjoitustyo/releases/tag/viikko6)
 

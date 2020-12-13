@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa tiedosto [FlightLogBook.jar](https://github.com/ptuomola/ot-harjoitustyo/releases/download/viikko6/FlightLogBook.jar)
+Lataa tiedosto [FlightLogBook.jar](https://github.com/ptuomola/ot-harjoitustyo/releases/download/loppupalautus/FlightLogBook.jar)
 
 
 ## Ohjelman käynnistäminen
@@ -62,7 +62,7 @@ Painikkeen "Start New Flight" painaminen siirtää sovelluksen lennon talletusti
 - Lentoonlähtö ja laskeutumisaika (Takeoff ja Landing time)
 - Lentoonlähtöjen ja laskeutumisien määrä
 
-Painamalla sinistä painiketta voidaan aina siirtyä yhdestä lennonvaiheesta seuraavaan. Painamalla "Touch and go" painiketta voidaan lentotilassa lisätä yksi läpilasku. Lentotilasta poistutaan painamalla sinistä painiketta lennon viimeisessä vaiheessa (eli laskeutumisen jälkeisen rullauksen päätyttyä). Lennon voi jättää kesken sulkemalla ikkunan (esim. Macissä punainen painike ylävasemmalla). 
+Painamalla sinistä painiketta voidaan aina siirtyä yhdestä lennonvaiheesta seuraavaan. Painamalla "Touch and go" painiketta voidaan lentotilassa lisätä yksi läpilasku. Lentotilasta poistutaan painamalla sinistä painiketta lennon viimeisessä vaiheessa (eli laskeutumisen jälkeisen rullauksen päätyttyä). 
 
 Painamalla "Add flight details" painiketta voidaan siirtyä tallettamaan lisätietoja lennosta. 
 

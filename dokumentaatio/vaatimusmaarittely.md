@@ -59,6 +59,8 @@ Sovelluksella on vain yksi käyttäjärooli, eli _normaali käyttäjä_. Jokaist
 
 ## Jatkokehitysideoita
 
+- Tällä hetkellä ikkunan sulkeminen painamalla "close"-painiketta lopettaa koko sovelluksen. Joissain tilanteissa kannattaisi ehkä vain lopettaa nykyinen toiminto ja palata pääikkunaan.
+
 - Lisätietojen tallennus lentokentistä - esim. koordinaatit, palvelut, nettisivujen osoite, radiotaajuudet
 
 - Lisätietojen tallennus lentokoneista - esim. tyyppi, tarvittava kelpuutustyyppi, tärkeimmät tiedot (lentonopeus, paino, kantama)
