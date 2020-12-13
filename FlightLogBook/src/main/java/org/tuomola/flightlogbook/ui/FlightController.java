@@ -88,6 +88,12 @@ public class FlightController {
         }, 0, 1000);
     }
     
+    public void shutdown() {
+        if (timer != null) {
+            timer.cancel();
+        }
+    }
+    
     private void updateDurations() {
         Instant now = Instant.now();
         currentTimeLabel.setText(FormatHelper.formatTime(now));

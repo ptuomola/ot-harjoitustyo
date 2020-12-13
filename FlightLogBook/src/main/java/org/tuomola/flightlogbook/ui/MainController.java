@@ -8,9 +8,12 @@ import java.time.temporal.ChronoUnit;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import net.rgielen.fxweaver.core.FxControllerAndView;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -118,7 +121,12 @@ public class MainController {
     }
     
     public void handleStartFlightButtonAction(ActionEvent event) {
-        StageHelper.switchToView(fxWeaver.loadView(FlightController.class), event);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        FxControllerAndView<FlightController, Parent> cav = fxWeaver.load(FlightController.class);
+        Scene scene = new Scene(cav.getView().get());
+        stage.setScene(scene);
+        stage.setOnCloseRequest(e -> cav.getController().shutdown());
+        stage.show();
     }
 
     public void handleLogoutButtonAction(ActionEvent event) throws IOException {
