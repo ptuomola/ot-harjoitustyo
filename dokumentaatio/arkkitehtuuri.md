@@ -60,5 +60,7 @@ Kun kirjautumisnäkymässä on syötetty käyttäjätunnus ja salasana, ja klika
 
 Painikkeen painamiseen reagoiva tapahtumankäsittelijä kutsuu sovelluslogiikan _PilotService_ metodia _loginPilot_ antaen parametriksi kirjautuneen käyttäjätunnuksen ja salasanan. Sovelluslogikka selvittää _PilotRepository_:n avulla onko käyttäjätunnus olemassa. Jos on, se enkryptoi annetun salasanan _PasswordService_:n avulla, ja vertaa sitä talletettuun salasanaan. Mikäli nämä ovat sama, sovelluslogiikka palauttaa Pilot-olion käyttöliittymään. Käyttöliittymä asettaa tämänhetkiseksi käyttäjäksi palautetun _Pilot_-olion käyttämällä palvelua _LoggedInUserService_, ja vaihtaa näkymäksi _StageHelper_:iä käyttäen MainScenen.
 
+# Lennon tallennus
+
 <img src="images/flightsequence.png" width="800">
 
