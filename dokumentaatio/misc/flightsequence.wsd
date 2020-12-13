@@ -1,0 +1,43 @@
+title Flight
+
+User->UI: Click start flight button
+UI->StageHelper: switchToView(FlightController.class)
+UI->FlightController: initialize()
+FlightController->FlightLogService: findOrCreateLog(loggedInPilot)
+FlightLogService-->FlightController: flightLog
+FlightController->flightLog: addNewFlight()
+flightLog-->FlightController: flight
+FlightController->FlightController: displayFlight(flight)
+FlightController->timer: scheduleAtFixedRate()
+FlightController-->UI:
+UI-->User: 
+User->UI: Click Start Taxi
+UI->FlightController: handleNextActionButtonAction()
+FlightController->FlightService: startTaxi(flight)
+FlightController->FlightController: displayFlight(flight)
+FlightController-->UI:
+UI-->User: 
+User->UI: Click Take off
+UI->FlightController: handleNextActionButtonAction()
+FlightController->FlightService: takeOff(flight)
+FlightController->FlightController: displayFlight(flight)
+FlightController-->UI:
+UI-->User: 
+User->UI: Click Land
+UI->FlightController: handleNextActionButtonAction()
+FlightController->FlightService: land(flight)
+FlightController->FlightController: displayFlight(flight)
+FlightController-->UI:
+UI-->User: 
+User->UI: Click Finish Taxi
+UI->FlightController: handleNextActionButtonAction()
+FlightController->FlightService: stopFlight(flight)
+FlightController->FlightController: displayFlight(flight)
+FlightController->timer: cancel()
+FlightController-->UI:
+UI-->User: 
+User->UI: Click End Flight
+UI->FlightController: handleNextActionButtonAction()
+FlightController->StageHelper: switchToView(MainController.class)
+
+
