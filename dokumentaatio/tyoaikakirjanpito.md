@@ -19,4 +19,5 @@
 | 6.12 | 2.0  | Testauksen jatkaminen, Javadoc |
 | 12.12 | 1.0  | Javadoc loppuun |
 | 13.12 | 2.0  | Testaus loppuun ja dokumentaatio |
-| yht   | 27.0  | | 
+| 14.12 | 2.0  | Dokumentaation viimeistely | 
+| yht   | 29.0  | | 

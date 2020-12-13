@@ -64,3 +64,9 @@ Painikkeen painamiseen reagoiva tapahtumankäsittelijä kutsuu sovelluslogiikan 
 
 <img src="images/flightsequence.png" width="800">
 
+### Lentokenttätietojen katselu
+
+<img src="images/viewairportssequence.png" width="800">
+
+Kaikkien muiden lokitietojen (lentokoneet, lennot) katselutoimintojen toteutus seuraa samaa kaavaa - vain kontrolleriluokka ja lokista haettu tieto eroavat. 
+

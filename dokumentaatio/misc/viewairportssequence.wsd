@@ -1,0 +1,15 @@
+title View airports
+
+User->UI: Click View Airports button
+UI->StageHelper: switchToView(AirportsViewController.class)
+UI->AirportsViewController: initialize()
+AirportsViewController->LoggedInPilotService: getLoggedInPilot()
+LoggedInPilotService-->AirportsViewController: pilot
+AirportsViewController->AirportService: getAllAirportsWithVisits(pilot)
+AirportService-->AirportsViewController: List<PilotAirportDTO> data
+AirportsViewController->table: setItems(data)
+AirportsViewController-->UI:
+UI-->User:
+User->UI: Click OK button
+UI->AirportsViewController: handleOkButtonAction()
+AirportsViewController->StageHelper: switchToView(MainController.class)
