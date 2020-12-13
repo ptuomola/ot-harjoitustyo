@@ -22,7 +22,7 @@ DAO-luokkien toiminnallisuus testautuu automaattisesti sovelluslogiikkaa testaav
 
 Käyttöliittymäkerrosta lukuunottamatta sovelluksen testauksen rivikattavuus on 84% ja haarautumakattavuus 84%
 
-<img src="https://raw.githubusercontent.com/mluukkai/OtmTodoApp/master/dokumentaatio/kuvat/t-1.png" width="800">
+<img src="https://raw.githubusercontent.com/ptuomola/FlightLogBook/master/dokumentaatio/images/testcoverage.png" width="800">
 
 Testaamatta jäivät lähinnä jotkin virhetilanteet (esim. puuttuva pakollinen tieto, null pointer), joita varten sovelluslogiikassa on tarkastus, mutta joita ei normaalissa sovelluksen käytössä yleensä pitäisi tapahtua. 
 

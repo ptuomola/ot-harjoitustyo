@@ -76,6 +76,13 @@
             <version>15.0.1</version>
         </dependency>
         
+        <dependency>
+            <groupId>nl.jqno.equalsverifier</groupId>
+            <artifactId>equalsverifier</artifactId>
+            <version>3.5</version>
+            <scope>test</scope>
+        </dependency>
+        
         <!--    Remove these for Netbeans to work -->     
         
         <dependency>
